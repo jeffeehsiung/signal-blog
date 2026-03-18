@@ -29,8 +29,8 @@ A hierarchical clustering (correlation distance) of the full‑series PSDs produ
 | **3** | META, MSFT, NVDA, TSLA | Concentrated low‑frequency power | Mega‑cap tech: sector co‑movement |
 | **4** | AAPL | Broad spectrum | Liquidity giant: market‑wide signal |
 | **5** | BABA, BIDU, GOOGL | Similar dominant periods | Chinese ADRs + Google: correlated regime |
-| **6** | QCOM | Distinct spectrum | Outlier: idiosyncratic dynamics |
-| **7** | BLTE | Distinct spectrum | Outlier: idiosyncratic dynamics |
+| **6** | QCOM | Distinct spectrum | Outlier: idiosyncratic dynamics with rich high‑frequency content |
+| **7** | BLTE | Distinct spectrum | Outlier: idiosyncratic dynamics with strong mid-frequency peak |
 
 All clusters share a common set of long‑term base periods (the exact values are under active study), confirming that the chosen thermodynamic windows correctly capture dominant market cycles. Differences emerge at higher frequencies: crypto‑exposed and momentum‑growth assets exhibit richer high‑frequency content, consistent with higher intraday volatility. AAPL forms its own cluster – its spectrum lacks the very short periods seen in other groups, possibly reflecting its unique liquidity and stability. Clusters 6 and 7 are outliers with exceptionally short periods, suggesting they behave differently (sector‑specific or data‑quality issues).
 
@@ -78,7 +78,8 @@ This is the first in a series of posts exploring the application of physics‑in
 - Using other spectral techniques to extract damping/growth modes from price series & multi‑scale decomposition.
 - How these spectral features can inform strategy design and risk management.
 
-All code and data used in this research are proprietary and not publicly available, but the methodology is described in sufficient detail to allow replication by those with access to similar data. Feedback and discussion are welcome – you can reach me on [LinkedIn](https://www.linkedin.com/in/jeffee-hsiung/) / [X](https://x.com/jeffeehs).
+All code and data used in this research are proprietary and not publicly available, but the methodology is described in sufficient detail to allow replication by those with access to similar data. 
+Feedback and discussion are welcome.
 
 ---
 
