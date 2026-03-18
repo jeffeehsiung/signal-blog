@@ -1,17 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hugo on My Quant Research Blog</title><link>https://jeffeehsiung.github.io/signal-blog/tags/hugo/</link><description>Recent content in Hugo on My Quant Research Blog</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jeffeehsiung.github.io/signal-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml"/><item><title>What Fourier Reveals About Markets: Unsupervised Clustering of 15 Stocks by Spectral Signature</title><link>https://jeffeehsiung.github.io/signal-blog/posts/spectral-market-clustering/</link><pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/spectral-market-clustering/</guid><description>&lt;h2 id="empirical-validation--spectral-clustering-march-2026"&gt;
- Empirical Validation — Spectral Clustering (March 2026)
- &lt;a class="heading-link" href="#empirical-validation--spectral-clustering-march-2026"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Validate a physics‑inspired spectral approach against real market data across a diverse set of 14 symbols.&lt;/p&gt;
-&lt;h3 id="spectral-cluster-analysis"&gt;
- Spectral Cluster Analysis
- &lt;a class="heading-link" href="#spectral-cluster-analysis"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h3&gt;
-&lt;p&gt;&lt;img src="https://jeffeehsiung.github.io/signal-blog/images/assets_psd_clusters_correlation.png" alt="PSD Hierarchical Clustering — 14-Symbol Universe"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Figure 1: Hierarchical clustering (correlation distance) applied to the full power spectral densities of 14 stocks. Seven stable clusters emerge, recovering known sector/thematic groupings &lt;strong&gt;without using any sector labels&lt;/strong&gt;. For example, crypto‑exposed assets (COIN, MSTR) show distinct high‑frequency tails, while mega‑cap tech (META, MSFT, NVDA, TSLA) share a common low‑frequency dominant period near 10 trading days.&lt;/em&gt;&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on My Quant Research Blog</title>
+    <link>http://localhost:1313/signal-blog/tags/hugo/</link>
+    <description>Recent content in Hugo on My Quant Research Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 18 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/signal-blog/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Fourier Reveals About Markets: Unsupervised Clustering of 15 Stocks by Spectral Signature</title>
+      <link>http://localhost:1313/signal-blog/posts/spectral-market-clustering/</link>
+      <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/signal-blog/posts/spectral-market-clustering/</guid>
+      <description>&lt;h2 id=&#34;empirical-validation--spectral-clustering-march-2026&#34;&gt;&#xA;  Empirical Validation — Spectral Clustering (March 2026)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#empirical-validation--spectral-clustering-march-2026&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Purpose:&lt;/strong&gt; Validate a physics‑inspired spectral approach against real market data across a diverse set of 14 symbols.&lt;/p&gt;&#xA;&lt;h3 id=&#34;spectral-cluster-analysis&#34;&gt;&#xA;  Spectral Cluster Analysis&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#spectral-cluster-analysis&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/signal-blog/images/assets_psd_clusters_correlation.png&#34; alt=&#34;PSD Hierarchical Clustering — 14-Symbol Universe&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Figure 1: Hierarchical clustering (correlation distance) applied to the full power spectral densities of 14 stocks. Seven stable clusters emerge, recovering known sector/thematic groupings &lt;strong&gt;without using any sector labels&lt;/strong&gt;. For example, crypto‑exposed assets (COIN, MSTR) show distinct high‑frequency tails, while mega‑cap tech (META, MSFT, NVDA, TSLA) share a common low‑frequency dominant period near 10 trading days.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

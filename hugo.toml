@@ -14,6 +14,11 @@ shortname = "yourdiscussshortname"
 [markup.highlight]
 style = "github-dark"
 
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   author = "Jeffee Hsiung"
   description = "Jeffee Hsiung's personal quant research website"
