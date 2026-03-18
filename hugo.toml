@@ -1,0 +1,6 @@
+baseURL = 'https://jeffeehsiung.github.io'
+locale = 'en-us'
+title = 'My Quant Research Blog'
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
