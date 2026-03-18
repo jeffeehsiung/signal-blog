@@ -1,4 +1,3 @@
-<!-- content/posts/spectral-market-clustering.md -->
 +++
 draft = false
 date = "2026-03-18"
