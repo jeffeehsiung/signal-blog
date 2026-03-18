@@ -1,13 +1,13 @@
 <!-- content/posts/spectral-market-clustering.md -->
 +++
 draft = false
-date = 2026-03-18T14:04:32+08:00
+date = "2026-03-18"
 title = 'What Fourier Reveals About Markets: Unsupervised Clustering of 15 Stocks by Spectral Signature'
 tags = [
     "hugo",
     "markdown",
-    "css",
-    "html",
+    "spectral",
+    "cluster",
 ]
 +++
 

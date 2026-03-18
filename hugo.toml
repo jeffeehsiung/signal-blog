@@ -24,7 +24,7 @@ style = "github-dark"
   since = 2026
   enableTwemoji = true
 
-  colorScheme = "dark"
+  colorScheme = "auto"
   hidecolorschemetoggle = false
 
 [taxonomies]
