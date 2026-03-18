@@ -1,4 +1,4 @@
-baseURL = 'https://jeffeehsiung.github.io'
+baseURL = 'https://jeffeehsiung.github.io/signal-blog/'
 locale = 'en-us'
 title = 'My Quant Research Blog'
 theme = "hugo-coder"

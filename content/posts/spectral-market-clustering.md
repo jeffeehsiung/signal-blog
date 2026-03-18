@@ -16,7 +16,7 @@ tags = [
 
 ### Spectral Cluster Analysis
 
-![PSD Hierarchical Clustering — 14-Symbol Universe](../../images/assets_psd_clusters_correlation.png)
+![PSD Hierarchical Clustering — 14-Symbol Universe](/images/assets_psd_clusters_correlation.png)
 
 *Figure 1: Hierarchical clustering (correlation distance) applied to the full power spectral densities of 14 stocks. Seven stable clusters emerge, recovering known sector/thematic groupings **without using any sector labels**. For example, crypto‑exposed assets (COIN, MSTR) show distinct high‑frequency tails, while mega‑cap tech (META, MSFT, NVDA, TSLA) share a common low‑frequency dominant period near 10 trading days.*
 
@@ -34,7 +34,7 @@ A hierarchical clustering (correlation distance) of the full‑series PSDs produ
 
 All clusters share a common set of long‑term base periods (the exact values are under active study), confirming that the chosen thermodynamic windows correctly capture dominant market cycles. Differences emerge at higher frequencies: crypto‑exposed and momentum‑growth assets exhibit richer high‑frequency content, consistent with higher intraday volatility. AAPL forms its own cluster – its spectrum lacks the very short periods seen in other groups, possibly reflecting its unique liquidity and stability. Clusters 6 and 7 are outliers with exceptionally short periods, suggesting they behave differently (sector‑specific or data‑quality issues).
 
-![PSD overlay for the 14‑symbol universe, 512‑hour analysis window](../../images/assets_psd_overlay_window_512.png)
+![PSD overlay for the 14‑symbol universe, 512‑hour analysis window](/images/assets_psd_overlay_window_512.png)
 
 *Figure 2: PSD overlay using a 512‑hour analysis window. A shared pair of dominant base periods appears near 15.75 and 11.24 trading days (approximately 3‑week and 2‑week cycles) across most assets. This indicates a robust medium‑horizon spectral structure and suggests that the default thermodynamic windows should prioritize this band.*
 

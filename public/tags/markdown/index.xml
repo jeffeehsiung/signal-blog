@@ -13,5 +13,5 @@
  &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
  &lt;/a&gt;
 &lt;/h3&gt;
-&lt;p&gt;&lt;img src="../../images/assets_psd_clusters_correlation.png" alt="PSD Hierarchical Clustering — 14-Symbol Universe"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://jeffeehsiung.github.io/signal-blog/images/assets_psd_clusters_correlation.png" alt="PSD Hierarchical Clustering — 14-Symbol Universe"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Figure 1: Hierarchical clustering (correlation distance) applied to the full power spectral densities of 14 stocks. Seven stable clusters emerge, recovering known sector/thematic groupings &lt;strong&gt;without using any sector labels&lt;/strong&gt;. For example, crypto‑exposed assets (COIN, MSTR) show distinct high‑frequency tails, while mega‑cap tech (META, MSFT, NVDA, TSLA) share a common low‑frequency dominant period near 10 trading days.&lt;/em&gt;&lt;/p&gt;</description></item></channel></rss>
