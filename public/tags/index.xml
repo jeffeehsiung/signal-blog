@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on My Quant Research Blog</title>
-    <link>https://jeffeehsiung.github.io/signal-blog/tags/</link>
+    <link>http://localhost:1313/signal-blog/tags/</link>
     <description>Recent content in Tags on My Quant Research Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://jeffeehsiung.github.io/signal-blog/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/signal-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Laplace Transform</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/laplace-transform/</link>
+      <link>http://localhost:1313/signal-blog/tags/laplace-transform/</link>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/laplace-transform/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/laplace-transform/</guid>
       <description></description>
     </item>
     <item>
       <title>Market Microstructure</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/market-microstructure/</link>
+      <link>http://localhost:1313/signal-blog/tags/market-microstructure/</link>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/market-microstructure/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/market-microstructure/</guid>
       <description></description>
     </item>
     <item>
       <title>Multi-Scale</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/multi-scale/</link>
+      <link>http://localhost:1313/signal-blog/tags/multi-scale/</link>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/multi-scale/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/multi-scale/</guid>
       <description></description>
     </item>
     <item>
       <title>Quantitative Finance</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/quantitative-finance/</link>
+      <link>http://localhost:1313/signal-blog/tags/quantitative-finance/</link>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/quantitative-finance/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/quantitative-finance/</guid>
       <description></description>
     </item>
     <item>
       <title>Signal Processing</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/signal-processing/</link>
+      <link>http://localhost:1313/signal-blog/tags/signal-processing/</link>
       <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/signal-processing/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/signal-processing/</guid>
       <description></description>
     </item>
     <item>
       <title>Cluster</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/cluster/</link>
+      <link>http://localhost:1313/signal-blog/tags/cluster/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/cluster/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/cluster/</guid>
       <description></description>
     </item>
     <item>
       <title>Hugo</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/hugo/</link>
+      <link>http://localhost:1313/signal-blog/tags/hugo/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/hugo/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/hugo/</guid>
       <description></description>
     </item>
     <item>
       <title>Markdown</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/markdown/</link>
+      <link>http://localhost:1313/signal-blog/tags/markdown/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/markdown/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/markdown/</guid>
       <description></description>
     </item>
     <item>
       <title>Spectral</title>
-      <link>https://jeffeehsiung.github.io/signal-blog/tags/spectral/</link>
+      <link>http://localhost:1313/signal-blog/tags/spectral/</link>
       <pubDate>Wed, 18 Mar 2026 00:00:00 +0000</pubDate>
-      <guid>https://jeffeehsiung.github.io/signal-blog/tags/spectral/</guid>
+      <guid>http://localhost:1313/signal-blog/tags/spectral/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on My Quant Research Blog</title>
-    <link>https://jeffeehsiung.github.io/signal-blog/series/</link>
+    <link>http://localhost:1313/signal-blog/series/</link>
     <description>Recent content in Series on My Quant Research Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="https://jeffeehsiung.github.io/signal-blog/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/signal-blog/series/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
