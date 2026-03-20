@@ -31,29 +31,10 @@ style = "github-dark"
 
   colorScheme = "auto"
   hidecolorschemetoggle = false
-  customJS = ["js/clarity.js"]
 
-  # Visitor and user-flow analytics (GA4).
-  # Replace with your GA4 Measurement ID (for example: G-ABC123XYZ).
+  # GTM container ID for analytics and tags (for example: GTM-ABC1234).
   [params.googleTagManager]
-  id = "G-CFXD70MPK9"
-
-  # Post discussions via GitHub Discussions (https://giscus.app).
-  # Fill these values from the Giscus setup page.
-  [params.giscus]
-  repo = "jeffeehsiung/signal-blog"
-  repoID = ""
-  category = "Announcements"
-  categoryID = ""
-  mapping = "pathname"
-  term = ""
-  strict = "0"
-  reactionsEnabled = "1"
-  emitMetadata = "0"
-  inputPosition = "bottom"
-  theme = "preferred_color_scheme"
-  lang = "en"
-  loading = "lazy"
+  id = "GTM-KH34MMJ3"
 
 [taxonomies]
   category = "categories"
@@ -71,7 +52,7 @@ style = "github-dark"
   formaction = ["'self'"]
   framesrc = [
     "'self'",
-    "https://giscus.app"
+    "https://www.googletagmanager.com"
   ]
   imgsrc = [
     "'self'",
@@ -89,7 +70,6 @@ style = "github-dark"
     "'unsafe-inline'",
     "https://www.google-analytics.com",
     "https://www.googletagmanager.com",
-    "https://giscus.app",
     "https://www.clarity.ms"
   ]
   # connect-src directive – defines valid targets for XMLHttpRequest (AJAX), WebSockets or EventSource
