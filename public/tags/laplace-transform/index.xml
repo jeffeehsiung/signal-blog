@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Laplace Transform on My Quant Research Blog</title>
+    <link>https://jeffeehsiung.github.io/signal-blog/tags/laplace-transform/</link>
+    <description>Recent content in Laplace Transform on My Quant Research Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 20 Mar 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://jeffeehsiung.github.io/signal-blog/tags/laplace-transform/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markets Have Two Rhythms: What 14 Stocks Taught Me About Windows and Memory</title>
+      <link>https://jeffeehsiung.github.io/signal-blog/posts/spectral-market-signature-reconstruction/</link>
+      <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>
+      <guid>https://jeffeehsiung.github.io/signal-blog/posts/spectral-market-signature-reconstruction/</guid>
+      <description>&lt;h2 id=&#34;every-spectral-method-faces-the-same-question&#34;&gt;&#xA;  Every spectral method faces the same question.&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#every-spectral-method-faces-the-same-question&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;How much history should you use?&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;Too short, and noise eats your signal. Too long, and you&amp;rsquo;re trading last year&amp;rsquo;s market.&lt;/p&gt;&#xA;&lt;p&gt;Most people pick a number and move on. I spent two years asking the data instead.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Here’s what I found — and why it changed how I think about market structure.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;the-setup&#34;&gt;&#xA;  The Setup&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-setup&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;I applied a Laplace‑based system identification to 14 stocks (high‑growth, large‑cap, crypto‑exposed — the usual suspects) using hourly data from 2024 to 2026.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

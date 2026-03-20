@@ -9,7 +9,7 @@ pagerSize = 20
 
 [services]
 [services.disqus]
-shortname = "yourdiscussshortname"
+shortname = ""
 
 [markup.highlight]
 style = "github-dark"
@@ -31,6 +31,29 @@ style = "github-dark"
 
   colorScheme = "auto"
   hidecolorschemetoggle = false
+  customJS = ["js/clarity.js"]
+
+  # Visitor and user-flow analytics (GA4).
+  # Replace with your GA4 Measurement ID (for example: G-ABC123XYZ).
+  [params.googleTagManager]
+  id = "G-CFXD70MPK9"
+
+  # Post discussions via GitHub Discussions (https://giscus.app).
+  # Fill these values from the Giscus setup page.
+  [params.giscus]
+  repo = "jeffeehsiung/signal-blog"
+  repoID = ""
+  category = "Announcements"
+  categoryID = ""
+  mapping = "pathname"
+  term = ""
+  strict = "0"
+  reactionsEnabled = "1"
+  emitMetadata = "0"
+  inputPosition = "bottom"
+  theme = "preferred_color_scheme"
+  lang = "en"
+  loading = "lazy"
 
 [taxonomies]
   category = "categories"
@@ -46,8 +69,14 @@ style = "github-dark"
     "https://cdn.jsdelivr.net/"
   ]
   formaction = ["'self'"]
-  framesrc = ["'self'"]
-  imgsrc = ["'self'"]
+  framesrc = [
+    "'self'",
+    "https://giscus.app"
+  ]
+  imgsrc = [
+    "'self'",
+    "https://www.google-analytics.com"
+  ]
   objectsrc = ["'none'"]
   stylesrc = [
     "'self'",
@@ -58,10 +87,19 @@ style = "github-dark"
   scriptsrc = [
     "'self'",
     "'unsafe-inline'",
-    "https://www.google-analytics.com"
+    "https://www.google-analytics.com",
+    "https://www.googletagmanager.com",
+    "https://giscus.app",
+    "https://www.clarity.ms"
   ]
   # connect-src directive – defines valid targets for XMLHttpRequest (AJAX), WebSockets or EventSource
-  connectsrc = ["'self'"]
+  connectsrc = [
+    "'self'",
+    "https://www.google-analytics.com",
+    "https://region1.google-analytics.com",
+    "https://stats.g.doubleclick.net",
+    "https://*.clarity.ms"
+  ]
 
 [[params.social]]
 name = "Github"

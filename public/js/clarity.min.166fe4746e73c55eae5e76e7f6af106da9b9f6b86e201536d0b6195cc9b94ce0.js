@@ -1,0 +1,1 @@
+(function(e,t,n,s,o,i,a){e[n]=e[n]||function(){(e[n].q=e[n].q||[]).push(arguments)},i=t.createElement(s),i.async=1,i.src="https://www.clarity.ms/tag/"+o,a=t.getElementsByTagName(s)[0],a.parentNode.insertBefore(i,a)})(window,document,"clarity","script","vyny0m66cm")
