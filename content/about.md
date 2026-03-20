@@ -6,8 +6,6 @@ aliases = ["about-us", "about-duality", "contact"]
 author = "Jeffee Hsiung"
 +++
 
-<img src="/images/avatar.jpg" alt="Jeffee Hsiung" width="200" style="border-radius: 50%; display: block; margin: 0 auto 2rem auto; box-shadow: 0 4px 8px rgba(0,0,0,0.1);" />
-
 ## 👨‍🔬 Who I Am
 
 I'm a quantitative researcher and algorithm engineer with a deep passion for **applying advanced mathematics to financial markets**. My journey has been anything but conventional—it's been driven by curiosity, family commitment, and an unrelenting desire to build things that matter.
