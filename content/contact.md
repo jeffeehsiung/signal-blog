@@ -5,7 +5,7 @@ date = "2026-03-18"
 author = "Jeffee Hsiung"
 +++
 
-## 📬 Let's Connect
+#### 📬 Let's Connect
 
 I'm always interested in connecting with fellow researchers, quantitative analysts, and anyone passionate about the intersection of mathematics and markets.
 
@@ -43,7 +43,7 @@ I'm always interested in connecting with fellow researchers, quantitative analys
   
 </div>
 
-## 💬 Discussion & Feedback
+#### 💬 Discussion & Feedback
 
 If you've read my blog posts and have questions, suggestions, or counter-observations—**I'd love to hear them**. The best ideas emerge from rigorous debate.
 
@@ -52,7 +52,7 @@ You can:
 - ✉️ **Send an email** (I reply to all substantive inquiries)
 - 🐦 **Mention me on X** for quick interactions
 
-## 📝 Media & Collaboration Inquiries
+#### 📝 Media & Collaboration Inquiries
 
 For interview requests, collaboration proposals, or speaking engagements, please email with:
 
@@ -64,7 +64,7 @@ I'll respond within 3-5 business days.
 
 ---
 
-### ⚡ Quick Response Expectations
+#### ⚡ Quick Response Expectations
 
 | Channel | Typical Response Time |
 |---------|----------------------|
@@ -76,4 +76,4 @@ I'll respond within 3-5 business days.
 
 *Looking forward to connecting with you.* 🌟
 
-<img src="/images/dulaity_logo_v1.png" alt="Jeffee Hsiung" width="200" style="margin-top: 2rem; opacity: 0.8;">
+<img src="/images/duality_logo_v1.png" alt="Jeffee Hsiung" width="200" style="margin-top: 2rem; opacity: 0.8;">
