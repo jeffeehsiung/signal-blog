@@ -24,7 +24,7 @@ I'm always interested in connecting with fellow researchers, quantitative analys
   <div style="flex: 1; min-width: 250px; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
     <h3 style="margin-top: 0;">💼 LinkedIn</h3>
     <p>
-      <a href="https://www.linkedin.com/company/duality-spectrum" target="_blank">Duality</a>
+      <a href="https://www.linkedin.com/company/duality-signal" target="_blank">Duality</a>
     </p>
     <p style="color: #666; font-size: 0.9rem;">
       Professional network, updates on research, and connections with industry peers.
