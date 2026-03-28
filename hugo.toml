@@ -20,7 +20,7 @@ style = "github-dark"
       unsafe = true
 
 [params]
-  author = "Duality"
+  author = ""
   description = "all about physics-informed quantitative research, signal processing, data science, algorithms, and machine learning."
   info = "Physics-informed financial modeling - where physics meets finance."
   avatarURL = "images/duality_logo_v1.png"
