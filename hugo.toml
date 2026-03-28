@@ -1,6 +1,6 @@
 baseURL = 'https://jeffeehsiung.github.io/signal-blog/'
 locale = 'en-us'
-title = 'My Quant Research Blog'
+title = 'Duality Quant Research Posts'
 theme = "hugo-coder"
 defaultContentLanguage = "en"
 
@@ -21,10 +21,10 @@ style = "github-dark"
 
 [params]
   author = "Jeffee Hsiung"
-  description = "Jeffee Hsiung's personal quant research website"
-  info = "Quantitative Researcher, Data Scientist, Algorithm Engineer"
-  avatarURL = "images/avatar.jpeg"
-  keywords = "quantitative research, data science, algorithm engineering, finance, machine learning, blog"
+  description = "Duality Quant Research Posts - A blog about quantitative research, signal processing, data science, algorithm engineering, finance, and machine learning."
+  info = "Physics-informed financial modeling - where physics meets finance."
+  avatarURL = "images/duality_logo_v1.png"
+  keywords = "physics-informed finance, quantitative research"
   dateFormat = "January 2, 2006"
   since = 2026
   enableTwemoji = true

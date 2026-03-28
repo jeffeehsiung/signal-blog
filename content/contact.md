@@ -24,7 +24,7 @@ I'm always interested in connecting with fellow researchers, quantitative analys
   <div style="flex: 1; min-width: 250px; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
     <h3 style="margin-top: 0;">💼 LinkedIn</h3>
     <p>
-      <a href="https://www.linkedin.com/in/jeffee-hsiung/" target="_blank">linkedin.com/in/jeffee-hsiung</a>
+      <a href="https://www.linkedin.com/company/duality-spectrum" target="_blank">Duality</a>
     </p>
     <p style="color: #666; font-size: 0.9rem;">
       Professional network, updates on research, and connections with industry peers.
@@ -76,4 +76,4 @@ I'll respond within 3-5 business days.
 
 *Looking forward to connecting with you.* 🌟
 
-<img src="/images/signature.png" alt="Jeffee Hsiung" width="200" style="margin-top: 2rem; opacity: 0.8;">
+<img src="/images/dulaity_logo_v1.png" alt="Jeffee Hsiung" width="200" style="margin-top: 2rem; opacity: 0.8;">
