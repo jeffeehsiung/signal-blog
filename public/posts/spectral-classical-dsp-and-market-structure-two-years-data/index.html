@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/signal-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=signal-blog/livereload" data-no-instant defer></script>
+  <title>
+  Two Years, 17 Stocks, Zero ML: What Classical DSP Revealed About Market Structure · Duality
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://www.google-analytics.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.clarity.ms;">
+
+
+
+
+<meta name="description" content="
+  Classical signal processing generate alpha without machine learning?
+  
+    
+    Link to heading
+  
+
+That was the question I set out to answer two years ago.
+No LLMs. No deep learning. No training-test splits.
+Just deterministic algorithms — spectral decomposition, multi-scale estimation, geometric and therodyanmics state-space modeling applied to market data.
+Here’s what I found — and why I think classical methods deserve more attention in quant finance.">
+<meta name="keywords" content="physics-informed finance, quantitative research">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Two Years, 17 Stocks, Zero ML: What Classical DSP Revealed About Market Structure">
+  <meta name="twitter:description" content="Classical signal processing generate alpha without machine learning? Link to heading That was the question I set out to answer two years ago.
+No LLMs. No deep learning. No training-test splits.
+Just deterministic algorithms — spectral decomposition, multi-scale estimation, geometric and therodyanmics state-space modeling applied to market data.
+Here’s what I found — and why I think classical methods deserve more attention in quant finance.">
+
+<meta property="og:url" content="http://localhost:1313/signal-blog/posts/spectral-classical-dsp-and-market-structure-two-years-data/">
+  <meta property="og:site_name" content="Duality">
+  <meta property="og:title" content="Two Years, 17 Stocks, Zero ML: What Classical DSP Revealed About Market Structure">
+  <meta property="og:description" content="Classical signal processing generate alpha without machine learning? Link to heading That was the question I set out to answer two years ago.
+No LLMs. No deep learning. No training-test splits.
+Just deterministic algorithms — spectral decomposition, multi-scale estimation, geometric and therodyanmics state-space modeling applied to market data.
+Here’s what I found — and why I think classical methods deserve more attention in quant finance.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-06-16T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-06-16T00:00:00+00:00">
+    <meta property="article:tag" content="Signal Processing">
+    <meta property="article:tag" content="Quantitative Finance">
+    <meta property="article:tag" content="DSP">
+    <meta property="article:tag" content="Market Microstructure">
+    <meta property="article:tag" content="Multi-Scale Analysis">
+    <meta property="article:tag" content="Alpha Generation">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/signal-blog/posts/spectral-classical-dsp-and-market-structure-two-years-data/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/signal-blog/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/signal-blog/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
+  <section class="container">
+    
+    <a class="navigation-title" href="http://localhost:1313/signal-blog/">
+      Duality
+    </a>
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
+        
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/signal-blog/about/">About</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/signal-blog/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="/signal-blog/contact/">Contact me</a>
+            </li>
+          
+        
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/signal-blog/posts/spectral-classical-dsp-and-market-structure-two-years-data/">
+              Two Years, 17 Stocks, Zero ML: What Classical DSP Revealed About Market Structure
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-06-16T00:00:00Z">
+                June 16, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              6-minute read
+            </span>
+          </div>
+          
+          
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/signal-blog/tags/signal-processing/">Signal Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/quantitative-finance/">Quantitative Finance</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/dsp/">DSP</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/market-microstructure/">Market Microstructure</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/multi-scale-analysis/">Multi-Scale Analysis</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/alpha-generation/">Alpha Generation</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <h2 id="classical-signal-processing-generate-alpha-without-machine-learning">
+  Classical signal processing generate alpha without machine learning?
+  <a class="heading-link" href="#classical-signal-processing-generate-alpha-without-machine-learning">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>That was the question I set out to answer two years ago.</p>
+<p>No LLMs. No deep learning. No training-test splits.</p>
+<p>Just deterministic algorithms — spectral decomposition, multi-scale estimation, geometric and therodyanmics state-space modeling applied to market data.</p>
+<p><strong>Here’s what I found — and why I think classical methods deserve more attention in quant finance.</strong></p>
+<hr>
+<h2 id="the-constraint">
+  The Constraint
+  <a class="heading-link" href="#the-constraint">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Most quantitative strategies today rely on some form of machine learning. There&rsquo;s nothing wrong with that — but it comes with baggage:</p>
+<ul>
+<li>Overfitting risk</li>
+<li>Black-box interpretability</li>
+<li>Sensitivity to regime changes</li>
+</ul>
+<p>I wanted to see how far pure signal processing could go. So I imposed a hard constraint:</p>
+<p><strong>Every signal must come from a deterministic DSP pipeline. No data-driven training. No optimization against historical returns.</strong></p>
+<p>The pipeline looks like this:</p>
+<ul>
+<li><strong>Multi-scale decomposition</strong> — separate structural carriers from localized fluctuations</li>
+<li><strong>State-space estimation</strong> — track latent system dynamics in real time</li>
+<li><strong>Adaptive parameter identification</strong> — let the data speak through online updates, not batch fitting</li>
+</ul>
+<p>The goal wasn&rsquo;t to beat machine learning. It was to see if a completely different approach — transparent, interpretable, deterministic — could stand on its own.</p>
+<hr>
+<h2 id="the-results-june-2024--june-2026">
+  The Results (June 2024 – June 2026)
+  <a class="heading-link" href="#the-results-june-2024--june-2026">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I ran the framework across 17 US equities over a 2-year period (roughly 500 trading days). All returns were evaluated on a directional basis — long/short signals with time horizons determined by the model&rsquo;s internal estimates.</p>
+<p><strong>Two critical transparency notes before the numbers:</strong></p>
+<ol>
+<li>
+<p><strong>No ML, no deep learning.</strong> Every signal is generated by classical DSP algorithms. No training data was used. No fitting against historical returns occurred. This means zero overfitting risk by construction.</p>
+</li>
+<li>
+<p><strong>No stop-losses, no take-profits, no dynamic position-sizing.</strong> This is pure alpha validation — the system enters and exits purely on directional signals. Every trade runs its full predicted duration without execution-layer intervention. Drawdowns reflect raw signal performance.</p>
+</li>
+</ol>
+<p>With that out of the way, here&rsquo;s what the numbers look like.</p>
+<p><strong>Excess Sharpe (deducting 4% risk-free rate):</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Performance Tier</th>
+          <th>Count (out of 17)</th>
+          <th>Assets</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>&gt; 2.0</td>
+          <td>8</td>
+          <td>TSLA, BABA, META, NFLX, BIDU, FUTU, GOOGL, BLTE</td>
+      </tr>
+      <tr>
+          <td>&gt; 1.5</td>
+          <td>11</td>
+          <td>(above + AMD, ARM, AAPL)</td>
+      </tr>
+      <tr>
+          <td>&gt; 0</td>
+          <td>16</td>
+          <td>All except TSM</td>
+      </tr>
+      <tr>
+          <td>Negative</td>
+          <td>1</td>
+          <td>TSM</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>Top performers:</strong></p>
+<ul>
+<li><strong>TSLA</strong>: 3.58</li>
+<li><strong>BABA</strong>: 3.17</li>
+<li><strong>META</strong>: 3.05</li>
+<li><strong>NFLX</strong>: 2.67</li>
+<li><strong>BIDU</strong>: 2.65</li>
+</ul>
+<p><strong>Maximum drawdown (asset-level median):</strong> ~4.3% for the composite portfolio, with individual assets ranging from -21% to -48%.</p>
+<p><img src="/signal-blog/images/general_physics_inspired_quantum_202406_202606_result.png" alt="Physics-Inpsired Backtest Result 2024.06-2026.06"></p>
+<hr>
+<h2 id="what-the-cross-asset-table-looks-like">
+  What the Cross-Asset Table Looks Like
+  <a class="heading-link" href="#what-the-cross-asset-table-looks-like">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The table below summarizes Macro signal performance across all 17 assets. Values are presented as ranges — enough to see the pattern, not enough to replicate the recipe.</p>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Asset</strong></th>
+          <th><strong>Excess Sharpe</strong></th>
+          <th><strong>Max Drawdown</strong></th>
+          <th><strong>EV (per trade)</strong></th>
+          <th><strong>Verdict</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>TSLA</strong></td>
+          <td>3.58</td>
+          <td>-25.7%</td>
+          <td>0.293</td>
+          <td>exceptional</td>
+      </tr>
+      <tr>
+          <td><strong>BABA</strong></td>
+          <td>3.17</td>
+          <td>-34.6%</td>
+          <td>0.260</td>
+          <td>exceptional</td>
+      </tr>
+      <tr>
+          <td><strong>META</strong></td>
+          <td>3.05</td>
+          <td>-28.9%</td>
+          <td>0.264</td>
+          <td>exceptional</td>
+      </tr>
+      <tr>
+          <td><strong>NFLX</strong></td>
+          <td>2.67</td>
+          <td>-21.7%</td>
+          <td>0.180</td>
+          <td>exceptional</td>
+      </tr>
+      <tr>
+          <td><strong>BIDU</strong></td>
+          <td>2.65</td>
+          <td>-29.0%</td>
+          <td>0.208</td>
+          <td>exceptional</td>
+      </tr>
+      <tr>
+          <td><strong>FUTU</strong></td>
+          <td>2.47</td>
+          <td>-30.6%</td>
+          <td>0.132</td>
+          <td>excellent</td>
+      </tr>
+      <tr>
+          <td><strong>GOOGL</strong></td>
+          <td>2.15</td>
+          <td>-25.6%</td>
+          <td>0.182</td>
+          <td>excellent</td>
+      </tr>
+      <tr>
+          <td><strong>BLTE</strong></td>
+          <td>2.10</td>
+          <td>-30.1%</td>
+          <td>0.274</td>
+          <td>excellent</td>
+      </tr>
+      <tr>
+          <td><strong>ARM</strong></td>
+          <td>2.09</td>
+          <td>-39.9%</td>
+          <td>0.135</td>
+          <td>excellent (drawdown large)</td>
+      </tr>
+      <tr>
+          <td><strong>AMD</strong></td>
+          <td>2.20</td>
+          <td>-48.4%</td>
+          <td>0.168</td>
+          <td>excellent (drawdown large)</td>
+      </tr>
+      <tr>
+          <td><strong>COIN</strong></td>
+          <td>1.87</td>
+          <td>-36.4%</td>
+          <td>0.173</td>
+          <td>good (drawdown large)</td>
+      </tr>
+      <tr>
+          <td><strong>AAPL</strong></td>
+          <td>1.44</td>
+          <td>-23.9%</td>
+          <td>0.121</td>
+          <td>good</td>
+      </tr>
+      <tr>
+          <td><strong>MSTR</strong></td>
+          <td>1.49</td>
+          <td>-45.3%</td>
+          <td>0.113</td>
+          <td>marginal (drawdown too large)</td>
+      </tr>
+      <tr>
+          <td><strong>NVDA</strong></td>
+          <td>1.30</td>
+          <td>-48.6%</td>
+          <td>0.114</td>
+          <td>good (drawdown large)</td>
+      </tr>
+      <tr>
+          <td><strong>QCOM</strong></td>
+          <td>1.30</td>
+          <td>-28.8%</td>
+          <td>0.121</td>
+          <td>good</td>
+      </tr>
+      <tr>
+          <td><strong>MSFT</strong></td>
+          <td>0.78</td>
+          <td>-23.3%</td>
+          <td>0.064</td>
+          <td>marginal (barely above risk-free)</td>
+      </tr>
+      <tr>
+          <td><strong>TSM</strong></td>
+          <td>0.65</td>
+          <td>-34.7%</td>
+          <td>-0.022</td>
+          <td><strong>reject</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="three-things-that-jumped-out">
+  Three Things That Jumped Out
+  <a class="heading-link" href="#three-things-that-jumped-out">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>(Note: &ldquo;Macro&rdquo; and &ldquo;Micro&rdquo; here refer to internal signal layers — the primary state-estimation output vs. the auxiliary wavelet-based transient component — not macroeconomics or market microstructure.)</p>
+<h3 id="1-micro-structure-signals-were-worthless-for-this-framework">
+  1. Micro-structure signals were worthless (for this framework)
+  <a class="heading-link" href="#1-micro-structure-signals-were-worthless-for-this-framework">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>I tested three signal variants:</p>
+<ul>
+<li><strong>Macro</strong> — structural carrier analysis (spectral decomposition + state estimation)</li>
+<li><strong>Micro</strong> — high-frequency transient analysis</li>
+<li><strong>Composite</strong> — a combined version</li>
+</ul>
+<p>Macro outperformed consistently. Micro produced negative Sharpe across almost every asset. Composite didn&rsquo;t add value — in many cases it degraded performance relative to pure Macro.</p>
+<p><strong>Lesson</strong>: The structural layer is doing the heavy lifting. The micro layer just adds noise.</p>
+<h3 id="2-correlation-with-industry-didnt-matter">
+  2. Correlation with industry didn&rsquo;t matter
+  <a class="heading-link" href="#2-correlation-with-industry-didnt-matter">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Tech, crypto-exposed, consumer, semis — the framework performed across all sectors. The best performers included a mix of growth (TSLA), tech (META), and even Chinese names (BABA, BIDU).</p>
+<p><strong>Lesson</strong>: This isn&rsquo;t a sector rotation strategy. It&rsquo;s capturing a cross-asset structural phenomenon.</p>
+<h3 id="3-risk-free-rate-adjustment-barely-moved-the-needle">
+  3. Risk-free rate adjustment barely moved the needle
+  <a class="heading-link" href="#3-risk-free-rate-adjustment-barely-moved-the-needle">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>After deducting 4% (current US risk-free rate), the top performers stayed top performers. Only MSFT dropped below 1.0, and TSM fell to negative EV territory.</p>
+<p><strong>Lesson</strong>: The strategy generates genuine excess return — not just beta dressed up as alpha.</p>
+<hr>
+<h2 id="what-didnt-work">
+  What Didn&rsquo;t Work
+  <a class="heading-link" href="#what-didnt-work">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Three clear failure modes emerged:</p>
+<p><strong>1. Micro-only signals (auxiliary wavelet component)</strong>
+In my system, &ldquo;Micro&rdquo; refers to the auxiliary transient signal (wavelet-based local decomposition), not market microstructure. When evaluated independently as a directional source, it consistently underperformed the main state-estimation signal. This suggests its role should remain auxiliary — modulating entry timing or confidence, not generating primary direction.</p>
+<p><strong>2. TSM</strong>
+Taiwan Semiconductor was the only asset with negative EV. The framework could not consistently trade it — suggesting either a structural issue with the asset itself or a weakness in the model&rsquo;s treatment of its particular dynamics.</p>
+<hr>
+<h2 id="what-this-means-for-quant-strategy-design">
+  What This Means for Quant Strategy Design
+  <a class="heading-link" href="#what-this-means-for-quant-strategy-design">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The results suggest three principles:</p>
+<p><strong>1. Start with structural models, not ML.</strong>
+A clean DSP pipeline can capture meaningful alpha without the overfitting baggage of machine learning. The signals are interpretable, stable, and reproducible.</p>
+<p><strong>2. Test the micro layer separately.</strong>
+Micro model, if only based on localized space and time analysis, not configured properly with macro market structure dybamics, the value added is inconsistent and yields mostly noise.</p>
+<p><strong>3. Build portfolios, not single-asset bets.</strong>
+Even with strong individual Sharpe ratios, some assets have large drawdowns. True stability comes from diversification — both across assets and across signal types.</p>
+<hr>
+<h2 id="next-steps">
+  Next Steps
+  <a class="heading-link" href="#next-steps">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>I&rsquo;m extending this work in three directions:</p>
+<ol>
+<li><strong>Portfolio-level testing</strong> — constructing an equal-weighted Macro-only portfolio across the top 14 assets (excluding TSM, down-weighting MSFT and MSTR). Expect improved Sharpe and drawdown metrics.</li>
+<li><strong>Risk overlay</strong> — adding independent risk management modules (volatility targeting, trailing stops) without touching the core signal pipeline.</li>
+<li><strong>Out-of-sample validation</strong> — slicing the data by year to confirm stability across different market regimes.</li>
+</ol>
+<hr>
+<h2 id="final-thoughts">
+  Final Thoughts
+  <a class="heading-link" href="#final-thoughts">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This experiment convinced me that <strong>classical signal processing still has a place in quant finance.</strong></p>
+<p>It doesn&rsquo;t produce the flashiest results. It won&rsquo;t generate headlines like &ldquo;LLM predicts market direction.&rdquo; But it produces something more valuable in the long run:</p>
+<ul>
+<li>Fully interpretable decisions</li>
+<li>No overfitting by construction</li>
+<li>Stable cross-asset performance</li>
+<li>A clear path to risk management</li>
+</ul>
+<p>Machine learning is powerful. But sometimes the signal was already there — you just needed the right filter to extract it.</p>
+<p><strong>What&rsquo;s your experience with classical methods in quantitative trading?</strong> Do you still use DSP, or have you gone fully ML?</p>
+<p><em>— Jeffee</em></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+    
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/signal-blog/js/coder.js"></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KH34MMJ3');
+</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH34MMJ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

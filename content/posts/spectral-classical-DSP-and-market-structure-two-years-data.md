@@ -18,7 +18,7 @@ That was the question I set out to answer two years ago.
 
 No LLMs. No deep learning. No training-test splits.
 
-Just deterministic algorithms — spectral decomposition, multi-scale estimation, and state-space modeling applied to market data.
+Just deterministic algorithms — spectral decomposition, multi-scale estimation, geometric and therodyanmics state-space modeling applied to market data.
 
 **Here’s what I found — and why I think classical methods deserve more attention in quant finance.**
 
@@ -144,10 +144,7 @@ Three clear failure modes emerged:
 **1. Micro-only signals (auxiliary wavelet component)**
 In my system, "Micro" refers to the auxiliary transient signal (wavelet-based local decomposition), not market microstructure. When evaluated independently as a directional source, it consistently underperformed the main state-estimation signal. This suggests its role should remain auxiliary — modulating entry timing or confidence, not generating primary direction.
 
-**2. Composite signals**
-Combining Macro and Micro didn't improve anything. In fact, it often made performance worse. The Micro layer was adding noise, and the Composite layer couldn't filter it out effectively.
-
-**3. TSM**
+**2. TSM**
 Taiwan Semiconductor was the only asset with negative EV. The framework could not consistently trade it — suggesting either a structural issue with the asset itself or a weakness in the model's treatment of its particular dynamics.
 
 ---
@@ -160,7 +157,7 @@ The results suggest three principles:
 A clean DSP pipeline can capture meaningful alpha without the overfitting baggage of machine learning. The signals are interpretable, stable, and reproducible.
 
 **2. Test the micro layer separately.**
-If your micro model doesn't add value, drop it. In my case, it was actively harmful.
+Micro model, if only based on localized space and time analysis, not configured properly with macro market structure dybamics, the value added is inconsistent and yields mostly noise.
 
 **3. Build portfolios, not single-asset bets.**
 Even with strong individual Sharpe ratios, some assets have large drawdowns. True stability comes from diversification — both across assets and across signal types.
