@@ -75,7 +75,7 @@ With that out of the way, here's what the numbers look like.
 - **NFLX**: 2.67
 - **BIDU**: 2.65
 
-**Maximum drawdown (asset-level median):** ~4.3% for the composite portfolio, with individual assets ranging from -21% to -48%.
+**Maximum drawdown:** ranges from -21% to -48%, with a median of approximately -30% across the asset set.
 
 ![Physics-Inpsired Backtest Result 2024.06-2026.06](/images/general_physics_inspired_quantum_202406_202606_result.png)
 
