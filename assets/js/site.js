@@ -1,6 +1,7 @@
 function initSite() {
   window.DualityModules?.initTopicFilter();
   window.DualityModules?.initPerformanceExplorers();
+  window.DualityModules?.startPerformanceExplorerRetry();
   window.DualityModules?.initCandlestickCharts();
 }
 

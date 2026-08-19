@@ -10,10 +10,7 @@ function initPerformanceExplorers() {
     const searchElement = root.querySelector('.explorer-search input');
 
     if (!dataElement || chartElements.length < 2 || !tableElement || !searchElement) return;
-    if (!window.echarts || !window.Tabulator) {
-      showExplorerStatus(root, 'Interactive libraries could not load. Check the browser console or network policy.');
-      return;
-    }
+    if (!window.echarts || !window.Tabulator) return;
 
     try {
       const assets = JSON.parse(dataElement.textContent);
@@ -80,12 +77,31 @@ function initPerformanceExplorers() {
 
       searchElement.addEventListener('input', (event) => table.setFilter('symbol', 'like', event.target.value));
       window.addEventListener('resize', () => { comparison.resize(); risk.resize(); });
+      root.querySelector('.explorer-status')?.remove();
       root.dataset.initialized = 'true';
     } catch (error) {
       showExplorerStatus(root, 'Interactive modules failed to initialize. See the browser console for details.');
       console.error('Duality performance explorer:', error);
     }
   });
+}
+
+function startPerformanceExplorerRetry() {
+  const attempt = () => {
+    const explorers = document.querySelectorAll('.performance-explorer:not([data-initialized="true"])');
+    if (!explorers.length) return;
+    window.DualityModules.initPerformanceExplorers();
+  };
+
+  attempt();
+  let attempts = 0;
+  const retry = window.setInterval(() => {
+    attempts += 1;
+    attempt();
+    if (attempts >= 30 || !document.querySelector('.performance-explorer:not([data-initialized="true"])')) {
+      window.clearInterval(retry);
+    }
+  }, 100);
 }
 
 function showExplorerStatus(root, message) {
@@ -98,3 +114,4 @@ function showExplorerStatus(root, message) {
 
 window.DualityModules = window.DualityModules || {};
 window.DualityModules.initPerformanceExplorers = initPerformanceExplorers;
+window.DualityModules.startPerformanceExplorerRetry = startPerformanceExplorerRetry;
