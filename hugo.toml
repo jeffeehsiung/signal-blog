@@ -14,10 +14,6 @@ shortname = ""
 [markup.highlight]
 style = "github-dark"
 
-[build]
-  [build.postcss]
-    # uses postcss.config.js automatically
-
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
@@ -33,7 +29,7 @@ style = "github-dark"
   since = 2026
   enableTwemoji = true
   customCSS = ["site.css"]
-  customJS = ["js/site.js"]
+  customJS = ["js/modules/topic-filter.js", "js/site.js"]
 
   colorScheme = "auto"
   hidecolorschemetoggle = false
