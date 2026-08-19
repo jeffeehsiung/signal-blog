@@ -1,0 +1,49 @@
+{{ $data := .Site.Data.performance }}
+
+<div class="sharpe-chart" id="sharpeChart" role="img" aria-label="Bar chart showing excess Sharpe by asset"></div>
+
+<!-- Hugo injects JSON here – the linter will ignore this tag -->
+<script id="sharpeData" type="application/json">
+  {{ $data.assets | jsonify | safeHTML }}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script>
+function renderSharpeChart() {
+  var dataElement = document.getElementById('sharpeData');
+  var chartElement = document.getElementById('sharpeChart');
+  if (!dataElement || !chartElement || !window.echarts) return;
+
+  var assets = JSON.parse(dataElement.textContent);
+
+  var chart = echarts.init(chartElement);
+
+  var symbols = assets.map(a => a.symbol);
+  var sharpe = assets.map(a => a.excess_sharpe);
+  var colors = sharpe.map(v => v > 2 ? '#7c3aed' : (v > 1 ? '#2563eb' : (v < 0 ? '#dc2626' : '#f59e0b')));
+
+  var option = {
+    title: { text: 'Excess Sharpe by Asset', left: 'center' },
+    tooltip: { trigger: 'axis' },
+    xAxis: {
+      type: 'category',
+      data: symbols,
+      axisLabel: { rotate: 45 }
+    },
+    yAxis: { type: 'value', name: 'Excess Sharpe' },
+    series: [{
+      type: 'bar',
+      data: sharpe.map((v, i) => ({ value: v, itemStyle: { color: colors[i] } })),
+      barWidth: '50%'
+    }]
+  };
+  chart.setOption(option);
+  window.addEventListener('resize', function() { chart.resize(); });
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderSharpeChart);
+} else {
+  renderSharpeChart();
+}
+</script>

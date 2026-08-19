@@ -14,20 +14,26 @@ shortname = ""
 [markup.highlight]
 style = "github-dark"
 
+[build]
+  [build.postcss]
+    # uses postcss.config.js automatically
+
 [markup]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
 
 [params]
-  author = ""
+  author = "Duality"
   description = "all about physics-informed quantitative research, signal processing, data science, algorithms, and machine learning."
-  info = "Physics-informed financial modeling - where physics meets finance."
+  info = "Physics-informed research on financial market structure."
   avatarURL = "images/duality_logo_v1.png"
   keywords = "physics-informed finance, quantitative research"
   dateFormat = "January 2, 2006"
   since = 2026
   enableTwemoji = true
+  customCSS = ["site.css"]
+  customJS = ["js/site.js"]
 
   colorScheme = "auto"
   hidecolorschemetoggle = false
@@ -40,7 +46,6 @@ style = "github-dark"
   category = "categories"
   series = "series"
   tag = "tags"
-  author = "authors"
 
 [params.csp]
   childsrc = ["'self'"]
@@ -68,6 +73,7 @@ style = "github-dark"
   scriptsrc = [
     "'self'",
     "'unsafe-inline'",
+    "https://cdn.jsdelivr.net/",
     "https://www.google-analytics.com",
     "https://www.googletagmanager.com",
     "https://www.clarity.ms"
@@ -81,32 +87,25 @@ style = "github-dark"
     "https://*.clarity.ms"
   ]
 
-[[params.social]]
-name = "Github"
-icon = "fa-brands fa-github fa-2x"
-weight = 1
-url = "https://github.com/jeffeehsiung/"
-
-[[params.social]]
-name = "LinkedIn"
-icon = "fa-brands fa-linkedin fa-2x"
-weight = 2
-url = "https://www.linkedin.com/in/jeffee-hsiung/"
-
 [languages.en]
 languageName = ":uk:"
 
 [[languages.en.menu.main]]
-name = "About"
-weight = 1
-url = "about/"
-
-[[languages.en.menu.main]]
 name = "Blog"
-weight = 2
+weight = 1
 url = "posts/"
 
 [[languages.en.menu.main]]
-name = "Contact me"
-weight = 5
-url = "contact/"
+name = "Videos"
+weight = 2
+url = "videos/"
+
+[[languages.en.menu.main]]
+name = "Papers"
+weight = 3
+url = "papers/"
+
+[[languages.en.menu.main]]
+name = "Products"
+weight = 4
+url = "products/"

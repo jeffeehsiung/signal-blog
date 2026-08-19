@@ -1,0 +1,56 @@
+{{ $data := .Site.Data.performance }}
+{{ $tableID := printf "performance-table-%s" (.Page.RelPermalink | md5) }}
+
+<div class="performance-table-wrap">
+  <div class="performance-table" id="{{ $tableID }}" aria-label="Macro signal performance across the tested asset universe"></div>
+</div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+<script type="application/json" id="{{ $tableID }}-data">{{ $data.assets | jsonify | safeHTML }}</script>
+<script>
+(function() {
+  var tableElement = document.getElementById({{ $tableID }} | jsonify | safeJS);
+  var dataElement = document.getElementById({{ printf "%s-data" $tableID }} | jsonify | safeJS);
+  if (!tableElement || !dataElement || !window.Tabulator) return;
+
+  new Tabulator(tableElement, {
+    data: JSON.parse(dataElement.textContent),
+    layout: 'fitColumns',
+    responsiveLayout: 'collapse',
+    pagination: true,
+    paginationSize: 10,
+    paginationSizeSelector: [10, 20],
+    placeholder: 'No performance data available',
+    columns: [
+      { title: 'Asset', field: 'symbol', sorter: 'string', width: 100 },
+      {
+        title: 'Excess Sharpe',
+        field: 'excess_sharpe',
+        sorter: 'number',
+        formatter: function(cell) {
+          var value = Number(cell.getValue());
+          var className = value > 2 ? 'is-exceptional' : value > 1 ? 'is-positive' : value < 0 ? 'is-negative' : 'is-neutral';
+          return '<span class="metric-value ' + className + '">' + value.toFixed(2) + '</span>';
+        }
+      },
+      { title: 'Max drawdown', field: 'max_drawdown', sorter: 'string' },
+      {
+        title: 'EV / trade',
+        field: 'ev',
+        sorter: 'number',
+        formatter: function(cell) { return Number(cell.getValue()).toFixed(3); }
+      },
+      {
+        title: 'Verdict',
+        field: 'verdict',
+        sorter: 'string',
+        formatter: function(cell) {
+          var value = cell.getValue();
+          return '<span class="performance-verdict performance-verdict-' + value + '">' + value + '</span>';
+        }
+      }
+    ]
+  });
+})();
+</script>

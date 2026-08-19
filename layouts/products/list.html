@@ -1,0 +1,10 @@
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
+{{ define "content" }}
+<section class="hub-page hub-products">
+  {{ partial "hub/page-hero.html" (dict "kicker" "05 / Derived tools" "title" .Title "description" .Description) }}
+  <div class="hub-notice"><span class="module-code">CORE / PRIVATE</span><p>The core Duality algorithm remains a private research system. The modules below are independent analytical tools built around risk, performance, allocation, and behaviour data.</p></div>
+  <div class="hub-module-grid">
+    {{ range .Site.Data.products }}{{ partial "hub/module-card.html" . }}{{ end }}
+  </div>
+</section>
+{{ end }}

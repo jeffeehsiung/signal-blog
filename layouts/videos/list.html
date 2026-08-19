@@ -1,0 +1,9 @@
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
+{{ define "content" }}
+<section class="hub-page hub-videos">
+  {{ partial "hub/page-hero.html" (dict "kicker" "03 / Visual library" "title" .Title "description" .Description) }}
+  <div class="hub-video-grid">
+    {{ range .Site.Data.videos }}{{ partial "hub/video-card.html" . }}{{ end }}
+  </div>
+</section>
+{{ end }}

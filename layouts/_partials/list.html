@@ -1,0 +1,15 @@
+<section class="hub-page hub-blog">
+  {{ partial "hub/page-hero.html" (dict "kicker" "02 / Research log" "title" .Title "description" "Long-form analysis, visual experiments, and field notes on quantitative market structure.") }}
+  {{ with .Content }}<div class="hub-blog-intro">{{ . }}</div>{{ end }}
+  <div class="hub-blog-grid">
+    {{ range .Paginator.Pages }}
+    <article class="hub-blog-card">
+      <p class="module-code">{{ .Date | time.Format (.Site.Params.dateFormat | default "January 2, 2006") }}</p>
+      <h2><a href="{{ .Params.externalLink | default .RelPermalink }}">{{ .Title }}</a></h2>
+      <p>{{ .Summary | plainify | truncate 190 }}</p>
+      <a class="hub-read-link" href="{{ .Params.externalLink | default .RelPermalink }}">Open field note ↗</a>
+    </article>
+    {{ end }}
+  </div>
+  {{ partial "pagination.html" . }}
+</section>

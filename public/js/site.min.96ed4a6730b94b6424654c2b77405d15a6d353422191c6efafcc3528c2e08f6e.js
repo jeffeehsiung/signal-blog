@@ -1,0 +1,1 @@
+document.addEventListener("DOMContentLoaded",()=>{const e=document.querySelectorAll("[data-topic]"),t=document.querySelectorAll(".research-card");e.forEach(n=>{n.addEventListener("click",()=>{const s=n.dataset.topic;e.forEach(e=>e.classList.toggle("is-active",e===n)),t.forEach(e=>{const t=e.dataset.topics||"";e.hidden=s!=="all"&&!t.includes(s)})})})})

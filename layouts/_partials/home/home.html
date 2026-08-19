@@ -1,0 +1,35 @@
+<section class="research-home lab-home">
+  <div class="lab-hero">
+    <div class="lab-hero-image" role="img" aria-label="Spectral market signal visualization"></div>
+    <div class="lab-hero-copy">
+      <p class="eyebrow">DUALITY / QUANTITATIVE RESEARCH LAB</p>
+      <h1>Markets are signals.<br><span>We study the structure.</span></h1>
+      <p class="hero-lede">Physics-informed research across spectral analysis, market geometry, and systematic trading systems.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="{{ "posts/" | relURL }}">Explore research <span aria-hidden="true">↗</span></a>
+        <span class="lab-status"><i></i> Systems active / 2026</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lab-intro">
+    <div class="lab-intro-label"><span class="signal-number">01</span><span>What we do</span></div>
+    <div><h2>Decode the market<br><span>before trading it.</span></h2><p>Duality treats financial time series as dynamic systems. We use classical signal processing and geometric models to separate persistent structure from noise.</p></div>
+  </div>
+
+  <div class="lab-capabilities" aria-label="Research capabilities">
+    <article><span class="capability-index">01</span><h3>Spectral analysis</h3><p>Fourier, Laplace, and multi-scale methods for locating recurring market structure.</p><a href="{{ "posts/" | relURL }}">View field notes ↗</a></article>
+    <article><span class="capability-index">02</span><h3>Market geometry</h3><p>Manifold and differential-geometric methods for comparing asset behaviour.</p><a href="{{ "about/" | relURL }}">Our approach ↗</a></article>
+    <article><span class="capability-index">03</span><h3>System design</h3><p>Transparent, robust models that turn measured structure into disciplined decisions.</p><a href="{{ "contact/" | relURL }}">Start a dialogue ↗</a></article>
+  </div>
+
+  <div class="research-library" id="research-library">
+    <div class="library-heading"><div><p class="eyebrow">02 / Research log</p><h2>Recent work</h2></div><a class="library-link" href="{{ "posts/" | relURL }}">View all research ↗</a></div>
+    <div class="research-grid">
+      {{ range $index, $page := first 6 .Site.RegularPages.ByDate.Reverse }}
+      {{ $topics := $page.Params.tags | default (slice) }}
+      <article class="research-card" data-topics="{{ delimit $topics "," | lower }}"><p class="card-index">{{ printf "%02d" (add 1 $index) }}</p><p class="card-date">{{ $page.Date | time.Format ($page.Site.Params.dateFormat | default "January 2, 2006") }}</p><h3><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3><p class="card-summary">{{ with $page.Description }}{{ . }}{{ else }}{{ $page.Summary | plainify | truncate 150 }}{{ end }}</p><a class="card-arrow" href="{{ $page.RelPermalink }}" aria-label="Read {{ $page.Title }}">↗</a></article>
+      {{ end }}
+    </div>
+  </div>
+</section>

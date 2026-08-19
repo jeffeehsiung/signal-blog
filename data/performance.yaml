@@ -1,0 +1,86 @@
+assets:
+  - symbol: TSLA
+    excess_sharpe: 3.58
+    max_drawdown: -25.7%
+    ev: 0.293
+    verdict: exceptional
+  - symbol: BABA
+    excess_sharpe: 3.17
+    max_drawdown: -34.6%
+    ev: 0.260
+    verdict: exceptional
+  - symbol: META
+    excess_sharpe: 3.05
+    max_drawdown: -28.9%
+    ev: 0.264
+    verdict: exceptional
+  - symbol: NFLX
+    excess_sharpe: 2.67
+    max_drawdown: -21.7%
+    ev: 0.180
+    verdict: exceptional
+  - symbol: BIDU
+    excess_sharpe: 2.65
+    max_drawdown: -29.0%
+    ev: 0.208
+    verdict: exceptional
+  - symbol: FUTU
+    excess_sharpe: 2.47
+    max_drawdown: -30.6%
+    ev: 0.132
+    verdict: excellent
+  - symbol: GOOGL
+    excess_sharpe: 2.15
+    max_drawdown: -25.6%
+    ev: 0.182
+    verdict: excellent
+  - symbol: BLTE
+    excess_sharpe: 2.10
+    max_drawdown: -30.1%
+    ev: 0.274
+    verdict: excellent
+  - symbol: ARM
+    excess_sharpe: 2.09
+    max_drawdown: -39.9%
+    ev: 0.135
+    verdict: excellent
+  - symbol: AMD
+    excess_sharpe: 2.20
+    max_drawdown: -48.4%
+    ev: 0.168
+    verdict: excellent
+  - symbol: COIN
+    excess_sharpe: 1.87
+    max_drawdown: -36.4%
+    ev: 0.173
+    verdict: good
+  - symbol: AAPL
+    excess_sharpe: 1.44
+    max_drawdown: -23.9%
+    ev: 0.121
+    verdict: good
+  - symbol: MSTR
+    excess_sharpe: 1.49
+    max_drawdown: -45.3%
+    ev: 0.113
+    verdict: marginal
+  - symbol: NVDA
+    excess_sharpe: 1.30
+    max_drawdown: -48.6%
+    ev: 0.114
+    verdict: good
+  - symbol: QCOM
+    excess_sharpe: 1.30
+    max_drawdown: -28.8%
+    ev: 0.121
+    verdict: good
+  - symbol: MSFT
+    excess_sharpe: 0.78
+    max_drawdown: -23.3%
+    ev: 0.064
+    verdict: marginal
+  - symbol: TSM
+    excess_sharpe: 0.65
+    max_drawdown: -34.7%
+    ev: -0.022
+    verdict: reject
