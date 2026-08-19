@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml"><url><loc>https://jeffeehsiung.github.io/signal-blog/posts/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/categories/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/papers/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/products/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/series/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/tags/</loc></url><url><loc>https://jeffeehsiung.github.io/signal-blog/videos/</loc></url></urlset>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:1313/signal-blog/posts/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/categories/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/papers/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/products/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/series/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/videos/</loc>
+  </url>
+</urlset>
