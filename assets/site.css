@@ -236,7 +236,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .performance-explorer .performance-table { min-width: 0; width: 100%; }
 .explorer-status { background: rgba(255, 107, 107, .08); border: 1px solid rgba(255, 107, 107, .35); color: #ff9a9a; font-family: 'DM Mono', monospace; font-size: .72rem; padding: 1rem; }
 .hub-blog-intro { color: var(--muted); margin: -1rem 0 2.5rem; max-width: 720px; }
-.hub-blog-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+.hub-blog-grid { display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr); }
 .hub-blog-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; min-height: 250px; padding: 1.4rem; position: relative; transition: border-color .2s ease, transform .2s ease; }
 .hub-blog-card:hover { border-color: var(--accent); transform: translateY(-3px); }
 .hub-blog-card h2 { font-size: 1.3rem; line-height: 1.25; margin: 2rem 0 .8rem; }
@@ -266,6 +266,10 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .article-signal span:nth-child(7) { height: 100%; }
 .article-card-violet .article-signal span:nth-child(odd) { background: var(--violet); }
 .article-card-coral .article-signal span:nth-child(even) { background: #ff6b6b; }
+.candlestick-module { background: rgba(12, 24, 36, .72); border: 1px solid var(--line); border-radius: 6px; margin-bottom: 1rem; overflow: hidden; padding: 1.2rem 1.35rem .8rem; }
+.candlestick-heading h2 { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 1.4rem; margin: .65rem 0 .2rem; }
+.candlestick-heading p { color: var(--muted); font-size: .78rem; margin: 0; }
+.candlestick-chart { height: 330px; width: 100%; }
 
 @media (max-width: 760px) {
   .site-nav-meta { display: none; }
@@ -278,6 +282,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
   .hub-page { padding: 3rem 1.25rem 4rem; }
   .hub-video-grid, .hub-module-grid { grid-template-columns: 1fr; }
   .hub-blog-grid { grid-template-columns: 1fr; }
+  .candlestick-chart { height: 260px; }
   .hub-video-thumb { height: 210px; }
   .hub-notice, .hub-paper-intro { align-items: flex-start; flex-direction: column; gap: .75rem; }
   .explorer-heading { align-items: flex-start; flex-direction: column; gap: 1rem; }

@@ -2,7 +2,7 @@
 {{ define "content" }}
 <section class="hub-page hub-blog">
   {{ partial "hub/page-hero.html" (dict "kicker" "02 / Research log" "title" "Blog & visualizations" "description" "P-LOGs, V-LOGs, and interactive research notes on quantitative market structure.") }}
-  <div class="blog-feature-panel"><div><span class="module-code">LIVE / VISUAL INDEX</span><h2>From raw series<br>to readable structure.</h2></div><div class="feature-mini-chart" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+  {{ partial "hub/candlestick-chart.html" . }}
   <div class="hub-blog-grid">
     {{ range .Site.Data.articles }}{{ partial "hub/article-card.html" . }}{{ end }}
   </div>

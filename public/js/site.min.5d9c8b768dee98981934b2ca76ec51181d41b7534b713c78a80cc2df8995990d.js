@@ -1,1 +1,0 @@
-function initSite(){window.DualityModules?.initTopicFilter()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",initSite,{once:!0}):initSite()

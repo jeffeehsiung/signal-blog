@@ -14,132 +14,22 @@
   <div class="explorer-charts">
     <div class="explorer-chart-card">
       <div class="explorer-card-heading"><h3>Macro vs composite Sharpe</h3><span>comparison</span></div>
-      <div class="explorer-chart" id="{{ $explorerID }}-comparison" role="img" aria-label="Comparison chart of Sharpe and expected value by asset"></div>
+      <div class="explorer-chart" role="img" aria-label="Comparison chart of Macro and Composite Sharpe by asset"></div>
     </div>
     <div class="explorer-chart-card">
       <div class="explorer-card-heading"><h3>Return profile</h3><span>p50 return vs Sharpe</span></div>
-      <div class="explorer-chart" id="{{ $explorerID }}-risk" role="img" aria-label="Scatter chart of maximum drawdown and Sharpe by asset"></div>
+      <div class="explorer-chart" role="img" aria-label="Scatter chart of return and Sharpe by asset"></div>
     </div>
   </div>
 
   <div class="explorer-table-shell">
     <div class="explorer-table-heading"><h3>Asset-level detail</h3><span>Sortable / filterable</span></div>
-    <label class="explorer-search">Search assets <input type="search" id="{{ $explorerID }}-search" placeholder="e.g. NVDA"></label>
-    <div class="performance-table" id="{{ $explorerID }}-table" aria-label="Detailed asset performance table"></div>
+    <label class="explorer-search">Search assets <input type="search" placeholder="e.g. NVDA"></label>
+    <div class="performance-table" aria-label="Detailed asset performance table"></div>
   </div>
 
-  <script type="application/json" id="{{ $explorerID }}-data">{{ $data.assets | jsonify | safeHTML }}</script>
+  <script type="application/json">{{ $data.assets | jsonify | safeHTML }}</script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
-  <script>
-  (function() {
-    var root = document.querySelector('.performance-explorer');
-    var dataElement = root && root.querySelector('script[type="application/json"]');
-    var chartElements = root && root.querySelectorAll('.explorer-chart');
-    var comparisonElement = chartElements && chartElements[0];
-    var riskElement = chartElements && chartElements[1];
-    var tableElement = root && root.querySelector('.performance-table');
-    var searchElement = root && root.querySelector('.explorer-search input');
-
-    function showStatus(message) {
-      if (root) {
-        var status = document.createElement('p');
-        status.className = 'explorer-status';
-        status.textContent = message;
-        root.appendChild(status);
-      }
-    }
-
-    function initialize() {
-      if (!root || !dataElement || !comparisonElement || !riskElement || !tableElement || !searchElement) return;
-      if (!window.echarts || !window.Tabulator) return false;
-
-      try {
-
-      var assets = JSON.parse(dataElement.textContent);
-    var colors = { macro: '#00f5d4', composite: '#7d72ff' };
-    var textColor = '#8998a9';
-    var lineColor = '#1d3041';
-
-    function tooltip(params) {
-      var item = params[0] && params[0].data && params[0].data.asset;
-      var asset = assets.find(function(row) { return row.symbol === item; });
-      if (!asset) return '';
-      return '<strong>' + asset.symbol + '</strong><br>' +
-        'Macro Sharpe: ' + Number(asset.sharpe_total_macro).toFixed(2) + '<br>' +
-        'Composite Sharpe: ' + Number(asset.sharpe_total_composite).toFixed(2) + '<br>' +
-        'Macro EV: ' + Number(asset.ev_macro).toFixed(3) + '<br>' +
-        'Composite EV: ' + Number(asset.ev_composite).toFixed(3) + '<br>' +
-        'Macro hit rate: ' + (Number(asset.macro_hit_rate) * 100).toFixed(1) + '%<br>' +
-        'Composite hit rate: ' + (Number(asset.composite_hit_rate) * 100).toFixed(1) + '%';
-    }
-
-    var comparison = echarts.init(comparisonElement);
-    comparison.setOption({
-      backgroundColor: 'transparent',
-      color: [colors.macro, colors.composite],
-      grid: { left: 48, right: 18, top: 35, bottom: 60 },
-      legend: { textStyle: { color: textColor, fontSize: 11 }, top: 0 },
-      tooltip: { trigger: 'axis', formatter: tooltip },
-      xAxis: { type: 'category', data: assets.map(function(row) { return row.symbol; }), axisLabel: { color: textColor, rotate: 45, fontSize: 10 }, axisLine: { lineStyle: { color: lineColor } } },
-      yAxis: { type: 'value', axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
-      series: [
-        { name: 'Macro Sharpe', type: 'bar', barMaxWidth: 18, data: assets.map(function(row) { return { value: row.sharpe_total_macro, asset: row.symbol }; }) },
-        { name: 'Composite Sharpe', type: 'bar', barMaxWidth: 18, data: assets.map(function(row) { return { value: row.sharpe_total_composite, asset: row.symbol }; }) }
-      ]
-    });
-
-    var risk = echarts.init(riskElement);
-    risk.setOption({
-      backgroundColor: 'transparent',
-      grid: { left: 55, right: 18, top: 25, bottom: 45 },
-      tooltip: { trigger: 'item', formatter: function(params) { return tooltip([{ data: { asset: params.data.asset } }]); } },
-      xAxis: { type: 'value', name: 'Macro return p50', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
-      yAxis: { type: 'value', name: 'Macro Sharpe', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
-      series: [{ type: 'scatter', symbolSize: 13, data: assets.map(function(row) { return { value: [row.macro_ret_pct_p50, row.sharpe_total_macro], asset: row.symbol, itemStyle: { color: row.macro_ret_pct_p50 >= 0 ? colors.macro : '#ff6b6b' } }; }) }]
-    });
-
-    var table = new Tabulator(tableElement, {
-      data: assets,
-      layout: 'fitColumns',
-      responsiveLayout: 'collapse',
-      pagination: true,
-      paginationSize: 10,
-      paginationSizeSelector: [10, 20],
-      placeholder: 'No matching assets',
-      columns: [
-        { title: 'Asset', field: 'symbol', sorter: 'string', width: 100 },
-        { title: 'Rows', field: 'n_rows', sorter: 'number' },
-        { title: 'Macro Sharpe', field: 'sharpe_total_macro', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(2); } },
-        { title: 'Composite Sharpe', field: 'sharpe_total_composite', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(2); } },
-        { title: 'Macro EV', field: 'ev_macro', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(3); } },
-        { title: 'Composite EV', field: 'ev_composite', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(3); } },
-        { title: 'Macro hit rate', field: 'macro_hit_rate', sorter: 'number', formatter: function(cell) { return (Number(cell.getValue()) * 100).toFixed(1) + '%'; } },
-        { title: 'Composite hit rate', field: 'composite_hit_rate', sorter: 'number', formatter: function(cell) { return (Number(cell.getValue()) * 100).toFixed(1) + '%'; } }
-      ]
-    });
-
-    searchElement.addEventListener('input', function(event) { table.setFilter('symbol', 'like', event.target.value); });
-    window.addEventListener('resize', function() { comparison.resize(); risk.resize(); });
-        return true;
-      } catch (error) {
-        showStatus('Interactive modules failed to initialize. See the browser console for details.');
-        console.error('Duality performance explorer:', error);
-        return true;
-      }
-    }
-
-    if (!initialize()) {
-      var attempts = 0;
-      var retry = window.setInterval(function() {
-        attempts += 1;
-        if (initialize() || attempts >= 20) {
-          window.clearInterval(retry);
-          if (attempts >= 20) showStatus('Interactive modules could not load. Check the browser network or Content Security Policy.');
-        }
-      }, 100);
-    }
-  }());
-  </script>
 </section>

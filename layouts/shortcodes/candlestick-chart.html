@@ -1,0 +1,7 @@
+{{ $data := .Site.Data.candlestickDemo }}
+<div class="candlestick-module" data-chart-title="{{ $data.title }}" data-chart-subtitle="{{ $data.subtitle }}">
+  <div class="candlestick-heading"><span class="module-code">LIVE / VISUAL DEMO</span><h2>{{ $data.title }}</h2><p>{{ $data.subtitle }}</p></div>
+  <div class="candlestick-chart" role="img" aria-label="Candlestick chart showing illustrative strategy performance"></div>
+  <script type="application/json">{{ $data.data | jsonify | safeHTML }}</script>
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+</div>
