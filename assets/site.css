@@ -213,6 +213,8 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .module-status { color: #7690a3; display: block; margin-top: 1.25rem; }
 .hub-notice, .hub-paper-intro { align-items: baseline; background: rgba(0, 245, 212, .04); border: 1px solid var(--line); border-radius: 5px; display: flex; gap: 2rem; margin-bottom: 2.5rem; padding: 1.2rem 1.35rem; }
 .hub-notice p, .hub-paper-intro p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; }
+.hub-product-principles { align-items: baseline; border-bottom: 1px solid var(--line); display: flex; gap: 2rem; margin: -1rem 0 2.5rem; padding: 0 1.35rem 1.5rem; }
+.hub-product-principles p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; max-width: 700px; }
 .hub-paper-content { max-width: 860px; }
 .hub-paper-content .sharpe-chart { background: rgba(12, 24, 36, .7); border: 1px solid var(--line); border-radius: 5px; padding: 1rem; }
 .hub-paper-content h2 { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 1.5rem; letter-spacing: .01em; }
@@ -232,6 +234,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .explorer-search input { background: var(--paper); border: 1px solid var(--line); border-radius: 2px; color: var(--ink); font: inherit; min-width: 180px; padding: .5rem .65rem; text-transform: none; }
 .explorer-search input:focus { border-color: var(--accent); outline: none; }
 .performance-explorer .performance-table { min-width: 0; width: 100%; }
+.explorer-status { background: rgba(255, 107, 107, .08); border: 1px solid rgba(255, 107, 107, .35); color: #ff9a9a; font-family: 'DM Mono', monospace; font-size: .72rem; padding: 1rem; }
 .hub-blog-intro { color: var(--muted); margin: -1rem 0 2.5rem; max-width: 720px; }
 .hub-blog-grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
 .hub-blog-card { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; min-height: 250px; padding: 1.4rem; position: relative; transition: border-color .2s ease, transform .2s ease; }

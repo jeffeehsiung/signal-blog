@@ -3,6 +3,7 @@
 <section class="hub-page hub-products">
   {{ partial "hub/page-hero.html" (dict "kicker" "05 / Derived tools" "title" .Title "description" .Description) }}
   <div class="hub-notice"><span class="module-code">CORE / PRIVATE</span><p>The core Duality algorithm remains a private research system. The modules below are independent analytical tools built around risk, performance, allocation, and behaviour data.</p></div>
+  <div class="hub-product-principles"><span class="module-code">PUBLIC / DERIVED</span><p>These tools expose analysis and workflow, not the proprietary signal engine. They are designed to help users understand risk, participation, allocation, and execution behaviour from their own data.</p></div>
   <div class="hub-module-grid">
     {{ range .Site.Data.products }}{{ partial "hub/module-card.html" . }}{{ end }}
   </div>

@@ -8,10 +8,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
 <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
 <script type="application/json" id="{{ $tableID }}-data">{{ $data.assets | jsonify | safeHTML }}</script>
-<script>
+<script data-table="{{ $tableID }}" data-data="{{ $tableID }}-data">
 (function() {
-  var tableElement = document.getElementById({{ $tableID }} | jsonify | safeJS);
-  var dataElement = document.getElementById({{ printf "%s-data" $tableID }} | jsonify | safeJS);
+  var script = document.currentScript;
+  var tableElement = document.getElementById(script.dataset.table);
+  var dataElement = document.getElementById(script.dataset.data);
   if (!tableElement || !dataElement || !window.Tabulator) return;
 
   new Tabulator(tableElement, {

@@ -1,23 +1,29 @@
 +++
 title = "Papers & insights"
-description = "Published research, live trading observations, and the evidence behind the models."
+description = "Published research, live trading observations, and the scientific ideas behind the models."
 +++
+
+## Research scope
+
+Duality studies financial markets as adaptive dynamical systems using signal processing, statistical physics, information geometry, and control-system ideas. The public research record focuses on evidence, interpretation, and limitations; exact equations, calibration constants, thresholds, and execution contracts remain proprietary.
+
+The conceptual foundations are introduced through the [Blog]({{< ref "posts" >}}) and [Videos]({{< ref "videos" >}}). The [Products]({{< ref "products" >}}) section describes derived analytical workflows without exposing the core signal engine.
 
 ## Performance explorer
 
-The explorer compares the current asset-level results using the metrics available in the research dataset. Hover a chart mark for detail, or search and sort the table to inspect individual assets.
+The explorer demonstrates how the supplied asset-level research export can become an interactive research surface. Hover a chart mark for detail, or search and sort the table to inspect individual assets. The values are a screenshot transcription for interface demonstration and should be replaced by the canonical export before publication.
 
 {{< performance-explorer >}}
 
-## Live trading insights
+## Interpreting the results
 
-The public research layer documents methods and findings. The core algorithm remains private; derived analytical modules can be developed independently around risk, performance, allocation, and behaviour.
+The explorer shows summary metrics and comparisons, not the proprietary mechanism that produced them. Active-style measures help diagnose signal behaviour when engaged; total-style measures describe the continuous portfolio experience, including inactive periods. The gap between them can reveal selectivity and cash-timing effects, but must be interpreted alongside costs, drawdowns, and position sizing.
 
 ## Methodology
 
-The dataset contains asset-level summary metrics for the evaluated signal set. Excess Sharpe measures risk-adjusted performance, expected value is reported per trade, and maximum drawdown indicates the deepest observed peak-to-trough decline.
+The example dataset contains asset-level summary metrics for Macro and Composite signal layers: return percentile, total Sharpe, annual trade counts, annual win rate, expected value, and hit rate.
 
-These summaries are descriptive research outputs, not a promise of future performance. The current public dataset does not include transaction costs, slippage, position sizing, or a full out-of-sample split.
+These summaries are descriptive research outputs, not a promise of future performance. The screenshot does not provide transaction costs, slippage, position sizing, or a full out-of-sample split.
 
 ## Limitations
 
