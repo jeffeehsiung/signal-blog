@@ -1,8 +1,389 @@
-<!doctype html><html lang=en><head><title>Papers & insights · Duality</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta http-equiv=Content-Security-Policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://www.google-analytics.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/ https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.clarity.ms;"><meta name=author content="Duality"><meta name=description content="Published research, live trading observations, and the evidence behind the models."><meta name=keywords content="physics-informed finance,quantitative research"><meta name=twitter:card content="summary"><meta name=twitter:title content="Papers & insights"><meta name=twitter:description content="Published research, live trading observations, and the evidence behind the models."><meta property="og:url" content="https://jeffeehsiung.github.io/signal-blog/papers/"><meta property="og:site_name" content="Duality"><meta property="og:title" content="Papers & insights"><meta property="og:description" content="Published research, live trading observations, and the evidence behind the models."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><link rel=canonical href=https://jeffeehsiung.github.io/signal-blog/papers/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/signal-blog/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css integrity="sha256-9rGzWnsCUhslM49s9Yl1+ZgKbBKEd2P+NaSDB3WM0ec=" crossorigin=anonymous media=screen><link rel=stylesheet href=/signal-blog/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/signal-blog/site.min.40c76a0835fb6ef528568f8ff06f26846c445d88eb98991c0f751d586b751d27.css integrity="sha256-QMdqCDX7bvUoVo+P8G8mhGxEXYjrmJkcD3UdWGt1HSc=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class="navigation site-navigation" aria-label="Primary navigation"><section class=container><a class="navigation-title site-mark" href=/signal-blog/ aria-label="Duality home">DUALITY<span>_</span></a><div class=site-nav-meta>SIGNAL / STRUCTURE / SYSTEMS</div><input type=checkbox id=menu-toggle>
-<label class=menu-button for=menu-toggle aria-label="Toggle navigation"><i class="fa-solid fa-bars" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/signal-blog/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/videos/>Videos</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/papers/>Papers</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/products/>Products</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1 class=title><a class=title-link href=https://jeffeehsiung.github.io/signal-blog/papers/>Papers & insights</a></h1></header><div class=sharpe-chart id=sharpeChart role=img aria-label="Bar chart showing excess Sharpe by asset"></div><script id=sharpeData type=application/json>"[{\"ev\":0.293,\"excess_sharpe\":3.58,\"max_drawdown\":\"-25.7%\",\"symbol\":\"TSLA\",\"verdict\":\"exceptional\"},{\"ev\":0.26,\"excess_sharpe\":3.17,\"max_drawdown\":\"-34.6%\",\"symbol\":\"BABA\",\"verdict\":\"exceptional\"},{\"ev\":0.264,\"excess_sharpe\":3.05,\"max_drawdown\":\"-28.9%\",\"symbol\":\"META\",\"verdict\":\"exceptional\"},{\"ev\":0.18,\"excess_sharpe\":2.67,\"max_drawdown\":\"-21.7%\",\"symbol\":\"NFLX\",\"verdict\":\"exceptional\"},{\"ev\":0.208,\"excess_sharpe\":2.65,\"max_drawdown\":\"-29.0%\",\"symbol\":\"BIDU\",\"verdict\":\"exceptional\"},{\"ev\":0.132,\"excess_sharpe\":2.47,\"max_drawdown\":\"-30.6%\",\"symbol\":\"FUTU\",\"verdict\":\"excellent\"},{\"ev\":0.182,\"excess_sharpe\":2.15,\"max_drawdown\":\"-25.6%\",\"symbol\":\"GOOGL\",\"verdict\":\"excellent\"},{\"ev\":0.274,\"excess_sharpe\":2.1,\"max_drawdown\":\"-30.1%\",\"symbol\":\"BLTE\",\"verdict\":\"excellent\"},{\"ev\":0.135,\"excess_sharpe\":2.09,\"max_drawdown\":\"-39.9%\",\"symbol\":\"ARM\",\"verdict\":\"excellent\"},{\"ev\":0.168,\"excess_sharpe\":2.2,\"max_drawdown\":\"-48.4%\",\"symbol\":\"AMD\",\"verdict\":\"excellent\"},{\"ev\":0.173,\"excess_sharpe\":1.87,\"max_drawdown\":\"-36.4%\",\"symbol\":\"COIN\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.44,\"max_drawdown\":\"-23.9%\",\"symbol\":\"AAPL\",\"verdict\":\"good\"},{\"ev\":0.113,\"excess_sharpe\":1.49,\"max_drawdown\":\"-45.3%\",\"symbol\":\"MSTR\",\"verdict\":\"marginal\"},{\"ev\":0.114,\"excess_sharpe\":1.3,\"max_drawdown\":\"-48.6%\",\"symbol\":\"NVDA\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.3,\"max_drawdown\":\"-28.8%\",\"symbol\":\"QCOM\",\"verdict\":\"good\"},{\"ev\":0.064,\"excess_sharpe\":0.78,\"max_drawdown\":\"-23.3%\",\"symbol\":\"MSFT\",\"verdict\":\"marginal\"},{\"ev\":-0.022,\"excess_sharpe\":0.65,\"max_drawdown\":\"-34.7%\",\"symbol\":\"TSM\",\"verdict\":\"reject\"}]"</script><script src=https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js></script><script>function renderSharpeChart(){var e,t,n,i,a,r,s=document.getElementById("sharpeData"),o=document.getElementById("sharpeChart");if(!s||!o||!window.echarts)return;e=JSON.parse(s.textContent),t=echarts.init(o),i=e.map(e=>e.symbol),n=e.map(e=>e.excess_sharpe),a=n.map(e=>e>2?"#7c3aed":e>1?"#2563eb":e<0?"#dc2626":"#f59e0b"),r={title:{text:"Excess Sharpe by Asset",left:"center"},tooltip:{trigger:"axis"},xAxis:{type:"category",data:i,axisLabel:{rotate:45}},yAxis:{type:"value",name:"Excess Sharpe"},series:[{type:"bar",data:n.map((e,t)=>({value:e,itemStyle:{color:a[t]}})),barWidth:"50%"}]},t.setOption(r),window.addEventListener("resize",function(){t.resize()})}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",renderSharpeChart):renderSharpeChart()</script><h2 id=live-trading-insights>Live trading insights
-<a class=heading-link href=#live-trading-insights><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The public research layer documents methods and findings. The core algorithm remains private; derived analytical modules can be developed independently around risk, performance, allocation, and behaviour.</p><div class=performance-table-wrap><div class=performance-table id=performance-table-548fd7979b40e996391efd02580690af aria-label="Macro signal performance across the tested asset universe"></div></div><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css><script src=https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js></script><script type=application/json id=performance-table-548fd7979b40e996391efd02580690af-data>"[{\"ev\":0.293,\"excess_sharpe\":3.58,\"max_drawdown\":\"-25.7%\",\"symbol\":\"TSLA\",\"verdict\":\"exceptional\"},{\"ev\":0.26,\"excess_sharpe\":3.17,\"max_drawdown\":\"-34.6%\",\"symbol\":\"BABA\",\"verdict\":\"exceptional\"},{\"ev\":0.264,\"excess_sharpe\":3.05,\"max_drawdown\":\"-28.9%\",\"symbol\":\"META\",\"verdict\":\"exceptional\"},{\"ev\":0.18,\"excess_sharpe\":2.67,\"max_drawdown\":\"-21.7%\",\"symbol\":\"NFLX\",\"verdict\":\"exceptional\"},{\"ev\":0.208,\"excess_sharpe\":2.65,\"max_drawdown\":\"-29.0%\",\"symbol\":\"BIDU\",\"verdict\":\"exceptional\"},{\"ev\":0.132,\"excess_sharpe\":2.47,\"max_drawdown\":\"-30.6%\",\"symbol\":\"FUTU\",\"verdict\":\"excellent\"},{\"ev\":0.182,\"excess_sharpe\":2.15,\"max_drawdown\":\"-25.6%\",\"symbol\":\"GOOGL\",\"verdict\":\"excellent\"},{\"ev\":0.274,\"excess_sharpe\":2.1,\"max_drawdown\":\"-30.1%\",\"symbol\":\"BLTE\",\"verdict\":\"excellent\"},{\"ev\":0.135,\"excess_sharpe\":2.09,\"max_drawdown\":\"-39.9%\",\"symbol\":\"ARM\",\"verdict\":\"excellent\"},{\"ev\":0.168,\"excess_sharpe\":2.2,\"max_drawdown\":\"-48.4%\",\"symbol\":\"AMD\",\"verdict\":\"excellent\"},{\"ev\":0.173,\"excess_sharpe\":1.87,\"max_drawdown\":\"-36.4%\",\"symbol\":\"COIN\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.44,\"max_drawdown\":\"-23.9%\",\"symbol\":\"AAPL\",\"verdict\":\"good\"},{\"ev\":0.113,\"excess_sharpe\":1.49,\"max_drawdown\":\"-45.3%\",\"symbol\":\"MSTR\",\"verdict\":\"marginal\"},{\"ev\":0.114,\"excess_sharpe\":1.3,\"max_drawdown\":\"-48.6%\",\"symbol\":\"NVDA\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.3,\"max_drawdown\":\"-28.8%\",\"symbol\":\"QCOM\",\"verdict\":\"good\"},{\"ev\":0.064,\"excess_sharpe\":0.78,\"max_drawdown\":\"-23.3%\",\"symbol\":\"MSFT\",\"verdict\":\"marginal\"},{\"ev\":-0.022,\"excess_sharpe\":0.65,\"max_drawdown\":\"-34.7%\",\"symbol\":\"TSM\",\"verdict\":\"reject\"}]"</script><script>(function(){var e=document.getElementById("performance-table-548fd7979b40e996391efd02580690af"|jsonify|safeJS),t=document.getElementById("performance-table-548fd7979b40e996391efd02580690af-data"|jsonify|safeJS);if(!e||!t||!window.Tabulator)return;new Tabulator(e,{data:JSON.parse(t.textContent),layout:"fitColumns",responsiveLayout:"collapse",pagination:!0,paginationSize:10,paginationSizeSelector:[10,20],placeholder:"No performance data available",columns:[{title:"Asset",field:"symbol",sorter:"string",width:100},{title:"Excess Sharpe",field:"excess_sharpe",sorter:"number",formatter:function(e){var t=Number(e.getValue()),n=t>2?"is-exceptional":t>1?"is-positive":t<0?"is-negative":"is-neutral";return'<span class="metric-value '+n+'">'+t.toFixed(2)+"</span>"}},{title:"Max drawdown",field:"max_drawdown",sorter:"string"},{title:"EV / trade",field:"ev",sorter:"number",formatter:function(e){return Number(e.getValue()).toFixed(3)}},{title:"Verdict",field:"verdict",sorter:"string",formatter:function(e){var t=e.getValue();return'<span class="performance-verdict performance-verdict-'+t+'">'+t+"</span>"}}]})})()</script></article></section></div><footer class=footer><section class=container>©
-2026
-Duality
-·
-Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/signal-blog/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script src=/signal-blog/js/modules/topic-filter.min.7a3ed5403e367c8fca008395a4a0884ab802573547e108c9b9417663f55694e3.js integrity="sha256-ej7VQD42fI/KAIOVpKCISrgCVzVH4QjJuUF2Y/VWlOM="></script><script src=/signal-blog/js/site.min.5d9c8b768dee98981934b2ca76ec51181d41b7534b713c78a80cc2df8995990d.js integrity="sha256-XZyLdo3umJgZNLLKduxRGB1Bt1NLcTx4qAzC34mVmQ0="></script><script>(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","GTM-KH34MMJ3")</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH34MMJ3" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/signal-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=signal-blog/livereload" data-no-instant defer></script>
+  <title>
+  Papers &amp; insights · Duality
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://www.google-analytics.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/ https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.clarity.ms;">
+
+
+
+
+<meta name="author" content="Duality">
+<meta name="description" content="Published research, live trading observations, and the evidence behind the models.">
+<meta name="keywords" content="physics-informed finance, quantitative research">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Papers & insights">
+  <meta name="twitter:description" content="Published research, live trading observations, and the evidence behind the models.">
+
+<meta property="og:url" content="http://localhost:1313/signal-blog/papers/">
+  <meta property="og:site_name" content="Duality">
+  <meta property="og:title" content="Papers & insights">
+  <meta property="og:description" content="Published research, live trading observations, and the evidence behind the models.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/signal-blog/papers/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/signal-blog/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/signal-blog/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/signal-blog/site.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation site-navigation" aria-label="Primary navigation">
+  <section class="container">
+    <a class="navigation-title site-mark" href="/signal-blog/" aria-label="Duality home">DUALITY<span>_</span></a>
+    <div class="site-nav-meta">SIGNAL / STRUCTURE / SYSTEMS</div>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></label>
+      <ul class="navigation-list">
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/videos/">Videos</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/papers/">Papers</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/products/">Products</a>
+          </li>
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container page">
+  <article>
+    <header>
+      <h1 class="title">
+        <a class="title-link" href="http://localhost:1313/signal-blog/papers/">
+          Papers &amp; insights
+        </a>
+      </h1>
+    </header>
+
+    <h2 id="performance-explorer">
+  Performance explorer
+  <a class="heading-link" href="#performance-explorer">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The explorer compares the current asset-level results using the metrics available in the research dataset. Hover a chart mark for detail, or search and sort the table to inspect individual assets.</p>
+
+
+
+<section class="performance-explorer" id="performance-explorer-548fd7979b40e996391efd02580690af" aria-labelledby="performance-explorer-548fd7979b40e996391efd02580690af-title">
+  <div class="explorer-heading">
+    <div>
+      <p class="module-code">INTERACTIVE / PERFORMANCE</p>
+      <h2 id="performance-explorer-548fd7979b40e996391efd02580690af-title">Cross-asset performance explorer</h2>
+      <p>Hover the charts for detail. Sort, filter, and inspect the complete asset-level results below.</p>
+    </div>
+    <span class="explorer-count">17 assets</span>
+  </div>
+
+  <div class="explorer-charts">
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Sharpe and EV by asset</h3><span>comparison</span></div>
+      <div class="explorer-chart" id="performance-explorer-548fd7979b40e996391efd02580690af-comparison" role="img" aria-label="Comparison chart of Sharpe and expected value by asset"></div>
+    </div>
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Risk / return map</h3><span>drawdown vs Sharpe</span></div>
+      <div class="explorer-chart" id="performance-explorer-548fd7979b40e996391efd02580690af-risk" role="img" aria-label="Scatter chart of maximum drawdown and Sharpe by asset"></div>
+    </div>
+  </div>
+
+  <div class="explorer-table-shell">
+    <div class="explorer-table-heading"><h3>Asset-level detail</h3><span>Sortable / filterable</span></div>
+    <label class="explorer-search">Search assets <input type="search" id="performance-explorer-548fd7979b40e996391efd02580690af-search" placeholder="e.g. NVDA"></label>
+    <div class="performance-table" id="performance-explorer-548fd7979b40e996391efd02580690af-table" aria-label="Detailed asset performance table"></div>
+  </div>
+
+  <script type="application/json" id="performance-explorer-548fd7979b40e996391efd02580690af-data">"[{\"ev\":0.293,\"excess_sharpe\":3.58,\"max_drawdown\":\"-25.7%\",\"symbol\":\"TSLA\",\"verdict\":\"exceptional\"},{\"ev\":0.26,\"excess_sharpe\":3.17,\"max_drawdown\":\"-34.6%\",\"symbol\":\"BABA\",\"verdict\":\"exceptional\"},{\"ev\":0.264,\"excess_sharpe\":3.05,\"max_drawdown\":\"-28.9%\",\"symbol\":\"META\",\"verdict\":\"exceptional\"},{\"ev\":0.18,\"excess_sharpe\":2.67,\"max_drawdown\":\"-21.7%\",\"symbol\":\"NFLX\",\"verdict\":\"exceptional\"},{\"ev\":0.208,\"excess_sharpe\":2.65,\"max_drawdown\":\"-29.0%\",\"symbol\":\"BIDU\",\"verdict\":\"exceptional\"},{\"ev\":0.132,\"excess_sharpe\":2.47,\"max_drawdown\":\"-30.6%\",\"symbol\":\"FUTU\",\"verdict\":\"excellent\"},{\"ev\":0.182,\"excess_sharpe\":2.15,\"max_drawdown\":\"-25.6%\",\"symbol\":\"GOOGL\",\"verdict\":\"excellent\"},{\"ev\":0.274,\"excess_sharpe\":2.1,\"max_drawdown\":\"-30.1%\",\"symbol\":\"BLTE\",\"verdict\":\"excellent\"},{\"ev\":0.135,\"excess_sharpe\":2.09,\"max_drawdown\":\"-39.9%\",\"symbol\":\"ARM\",\"verdict\":\"excellent\"},{\"ev\":0.168,\"excess_sharpe\":2.2,\"max_drawdown\":\"-48.4%\",\"symbol\":\"AMD\",\"verdict\":\"excellent\"},{\"ev\":0.173,\"excess_sharpe\":1.87,\"max_drawdown\":\"-36.4%\",\"symbol\":\"COIN\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.44,\"max_drawdown\":\"-23.9%\",\"symbol\":\"AAPL\",\"verdict\":\"good\"},{\"ev\":0.113,\"excess_sharpe\":1.49,\"max_drawdown\":\"-45.3%\",\"symbol\":\"MSTR\",\"verdict\":\"marginal\"},{\"ev\":0.114,\"excess_sharpe\":1.3,\"max_drawdown\":\"-48.6%\",\"symbol\":\"NVDA\",\"verdict\":\"good\"},{\"ev\":0.121,\"excess_sharpe\":1.3,\"max_drawdown\":\"-28.8%\",\"symbol\":\"QCOM\",\"verdict\":\"good\"},{\"ev\":0.064,\"excess_sharpe\":0.78,\"max_drawdown\":\"-23.3%\",\"symbol\":\"MSFT\",\"verdict\":\"marginal\"},{\"ev\":-0.022,\"excess_sharpe\":0.65,\"max_drawdown\":\"-34.7%\",\"symbol\":\"TSM\",\"verdict\":\"reject\"}]"</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+  <script>
+  (function() {
+    var root = document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af");
+    var dataElement = document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af-data" | jsonify | safeJS);
+    if (!root || !dataElement || !window.echarts || !window.Tabulator) return;
+
+    var assets = JSON.parse(dataElement.textContent).map(function(asset) {
+      return Object.assign({}, asset, { drawdownValue: parseFloat(asset.max_drawdown) });
+    });
+    var colors = { exceptional: '#00f5d4', excellent: '#7d72ff', good: '#6fd3a8', marginal: '#f4c95d', reject: '#ff6b6b' };
+    var textColor = '#8998a9';
+    var lineColor = '#1d3041';
+
+    function tooltip(params) {
+      var item = params[0] && params[0].data && params[0].data.asset;
+      var asset = assets.find(function(row) { return row.symbol === item; });
+      if (!asset) return '';
+      return '<strong>' + asset.symbol + '</strong><br>' +
+        'Excess Sharpe: ' + Number(asset.excess_sharpe).toFixed(2) + '<br>' +
+        'EV / trade: ' + Number(asset.ev).toFixed(3) + '<br>' +
+        'Max drawdown: ' + asset.max_drawdown + '<br>' +
+        'Verdict: ' + asset.verdict;
+    }
+
+    var comparison = echarts.init(document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af-comparison" | jsonify | safeJS ));
+    comparison.setOption({
+      backgroundColor: 'transparent',
+      color: ['#00f5d4', '#7d72ff'],
+      grid: { left: 48, right: 18, top: 35, bottom: 60 },
+      legend: { textStyle: { color: textColor, fontSize: 11 }, top: 0 },
+      tooltip: { trigger: 'axis', formatter: tooltip },
+      xAxis: { type: 'category', data: assets.map(function(row) { return row.symbol; }), axisLabel: { color: textColor, rotate: 45, fontSize: 10 }, axisLine: { lineStyle: { color: lineColor } } },
+      yAxis: { type: 'value', axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      series: [
+        { name: 'Excess Sharpe', type: 'bar', barMaxWidth: 18, data: assets.map(function(row) { return { value: row.excess_sharpe, asset: row.symbol, itemStyle: { color: colors[row.verdict] || '#00f5d4' } }; }) },
+        { name: 'EV / trade', type: 'line', smooth: true, data: assets.map(function(row) { return { value: row.ev, asset: row.symbol }; }) }
+      ]
+    });
+
+    var risk = echarts.init(document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af-risk" | jsonify | safeJS ));
+    risk.setOption({
+      backgroundColor: 'transparent',
+      grid: { left: 55, right: 18, top: 25, bottom: 45 },
+      tooltip: { trigger: 'item', formatter: function(params) { return tooltip([{ data: { asset: params.data.asset } }]); } },
+      xAxis: { type: 'value', name: 'Max drawdown %', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      yAxis: { type: 'value', name: 'Excess Sharpe', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      series: [{ type: 'scatter', symbolSize: 13, data: assets.map(function(row) { return { value: [row.drawdownValue, row.excess_sharpe], asset: row.symbol, itemStyle: { color: colors[row.verdict] || '#00f5d4' } }; }) }]
+    });
+
+    var table = new Tabulator(document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af-table" | jsonify | safeJS), {
+      data: assets,
+      layout: 'fitColumns',
+      responsiveLayout: 'collapse',
+      pagination: true,
+      paginationSize: 10,
+      paginationSizeSelector: [10, 20],
+      placeholder: 'No matching assets',
+      columns: [
+        { title: 'Asset', field: 'symbol', sorter: 'string', width: 100 },
+        { title: 'Excess Sharpe', field: 'excess_sharpe', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(2); } },
+        { title: 'Max drawdown', field: 'max_drawdown', sorter: 'number' },
+        { title: 'EV / trade', field: 'ev', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(3); } },
+        { title: 'Verdict', field: 'verdict', sorter: 'string', formatter: function(cell) { var value = cell.getValue(); return '<span class="performance-verdict performance-verdict-' + value + '">' + value + '</span>'; } }
+      ]
+    });
+
+    var search = document.getElementById("performance-explorer-548fd7979b40e996391efd02580690af-search" | jsonify | safeJS);
+    search.addEventListener('input', function(event) { table.setFilter('symbol', 'like', event.target.value); });
+    window.addEventListener('resize', function() { comparison.resize(); risk.resize(); });
+  }());
+  </script>
+</section>
+
+<h2 id="live-trading-insights">
+  Live trading insights
+  <a class="heading-link" href="#live-trading-insights">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The public research layer documents methods and findings. The core algorithm remains private; derived analytical modules can be developed independently around risk, performance, allocation, and behaviour.</p>
+<h2 id="methodology">
+  Methodology
+  <a class="heading-link" href="#methodology">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The dataset contains asset-level summary metrics for the evaluated signal set. Excess Sharpe measures risk-adjusted performance, expected value is reported per trade, and maximum drawdown indicates the deepest observed peak-to-trough decline.</p>
+<p>These summaries are descriptive research outputs, not a promise of future performance. The current public dataset does not include transaction costs, slippage, position sizing, or a full out-of-sample split.</p>
+<h2 id="limitations">
+  Limitations
+  <a class="heading-link" href="#limitations">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<ul>
+<li>Results may be sensitive to the selected universe and evaluation window.</li>
+<li>Drawdown and Sharpe do not fully describe execution risk or liquidity.</li>
+<li>The public view omits proprietary signal construction and implementation details.</li>
+<li>Any live deployment would require independent validation, costs, and risk controls.</li>
+</ul>
+
+  </article>
+</section>
+
+  
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Duality 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/signal-blog/js/coder.js"></script>
+  
+
+  
+  
+  
+  <script src="/signal-blog/js/modules/topic-filter.js"></script>
+  
+  
+  
+  
+  <script src="/signal-blog/js/site.js"></script>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KH34MMJ3');
+</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH34MMJ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

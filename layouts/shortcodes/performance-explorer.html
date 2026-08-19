@@ -1,0 +1,106 @@
+{{ $data := .Site.Data.performance }}
+{{ $explorerID := printf "performance-explorer-%s" (.Page.RelPermalink | md5) }}
+
+<section class="performance-explorer" id="{{ $explorerID }}" aria-labelledby="{{ $explorerID }}-title">
+  <div class="explorer-heading">
+    <div>
+      <p class="module-code">INTERACTIVE / PERFORMANCE</p>
+      <h2 id="{{ $explorerID }}-title">Cross-asset performance explorer</h2>
+      <p>Hover the charts for detail. Sort, filter, and inspect the complete asset-level results below.</p>
+    </div>
+    <span class="explorer-count">{{ len $data.assets }} assets</span>
+  </div>
+
+  <div class="explorer-charts">
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Sharpe and EV by asset</h3><span>comparison</span></div>
+      <div class="explorer-chart" id="{{ $explorerID }}-comparison" role="img" aria-label="Comparison chart of Sharpe and expected value by asset"></div>
+    </div>
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Risk / return map</h3><span>drawdown vs Sharpe</span></div>
+      <div class="explorer-chart" id="{{ $explorerID }}-risk" role="img" aria-label="Scatter chart of maximum drawdown and Sharpe by asset"></div>
+    </div>
+  </div>
+
+  <div class="explorer-table-shell">
+    <div class="explorer-table-heading"><h3>Asset-level detail</h3><span>Sortable / filterable</span></div>
+    <label class="explorer-search">Search assets <input type="search" id="{{ $explorerID }}-search" placeholder="e.g. NVDA"></label>
+    <div class="performance-table" id="{{ $explorerID }}-table" aria-label="Detailed asset performance table"></div>
+  </div>
+
+  <script type="application/json" id="{{ $explorerID }}-data">{{ $data.assets | jsonify | safeHTML }}</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+  <script>
+  (function() {
+    var root = document.getElementById({{ $explorerID | jsonify | safeJS }});
+    var dataElement = document.getElementById({{ printf "%s-data" $explorerID }} | jsonify | safeJS);
+    if (!root || !dataElement || !window.echarts || !window.Tabulator) return;
+
+    var assets = JSON.parse(dataElement.textContent).map(function(asset) {
+      return Object.assign({}, asset, { drawdownValue: parseFloat(asset.max_drawdown) });
+    });
+    var colors = { exceptional: '#00f5d4', excellent: '#7d72ff', good: '#6fd3a8', marginal: '#f4c95d', reject: '#ff6b6b' };
+    var textColor = '#8998a9';
+    var lineColor = '#1d3041';
+
+    function tooltip(params) {
+      var item = params[0] && params[0].data && params[0].data.asset;
+      var asset = assets.find(function(row) { return row.symbol === item; });
+      if (!asset) return '';
+      return '<strong>' + asset.symbol + '</strong><br>' +
+        'Excess Sharpe: ' + Number(asset.excess_sharpe).toFixed(2) + '<br>' +
+        'EV / trade: ' + Number(asset.ev).toFixed(3) + '<br>' +
+        'Max drawdown: ' + asset.max_drawdown + '<br>' +
+        'Verdict: ' + asset.verdict;
+    }
+
+    var comparison = echarts.init(document.getElementById({{ printf "%s-comparison" $explorerID }} | jsonify | safeJS ));
+    comparison.setOption({
+      backgroundColor: 'transparent',
+      color: ['#00f5d4', '#7d72ff'],
+      grid: { left: 48, right: 18, top: 35, bottom: 60 },
+      legend: { textStyle: { color: textColor, fontSize: 11 }, top: 0 },
+      tooltip: { trigger: 'axis', formatter: tooltip },
+      xAxis: { type: 'category', data: assets.map(function(row) { return row.symbol; }), axisLabel: { color: textColor, rotate: 45, fontSize: 10 }, axisLine: { lineStyle: { color: lineColor } } },
+      yAxis: { type: 'value', axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      series: [
+        { name: 'Excess Sharpe', type: 'bar', barMaxWidth: 18, data: assets.map(function(row) { return { value: row.excess_sharpe, asset: row.symbol, itemStyle: { color: colors[row.verdict] || '#00f5d4' } }; }) },
+        { name: 'EV / trade', type: 'line', smooth: true, data: assets.map(function(row) { return { value: row.ev, asset: row.symbol }; }) }
+      ]
+    });
+
+    var risk = echarts.init(document.getElementById({{ printf "%s-risk" $explorerID }} | jsonify | safeJS ));
+    risk.setOption({
+      backgroundColor: 'transparent',
+      grid: { left: 55, right: 18, top: 25, bottom: 45 },
+      tooltip: { trigger: 'item', formatter: function(params) { return tooltip([{ data: { asset: params.data.asset } }]); } },
+      xAxis: { type: 'value', name: 'Max drawdown %', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      yAxis: { type: 'value', name: 'Excess Sharpe', nameTextStyle: { color: textColor }, axisLabel: { color: textColor, fontSize: 10 }, splitLine: { lineStyle: { color: lineColor } } },
+      series: [{ type: 'scatter', symbolSize: 13, data: assets.map(function(row) { return { value: [row.drawdownValue, row.excess_sharpe], asset: row.symbol, itemStyle: { color: colors[row.verdict] || '#00f5d4' } }; }) }]
+    });
+
+    var table = new Tabulator(document.getElementById({{ printf "%s-table" $explorerID }} | jsonify | safeJS), {
+      data: assets,
+      layout: 'fitColumns',
+      responsiveLayout: 'collapse',
+      pagination: true,
+      paginationSize: 10,
+      paginationSizeSelector: [10, 20],
+      placeholder: 'No matching assets',
+      columns: [
+        { title: 'Asset', field: 'symbol', sorter: 'string', width: 100 },
+        { title: 'Excess Sharpe', field: 'excess_sharpe', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(2); } },
+        { title: 'Max drawdown', field: 'max_drawdown', sorter: 'number' },
+        { title: 'EV / trade', field: 'ev', sorter: 'number', formatter: function(cell) { return Number(cell.getValue()).toFixed(3); } },
+        { title: 'Verdict', field: 'verdict', sorter: 'string', formatter: function(cell) { var value = cell.getValue(); return '<span class="performance-verdict performance-verdict-' + value + '">' + value + '</span>'; } }
+      ]
+    });
+
+    var search = document.getElementById({{ printf "%s-search" $explorerID }} | jsonify | safeJS);
+    search.addEventListener('input', function(event) { table.setFilter('symbol', 'like', event.target.value); });
+    window.addEventListener('resize', function() { comparison.resize(); risk.resize(); });
+  }());
+  </script>
+</section>
