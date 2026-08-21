@@ -1,46 +1,555 @@
-<!doctype html><html lang=en><head><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer · Duality</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta http-equiv=Content-Security-Policy content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://www.google-analytics.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/ https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.clarity.ms;"><meta name=author content="Duality"><meta name=description content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation."><meta name=keywords content="physics-informed finance,quantitative research"><meta name=twitter:card content="summary"><meta name=twitter:title content="Physics-Inspired Alpha: A Signal Engine Before the Risk Layer"><meta name=twitter:description content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation."><meta property="og:url" content="https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/"><meta property="og:site_name" content="Duality"><meta property="og:title" content="Physics-Inspired Alpha: A Signal Engine Before the Risk Layer"><meta property="og:description" content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation."><meta property="og:locale" content="en_us"><meta property="og:type" content="article"><meta property="article:section" content="posts"><meta property="article:published_time" content="2026-08-21T00:00:00+00:00"><meta property="article:modified_time" content="2026-08-21T00:00:00+00:00"><meta property="article:tag" content="Quantitative Research"><meta property="article:tag" content="Signal Processing"><meta property="article:tag" content="Backtesting"><link rel=canonical href=https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/><link rel=preload href=/fonts/fa-brands-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-regular-400.woff2 as=font type=font/woff2 crossorigin><link rel=preload href=/fonts/fa-solid-900.woff2 as=font type=font/woff2 crossorigin><link rel=stylesheet href=/signal-blog/css/coder.min.f6b1b35a7b02521b25338f6cf58975f9980a6c12847763fe35a48307758cd1e7.css integrity="sha256-9rGzWnsCUhslM49s9Yl1+ZgKbBKEd2P+NaSDB3WM0ec=" crossorigin=anonymous media=screen><link rel=stylesheet href=/signal-blog/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin=anonymous media=screen><link rel=stylesheet href=/signal-blog/site.min.7c10bfb8894b733610a0a416caa6bee8aa2a32e4a90caf92fa1fb5bf70bbdf42.css integrity="sha256-fBC/uIlLczYQoKQWyqa+6KoqMuSpDK+S+h+1v3C730I=" crossorigin=anonymous media=screen><link rel=icon type=image/svg+xml href=/images/favicon.svg sizes=any><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5></head><body class="preload-transitions colorscheme-auto"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa-solid fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class="navigation site-navigation" aria-label="Primary navigation"><section class=container><a class="navigation-title site-mark" href=/signal-blog/ aria-label="Duality home">DUALITY<span>_</span></a><div class=site-nav-meta>SIGNAL / STRUCTURE / SYSTEMS</div><input type=checkbox id=menu-toggle>
-<label class=menu-button for=menu-toggle aria-label="Toggle navigation"><i class="fa-solid fa-bars" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/signal-blog/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/videos/>Videos</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/papers/>Papers</a></li><li class=navigation-item><a class=navigation-link href=/signal-blog/products/>Products</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
-<time datetime=2026-08-21T00:00:00Z>August 21, 2026
-</time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-5-minute read</span></div><div class=categories><i class="fa-solid fa-folder" aria-hidden=true></i>
-<a href=/signal-blog/categories/research/>Research</a></div><div class=tags><i class="fa-solid fa-tag" aria-hidden=true></i>
-<span class=tag><a href=/signal-blog/tags/quantitative-research/>Quantitative Research</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=/signal-blog/tags/signal-processing/>Signal Processing</a>
-</span><span class=separator>•</span>
-<span class=tag><a href=/signal-blog/tags/backtesting/>Backtesting</a></span></div></div></header><div class=post-content><blockquote><p><strong>Research note.</strong> The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.</p></blockquote><h2 id=the-question>The question
-<a class=heading-link href=#the-question><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.</p><p>This research began with a simple question: <strong>can a signal-processing system describe market behaviour in terms that are closer to a physical system than to a static classifier?</strong></p><p>The resulting engine is a layered directional pipeline. Its implementation is proprietary, but its conceptual architecture is straightforward enough to audit:</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-text data-lang=text><span style=display:flex><span>Market observations
-</span></span><span style=display:flex><span>        |
-</span></span><span style=display:flex><span>Multi-scale decomposition -&gt; phase and coherence -&gt; geometric state
-</span></span><span style=display:flex><span>        |
-</span></span><span style=display:flex><span>uncertainty / entropy estimate -&gt; directional state -&gt; signal outcome
-</span></span><span style=display:flex><span>        |
-</span></span><span style=display:flex><span>                 risk and position allocation [in development]
-</span></span></code></pre></div><p>The references to spectral analysis, phase, geometry, thermodynamics, and quantum-inspired state evolution are conceptual lenses. They should not be read as a claim that markets literally obey the equations of physics, nor as a substitute for statistical validation.</p><h2 id=what-is-being-measured>What is being measured
-<a class=heading-link href=#what-is-being-measured><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The export contains three views of the signal: a macro component, a micro component, and a composite output. This post focuses on the composite signal where it is useful, while keeping the macro comparison visible in the interactive explorer.</p><p>The key distinction is between <strong>signal quality</strong> and <strong>portfolio quality</strong>. A positive expected value before allocation says something about the directional forecast. It does not say how much capital should be exposed, whether trades can be executed at scale, or how the result survives costs.</p><h2 id=results-at-a-glance>Results at a glance
-<a class=heading-link href=#results-at-a-glance><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The following highlights use the supplied total-Sharpe, composite-drawdown, Calmar, hit-rate, profit-factor, and annualized-EV fields. EV is shown in the export&rsquo;s native units; it is not relabeled as a percentage.</p><table><thead><tr><th style=text-align:left>Asset</th><th style=text-align:right>Composite Sharpe</th><th style=text-align:right>Max drawdown</th><th style=text-align:right>Calmar</th><th style=text-align:right>Hit rate</th><th style=text-align:right>Profit factor</th><th style=text-align:right>Annualized EV</th></tr></thead><tbody><tr><td style=text-align:left>GOOGL</td><td style=text-align:right>4.10</td><td style=text-align:right>-18.0%</td><td style=text-align:right>8.56</td><td style=text-align:right>55.8%</td><td style=text-align:right>1.14</td><td style=text-align:right>1,284.3</td></tr><tr><td style=text-align:left>COIN</td><td style=text-align:right>4.36</td><td style=text-align:right>-34.7%</td><td style=text-align:right>15.60</td><td style=text-align:right>56.2%</td><td style=text-align:right>1.30</td><td style=text-align:right>1,026.1</td></tr><tr><td style=text-align:left>NVDA</td><td style=text-align:right>3.16</td><td style=text-align:right>-21.4%</td><td style=text-align:right>13.88</td><td style=text-align:right>54.1%</td><td style=text-align:right>1.12</td><td style=text-align:right>979.2</td></tr><tr><td style=text-align:left>TSLA</td><td style=text-align:right>3.46</td><td style=text-align:right>-17.8%</td><td style=text-align:right>31.69</td><td style=text-align:right>52.9%</td><td style=text-align:right>1.19</td><td style=text-align:right>992.6</td></tr><tr><td style=text-align:left>AAPL</td><td style=text-align:right>1.44</td><td style=text-align:right>-19.3%</td><td style=text-align:right>3.19</td><td style=text-align:right>52.3%</td><td style=text-align:right>1.09</td><td style=text-align:right>593.4</td></tr></tbody></table><p>These are promising diagnostics, not proof of deployability. The sample includes heterogeneous assets and uneven row counts. Some assets also show unstable or negative composite results, which is valuable evidence: the engine is not uniformly reliable across the universe.</p><h2 id=explore-the-full-export>Explore the full export
-<a class=heading-link href=#explore-the-full-export><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The explorer below is deliberately outcome-focused. It lets the reader compare macro and composite Sharpe, inspect the return profile, search symbols, and sort the supplied asset-level fields. It does not expose the model&rsquo;s parameters, update schedule, feature construction, or allocation rules.</p><section class=performance-explorer id=performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3 aria-labelledby=performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3-title><div class=explorer-heading><div><p class=module-code>INTERACTIVE / PERFORMANCE</p><h2 id=performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3-title>Cross-asset performance explorer</h2><p>Hover the charts for detail. Sort, filter, and inspect the supplied asset-level results below.</p></div><span class=explorer-count>20 assets</span></div><div class=explorer-charts><div class=explorer-chart-card><div class=explorer-card-heading><h3>Macro vs composite Sharpe</h3><span>risk-adjusted signal</span></div><div class=explorer-chart role=img aria-label="Comparison chart of Macro and Composite Sharpe by asset"></div></div><div class=explorer-chart-card><div class=explorer-card-heading><h3>Return profile</h3><span>median return vs Sharpe</span></div><div class=explorer-chart role=img aria-label="Scatter chart of return and Sharpe by asset"></div></div></div><div class=explorer-table-shell><div class=explorer-table-heading><h3>Asset-level detail</h3><span>Sortable / filterable</span></div><label class=explorer-search>Search assets <input type=search placeholder="e.g. NVDA"></label><div class=performance-table aria-label="Detailed asset performance table"></div></div><script type=application/json>"[{\"annualized_ev_composite\":593.369,\"avg_annual_profit_factor_composite\":1.0875,\"calmar_composite\":3.1916,\"composite_hit_rate\":0.5227,\"composite_ret_pct_p50\":0.1619,\"macro_ret_pct_p50\":0.2005,\"max_drawdown_composite\":-0.1927,\"n_rows\":23897,\"sharpe_total_composite\":1.4399,\"sharpe_total_macro\":1.4359,\"symbol\":\"AAPL\"},{\"annualized_ev_composite\":1166.043,\"avg_annual_profit_factor_composite\":1.1559,\"calmar_composite\":7.3202,\"composite_hit_rate\":0.5651,\"composite_ret_pct_p50\":0.806,\"macro_ret_pct_p50\":0.8263,\"max_drawdown_composite\":-0.3029,\"n_rows\":23177,\"sharpe_total_composite\":3.9047,\"sharpe_total_macro\":3.1893,\"symbol\":\"AMAT\"},{\"annualized_ev_composite\":681.162,\"avg_annual_profit_factor_composite\":1.1552,\"calmar_composite\":5.2135,\"composite_hit_rate\":0.5201,\"composite_ret_pct_p50\":0.2775,\"macro_ret_pct_p50\":0.4065,\"max_drawdown_composite\":-0.3327,\"n_rows\":23555,\"sharpe_total_composite\":2.3433,\"sharpe_total_macro\":2.5797,\"symbol\":\"AMD\"},{\"annualized_ev_composite\":488.698,\"avg_annual_profit_factor_composite\":1.0599,\"calmar_composite\":3.9791,\"composite_hit_rate\":0.5164,\"composite_ret_pct_p50\":0.2935,\"macro_ret_pct_p50\":0.2979,\"max_drawdown_composite\":-0.3027,\"n_rows\":16391,\"sharpe_total_composite\":1.4826,\"sharpe_total_macro\":1.3187,\"symbol\":\"ARM\"},{\"annualized_ev_composite\":690.105,\"avg_annual_profit_factor_composite\":1.0993,\"calmar_composite\":5.5483,\"composite_hit_rate\":0.503,\"composite_ret_pct_p50\":0.0719,\"macro_ret_pct_p50\":0.0281,\"max_drawdown_composite\":-0.206,\"n_rows\":23732,\"sharpe_total_composite\":1.877,\"sharpe_total_macro\":1.7562,\"symbol\":\"BABA\"},{\"annualized_ev_composite\":1515.456,\"avg_annual_profit_factor_composite\":1.2257,\"calmar_composite\":14.6205,\"composite_hit_rate\":0.5559,\"composite_ret_pct_p50\":0.5715,\"macro_ret_pct_p50\":0.5433,\"max_drawdown_composite\":-0.2788,\"n_rows\":23024,\"sharpe_total_composite\":3.6956,\"sharpe_total_macro\":3.4265,\"symbol\":\"BLTE\"},{\"annualized_ev_composite\":1026.08,\"avg_annual_profit_factor_composite\":1.2969,\"calmar_composite\":15.6004,\"composite_hit_rate\":0.5618,\"composite_ret_pct_p50\":1.1784,\"macro_ret_pct_p50\":1.359,\"max_drawdown_composite\":-0.3466,\"n_rows\":23441,\"sharpe_total_composite\":4.356,\"sharpe_total_macro\":4.253,\"symbol\":\"COIN\"},{\"annualized_ev_composite\":1147.978,\"avg_annual_profit_factor_composite\":1.3477,\"calmar_composite\":13.9501,\"composite_hit_rate\":0.5229,\"composite_ret_pct_p50\":0.3421,\"macro_ret_pct_p50\":0.3073,\"max_drawdown_composite\":-0.3344,\"n_rows\":17503,\"sharpe_total_composite\":3.2568,\"sharpe_total_macro\":2.9146,\"symbol\":\"FUTU\"},{\"annualized_ev_composite\":1284.321,\"avg_annual_profit_factor_composite\":1.1362,\"calmar_composite\":8.5584,\"composite_hit_rate\":0.5583,\"composite_ret_pct_p50\":0.5275,\"macro_ret_pct_p50\":0.6861,\"max_drawdown_composite\":-0.1798,\"n_rows\":23412,\"sharpe_total_composite\":4.1027,\"sharpe_total_macro\":3.8243,\"symbol\":\"GOOGL\"},{\"annualized_ev_composite\":902.557,\"avg_annual_profit_factor_composite\":1.2085,\"calmar_composite\":15.4687,\"composite_hit_rate\":0.5159,\"composite_ret_pct_p50\":0.3608,\"macro_ret_pct_p50\":0.3685,\"max_drawdown_composite\":-0.4175,\"n_rows\":23726,\"sharpe_total_composite\":2.575,\"sharpe_total_macro\":2.8359,\"symbol\":\"IONQ\"},{\"annualized_ev_composite\":882.457,\"avg_annual_profit_factor_composite\":1.1538,\"calmar_composite\":14.1528,\"composite_hit_rate\":0.5417,\"composite_ret_pct_p50\":0.3396,\"macro_ret_pct_p50\":0.4668,\"max_drawdown_composite\":-0.1551,\"n_rows\":17780,\"sharpe_total_composite\":3.3555,\"sharpe_total_macro\":3.624,\"symbol\":\"META\"},{\"annualized_ev_composite\":965.799,\"avg_annual_profit_factor_composite\":1.2215,\"calmar_composite\":8.1106,\"composite_hit_rate\":0.5618,\"composite_ret_pct_p50\":0.4979,\"macro_ret_pct_p50\":0.4863,\"max_drawdown_composite\":-0.2086,\"n_rows\":17578,\"sharpe_total_composite\":3.6757,\"sharpe_total_macro\":3.351,\"symbol\":\"NFLX\"},{\"annualized_ev_composite\":979.234,\"avg_annual_profit_factor_composite\":1.115,\"calmar_composite\":13.8805,\"composite_hit_rate\":0.5412,\"composite_ret_pct_p50\":0.4596,\"macro_ret_pct_p50\":0.6442,\"max_drawdown_composite\":-0.2138,\"n_rows\":23843,\"sharpe_total_composite\":3.1592,\"sharpe_total_macro\":3.0423,\"symbol\":\"NVDA\"},{\"annualized_ev_composite\":1369.835,\"avg_annual_profit_factor_composite\":1.4354,\"calmar_composite\":78.1689,\"composite_hit_rate\":0.494,\"composite_ret_pct_p50\":-0.0334,\"macro_ret_pct_p50\":-0.1681,\"max_drawdown_composite\":-0.4306,\"n_rows\":23647,\"sharpe_total_composite\":3.7206,\"sharpe_total_macro\":3.666,\"symbol\":\"QBTS\"},{\"annualized_ev_composite\":881.366,\"avg_annual_profit_factor_composite\":1.2513,\"calmar_composite\":12.0423,\"composite_hit_rate\":0.5512,\"composite_ret_pct_p50\":0.4418,\"macro_ret_pct_p50\":0.5604,\"max_drawdown_composite\":-0.1872,\"n_rows\":17617,\"sharpe_total_composite\":3.3621,\"sharpe_total_macro\":3.4478,\"symbol\":\"QCOM\"},{\"annualized_ev_composite\":72.152,\"avg_annual_profit_factor_composite\":1.0528,\"calmar_composite\":0.6421,\"composite_hit_rate\":0.4915,\"composite_ret_pct_p50\":-0.0856,\"macro_ret_pct_p50\":-0.0906,\"max_drawdown_composite\":-0.3732,\"n_rows\":23534,\"sharpe_total_composite\":0.2661,\"sharpe_total_macro\":1.1062,\"symbol\":\"QUBT\"},{\"annualized_ev_composite\":947.218,\"avg_annual_profit_factor_composite\":1.2115,\"calmar_composite\":18.4358,\"composite_hit_rate\":0.5042,\"composite_ret_pct_p50\":0.1783,\"macro_ret_pct_p50\":0.065,\"max_drawdown_composite\":-0.5087,\"n_rows\":23398,\"sharpe_total_composite\":2.5978,\"sharpe_total_macro\":2.7925,\"symbol\":\"RGTI\"},{\"annualized_ev_composite\":178.93,\"avg_annual_profit_factor_composite\":1.3022,\"calmar_composite\":12.6997,\"composite_hit_rate\":0.6004,\"composite_ret_pct_p50\":1.9771,\"macro_ret_pct_p50\":1.9771,\"max_drawdown_composite\":-0.019,\"n_rows\":468,\"sharpe_total_composite\":-2.2498,\"sharpe_total_macro\":0.817,\"symbol\":\"SPCX\"},{\"annualized_ev_composite\":992.564,\"avg_annual_profit_factor_composite\":1.1902,\"calmar_composite\":31.6933,\"composite_hit_rate\":0.5286,\"composite_ret_pct_p50\":0.3775,\"macro_ret_pct_p50\":0.2217,\"max_drawdown_composite\":-0.1782,\"n_rows\":23779,\"sharpe_total_composite\":3.4615,\"sharpe_total_macro\":2.0301,\"symbol\":\"TSLA\"},{\"annualized_ev_composite\":151.794,\"avg_annual_profit_factor_composite\":1.0504,\"calmar_composite\":-0.6455,\"composite_hit_rate\":0.5227,\"composite_ret_pct_p50\":0.5715,\"macro_ret_pct_p50\":0.2094,\"max_drawdown_composite\":-0.7293,\"n_rows\":1913,\"sharpe_total_composite\":-1.0589,\"sharpe_total_macro\":0.3889,\"symbol\":\"XNDU\"}]"</script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css><script src=https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js></script><script src=https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js></script></section><h2 id=reading-the-result>Reading the result
-<a class=heading-link href=#reading-the-result><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><h3 id=separation-from-noise>Separation from noise
-<a class=heading-link href=#separation-from-noise><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>A higher Sharpe ratio is consistent with the pipeline separating a repeatable component from short-horizon noise. It is not enough on its own: Sharpe is sensitive to dependence, non-normality, and the return construction used by the backtest.</p><h3 id=drawdown-awareness>Drawdown awareness
-<a class=heading-link href=#drawdown-awareness><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The drawdown figures show why signal generation and risk management must remain separate. COIN and several high-volatility names have attractive risk-adjusted statistics alongside material losses from peak to trough. A risk layer should decide whether that exposure is acceptable for a particular mandate.</p><h3 id=uneven-reliability>Uneven reliability
-<a class=heading-link href=#uneven-reliability><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Hit rate is close to 50% for many assets. That is not a contradiction. A strategy can be profitable with a modest hit rate when the distribution of wins and losses is favorable, and it can be unhelpful when the payoff distribution, costs, or regime changes work against it. The negative or weak composite rows are part of the result, not an embarrassment to remove.</p><h3 id=why-calmar-needs-context>Why Calmar needs context
-<a class=heading-link href=#why-calmar-needs-context><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>Some Calmar values are exceptionally high because the annualized return and drawdown conventions amplify one another. They should be read alongside the raw equity curve, return dispersion, sample length, and the exact definition of the return series. The next version of this study should add confidence intervals, walk-forward splits, and a cost model before making stronger claims.</p><h2 id=what-is-not-included-yet>What is not included yet
-<a class=heading-link href=#what-is-not-included-yet><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>This experiment intentionally stops before capital allocation. The risk module is in development and is expected to address:</p><ul><li>volatility-aware exposure limits;</li><li>drawdown-based de-risking and recovery rules;</li><li>cross-asset concentration and correlation;</li><li>transaction costs, slippage, and liquidity constraints;</li><li>out-of-sample and walk-forward evaluation.</li></ul><p>That separation is a design constraint, not a marketing claim. The current output answers <strong>“is there directional information?”</strong> The next layer must answer <strong>“how much of it can be held, when, and at what cost?”</strong></p><h2 id=closing-perspective>Closing perspective
-<a class=heading-link href=#closing-perspective><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><p>The interesting result is not that every asset produces a spectacular number. It is that a multi-scale signal pipeline produces a measurable, heterogeneous cross-asset profile before position allocation is applied. That gives the research a useful next step: test whether a transparent risk layer can preserve the signal&rsquo;s information while making its path more robust.</p><p>The physics-inspired language is a way to organize that investigation: spectra for scale, phase for timing, geometry for state, and entropy for uncertainty. The standard of proof remains ordinary and demanding: clean data, honest splits, realistic costs, and results that survive outside the sample.</p><h3 id=reproducibility-note>Reproducibility note
-<a class=heading-link href=#reproducibility-note><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>The interactive table contains a distilled version of the supplied export. Proprietary implementation details, exact parameters, source-history boundaries, and position-allocation rules are intentionally omitted. The figures should be independently rechecked against the canonical backtest export before publication as a research result.</p></div><footer><section class=see-also></section></footer></article><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css integrity=sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0 crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js integrity=sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4 crossorigin=anonymous></script><script defer src=https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js integrity=sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05 crossorigin=anonymous onload='renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}]})'></script></section></div><footer class=footer><section class=container>©
-2026
-Duality
-·
-Powered by <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> & <a href=https://github.com/luizdepra/hugo-coder/ target=_blank rel=noopener>Coder</a>.</section></footer></main><script src=/signal-blog/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script><script src=/signal-blog/js/modules/topic-filter.min.7a3ed5403e367c8fca008395a4a0884ab802573547e108c9b9417663f55694e3.js integrity="sha256-ej7VQD42fI/KAIOVpKCISrgCVzVH4QjJuUF2Y/VWlOM="></script><script src=/signal-blog/js/modules/performance-explorer.min.f8020abcf8f3d15f0f5d9f2a89ddbcae93bc2e1cf8529c74b51cc938480ea8ba.js integrity="sha256-+AIKvPjz0V8PXZ8qid28rpO8Lhz4Upx0tRzJOEgOqLo="></script><script src=/signal-blog/js/modules/candlestick-chart.min.cadff7d5042cd3b804be6ba1efdaa9fc2788aac379ad592072541c74d25de7d2.js integrity="sha256-yt/31QQs07gEvmuh79qp/CeIqsN5rVkgclQcdNJd59I="></script><script src=/signal-blog/js/site.min.cf86608f6cfd58d446605dfa31cd0b3afaa861be4d12510666b5d9768f121d92.js integrity="sha256-z4Zgj2z9WNRGYF36Mc0LOvqoYb5NElEGZrXZdo8SHZI="></script><script>(function(e,t,n,s,o){e[s]=e[s]||[],e[s].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var a=t.getElementsByTagName(n)[0],i=t.createElement(n),r=s!="dataLayer"?"&l="+s:"";i.async=!0,i.src="https://www.googletagmanager.com/gtm.js?id="+o+r,a.parentNode.insertBefore(i,a)})(window,document,"script","dataLayer","GTM-KH34MMJ3")</script><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH34MMJ3" height=0 width=0 style=display:none;visibility:hidden></iframe></noscript></body></html>
+<!DOCTYPE html>
+<html lang="en">
+
+<head><script src="/signal-blog/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=signal-blog/livereload" data-no-instant defer></script>
+  <title>
+  Physics-Inspired Alpha: A Signal Engine Before the Risk Layer · Duality
+</title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
+
+
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.googletagmanager.com; img-src 'self' https://www.google-analytics.com; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net/ https://www.google-analytics.com https://www.googletagmanager.com https://www.clarity.ms; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://stats.g.doubleclick.net https://*.clarity.ms;">
+
+
+
+
+<meta name="author" content="Duality">
+<meta name="description" content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation.">
+<meta name="keywords" content="physics-informed finance, quantitative research">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Physics-Inspired Alpha: A Signal Engine Before the Risk Layer">
+  <meta name="twitter:description" content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation.">
+
+<meta property="og:url" content="http://localhost:1313/signal-blog/posts/physics-inspired-alpha/">
+  <meta property="og:site_name" content="Duality">
+  <meta property="og:title" content="Physics-Inspired Alpha: A Signal Engine Before the Risk Layer">
+  <meta property="og:description" content="A transparent research note on a multi-scale directional signal engine, its backtest evidence, and the work still required before capital allocation.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-08-21T00:00:00+00:00">
+    <meta property="article:modified_time" content="2026-08-21T00:00:00+00:00">
+    <meta property="article:tag" content="Quantitative Research">
+    <meta property="article:tag" content="Signal Processing">
+    <meta property="article:tag" content="Backtesting">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/signal-blog/posts/physics-inspired-alpha/">
+
+
+<link rel="preload" href="/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="/signal-blog/css/coder.css" media="screen">
+
+
+
+
+
+
+  
+    
+    
+    <link rel="stylesheet" href="/signal-blog/css/coder-dark.css" media="screen">
+  
+
+
+
+ 
+  
+    
+    <link rel="stylesheet" href="/signal-blog/site.css" media="screen">
+  
+
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+
+
+<body class="preload-transitions colorscheme-auto">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation site-navigation" aria-label="Primary navigation">
+  <section class="container">
+    <a class="navigation-title site-mark" href="/signal-blog/" aria-label="Duality home">DUALITY<span>_</span></a>
+    <div class="site-nav-meta">SIGNAL / STRUCTURE / SYSTEMS</div>
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button" for="menu-toggle" aria-label="Toggle navigation"><i class="fa-solid fa-bars" aria-hidden="true"></i></label>
+      <ul class="navigation-list">
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/videos/">Videos</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/papers/">Papers</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/products/">Products</a>
+          </li>
+        
+      </ul>
+    
+  </section>
+</nav>
+
+
+    <div class="content">
+      
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/signal-blog/posts/physics-inspired-alpha/">
+              Physics-Inspired Alpha: A Signal Engine Before the Risk Layer
+            </a>
+          </h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2026-08-21T00:00:00Z">
+                August 21, 2026
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
+            </span>
+          </div>
+          
+          <div class="categories">
+  <i class="fa-solid fa-folder" aria-hidden="true"></i>
+    <a href="/signal-blog/categories/research/">Research</a></div>
+
+          <div class="tags">
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="/signal-blog/tags/quantitative-research/">Quantitative Research</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/signal-processing/">Signal Processing</a>
+    </span>
+      <span class="separator">•</span>
+    <span class="tag">
+      <a href="/signal-blog/tags/backtesting/">Backtesting</a>
+    </span></div>
+
+        </div>
+      </header>
+
+      
+
+
+      <div class="post-content">
+        
+        <blockquote>
+<p><strong>Research note.</strong> The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.</p>
+</blockquote>
+<h2 id="the-question">
+  The question
+  <a class="heading-link" href="#the-question">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.</p>
+<p>This research began with a simple question: <strong>can a signal-processing system describe market behaviour in terms that are closer to a physical system than to a static classifier?</strong></p>
+<p>The resulting engine is a layered directional pipeline. Its implementation is proprietary, but its conceptual architecture is straightforward enough to audit:</p>
+<div class="highlight"><pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>Market observations
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>Multi-scale decomposition -&gt; phase and coherence -&gt; geometric state
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>uncertainty / entropy estimate -&gt; directional state -&gt; signal outcome
+</span></span><span style="display:flex;"><span>        |
+</span></span><span style="display:flex;"><span>                 risk and position allocation [in development]
+</span></span></code></pre></div><p>The references to spectral analysis, phase, geometry, thermodynamics, and quantum-inspired state evolution are conceptual lenses. They should not be read as a claim that markets literally obey the equations of physics, nor as a substitute for statistical validation.</p>
+<h2 id="what-is-being-measured">
+  What is being measured
+  <a class="heading-link" href="#what-is-being-measured">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The export contains three views of the signal: a macro component, a micro component, and a composite output. This post focuses on the composite signal where it is useful, while keeping the macro comparison visible in the interactive explorer.</p>
+<p>The key distinction is between <strong>signal quality</strong> and <strong>portfolio quality</strong>. A positive expected value before allocation says something about the directional forecast. It does not say how much capital should be exposed, whether trades can be executed at scale, or how the result survives costs.</p>
+<h2 id="results-at-a-glance">
+  Results at a glance
+  <a class="heading-link" href="#results-at-a-glance">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The following highlights use the supplied total-Sharpe, composite-drawdown, Calmar, hit-rate, profit-factor, and annualized-EV fields. EV is shown in the export&rsquo;s native units; it is not relabeled as a percentage.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Asset</th>
+          <th style="text-align: right">Composite Sharpe</th>
+          <th style="text-align: right">Max drawdown</th>
+          <th style="text-align: right">Calmar</th>
+          <th style="text-align: right">Hit rate</th>
+          <th style="text-align: right">Profit factor</th>
+          <th style="text-align: right">Annualized EV</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">GOOGL</td>
+          <td style="text-align: right">4.10</td>
+          <td style="text-align: right">-18.0%</td>
+          <td style="text-align: right">8.56</td>
+          <td style="text-align: right">55.8%</td>
+          <td style="text-align: right">1.14</td>
+          <td style="text-align: right">1,284.3</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">COIN</td>
+          <td style="text-align: right">4.36</td>
+          <td style="text-align: right">-34.7%</td>
+          <td style="text-align: right">15.60</td>
+          <td style="text-align: right">56.2%</td>
+          <td style="text-align: right">1.30</td>
+          <td style="text-align: right">1,026.1</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">NVDA</td>
+          <td style="text-align: right">3.16</td>
+          <td style="text-align: right">-21.4%</td>
+          <td style="text-align: right">13.88</td>
+          <td style="text-align: right">54.1%</td>
+          <td style="text-align: right">1.12</td>
+          <td style="text-align: right">979.2</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">TSLA</td>
+          <td style="text-align: right">3.46</td>
+          <td style="text-align: right">-17.8%</td>
+          <td style="text-align: right">31.69</td>
+          <td style="text-align: right">52.9%</td>
+          <td style="text-align: right">1.19</td>
+          <td style="text-align: right">992.6</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">AAPL</td>
+          <td style="text-align: right">1.44</td>
+          <td style="text-align: right">-19.3%</td>
+          <td style="text-align: right">3.19</td>
+          <td style="text-align: right">52.3%</td>
+          <td style="text-align: right">1.09</td>
+          <td style="text-align: right">593.4</td>
+      </tr>
+  </tbody>
+</table>
+<p>These are promising diagnostics, not proof of deployability. The sample includes heterogeneous assets and uneven row counts. Some assets also show unstable or negative composite results, which is valuable evidence: the engine is not uniformly reliable across the universe.</p>
+<h2 id="explore-the-full-export">
+  Explore the full export
+  <a class="heading-link" href="#explore-the-full-export">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The explorer below is deliberately outcome-focused. It lets the reader compare macro and composite Sharpe, inspect the return profile, search symbols, and sort the supplied asset-level fields. It does not expose the model&rsquo;s parameters, update schedule, feature construction, or allocation rules.</p>
+
+
+
+
+<section class="performance-explorer" id="performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3" aria-labelledby="performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3-title">
+  <div class="explorer-heading">
+    <div>
+      <p class="module-code">INTERACTIVE / PERFORMANCE</p>
+      <h2 id="performance-explorer-c9fedda1e02877aa114eacd66ddd0fc3-title">Cross-asset performance explorer</h2>
+      <p>Hover the charts for detail. Sort, filter, and inspect the supplied asset-level results below.</p>
+    </div>
+    <span class="explorer-count">20 assets</span>
+  </div>
+
+  <div class="explorer-charts">
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Macro vs composite Sharpe</h3><span>risk-adjusted signal</span></div>
+      <div class="explorer-chart" role="img" aria-label="Comparison chart of Macro and Composite Sharpe by asset"></div>
+    </div>
+    <div class="explorer-chart-card">
+      <div class="explorer-card-heading"><h3>Return profile</h3><span>median return vs Sharpe</span></div>
+      <div class="explorer-chart" role="img" aria-label="Scatter chart of return and Sharpe by asset"></div>
+    </div>
+  </div>
+
+  <div class="explorer-table-shell">
+    <div class="explorer-table-heading"><h3>Asset-level detail</h3><span>Sortable / filterable</span></div>
+    <label class="explorer-search">Search assets <input type="search" placeholder="e.g. NVDA"></label>
+    <div class="performance-table" aria-label="Detailed asset performance table"></div>
+  </div>
+
+  <script type="application/json">"[{\"annualized_ev_composite\":593.369,\"avg_annual_profit_factor_composite\":1.0875,\"calmar_composite\":3.1916,\"composite_hit_rate\":0.5227,\"composite_ret_pct_p50\":0.1619,\"macro_ret_pct_p50\":0.2005,\"max_drawdown_composite\":-0.1927,\"n_rows\":23897,\"sharpe_total_composite\":1.4399,\"sharpe_total_macro\":1.4359,\"symbol\":\"AAPL\"},{\"annualized_ev_composite\":1166.043,\"avg_annual_profit_factor_composite\":1.1559,\"calmar_composite\":7.3202,\"composite_hit_rate\":0.5651,\"composite_ret_pct_p50\":0.806,\"macro_ret_pct_p50\":0.8263,\"max_drawdown_composite\":-0.3029,\"n_rows\":23177,\"sharpe_total_composite\":3.9047,\"sharpe_total_macro\":3.1893,\"symbol\":\"AMAT\"},{\"annualized_ev_composite\":681.162,\"avg_annual_profit_factor_composite\":1.1552,\"calmar_composite\":5.2135,\"composite_hit_rate\":0.5201,\"composite_ret_pct_p50\":0.2775,\"macro_ret_pct_p50\":0.4065,\"max_drawdown_composite\":-0.3327,\"n_rows\":23555,\"sharpe_total_composite\":2.3433,\"sharpe_total_macro\":2.5797,\"symbol\":\"AMD\"},{\"annualized_ev_composite\":488.698,\"avg_annual_profit_factor_composite\":1.0599,\"calmar_composite\":3.9791,\"composite_hit_rate\":0.5164,\"composite_ret_pct_p50\":0.2935,\"macro_ret_pct_p50\":0.2979,\"max_drawdown_composite\":-0.3027,\"n_rows\":16391,\"sharpe_total_composite\":1.4826,\"sharpe_total_macro\":1.3187,\"symbol\":\"ARM\"},{\"annualized_ev_composite\":690.105,\"avg_annual_profit_factor_composite\":1.0993,\"calmar_composite\":5.5483,\"composite_hit_rate\":0.503,\"composite_ret_pct_p50\":0.0719,\"macro_ret_pct_p50\":0.0281,\"max_drawdown_composite\":-0.206,\"n_rows\":23732,\"sharpe_total_composite\":1.877,\"sharpe_total_macro\":1.7562,\"symbol\":\"BABA\"},{\"annualized_ev_composite\":1515.456,\"avg_annual_profit_factor_composite\":1.2257,\"calmar_composite\":14.6205,\"composite_hit_rate\":0.5559,\"composite_ret_pct_p50\":0.5715,\"macro_ret_pct_p50\":0.5433,\"max_drawdown_composite\":-0.2788,\"n_rows\":23024,\"sharpe_total_composite\":3.6956,\"sharpe_total_macro\":3.4265,\"symbol\":\"BLTE\"},{\"annualized_ev_composite\":1026.08,\"avg_annual_profit_factor_composite\":1.2969,\"calmar_composite\":15.6004,\"composite_hit_rate\":0.5618,\"composite_ret_pct_p50\":1.1784,\"macro_ret_pct_p50\":1.359,\"max_drawdown_composite\":-0.3466,\"n_rows\":23441,\"sharpe_total_composite\":4.356,\"sharpe_total_macro\":4.253,\"symbol\":\"COIN\"},{\"annualized_ev_composite\":1147.978,\"avg_annual_profit_factor_composite\":1.3477,\"calmar_composite\":13.9501,\"composite_hit_rate\":0.5229,\"composite_ret_pct_p50\":0.3421,\"macro_ret_pct_p50\":0.3073,\"max_drawdown_composite\":-0.3344,\"n_rows\":17503,\"sharpe_total_composite\":3.2568,\"sharpe_total_macro\":2.9146,\"symbol\":\"FUTU\"},{\"annualized_ev_composite\":1284.321,\"avg_annual_profit_factor_composite\":1.1362,\"calmar_composite\":8.5584,\"composite_hit_rate\":0.5583,\"composite_ret_pct_p50\":0.5275,\"macro_ret_pct_p50\":0.6861,\"max_drawdown_composite\":-0.1798,\"n_rows\":23412,\"sharpe_total_composite\":4.1027,\"sharpe_total_macro\":3.8243,\"symbol\":\"GOOGL\"},{\"annualized_ev_composite\":902.557,\"avg_annual_profit_factor_composite\":1.2085,\"calmar_composite\":15.4687,\"composite_hit_rate\":0.5159,\"composite_ret_pct_p50\":0.3608,\"macro_ret_pct_p50\":0.3685,\"max_drawdown_composite\":-0.4175,\"n_rows\":23726,\"sharpe_total_composite\":2.575,\"sharpe_total_macro\":2.8359,\"symbol\":\"IONQ\"},{\"annualized_ev_composite\":882.457,\"avg_annual_profit_factor_composite\":1.1538,\"calmar_composite\":14.1528,\"composite_hit_rate\":0.5417,\"composite_ret_pct_p50\":0.3396,\"macro_ret_pct_p50\":0.4668,\"max_drawdown_composite\":-0.1551,\"n_rows\":17780,\"sharpe_total_composite\":3.3555,\"sharpe_total_macro\":3.624,\"symbol\":\"META\"},{\"annualized_ev_composite\":965.799,\"avg_annual_profit_factor_composite\":1.2215,\"calmar_composite\":8.1106,\"composite_hit_rate\":0.5618,\"composite_ret_pct_p50\":0.4979,\"macro_ret_pct_p50\":0.4863,\"max_drawdown_composite\":-0.2086,\"n_rows\":17578,\"sharpe_total_composite\":3.6757,\"sharpe_total_macro\":3.351,\"symbol\":\"NFLX\"},{\"annualized_ev_composite\":979.234,\"avg_annual_profit_factor_composite\":1.115,\"calmar_composite\":13.8805,\"composite_hit_rate\":0.5412,\"composite_ret_pct_p50\":0.4596,\"macro_ret_pct_p50\":0.6442,\"max_drawdown_composite\":-0.2138,\"n_rows\":23843,\"sharpe_total_composite\":3.1592,\"sharpe_total_macro\":3.0423,\"symbol\":\"NVDA\"},{\"annualized_ev_composite\":1369.835,\"avg_annual_profit_factor_composite\":1.4354,\"calmar_composite\":78.1689,\"composite_hit_rate\":0.494,\"composite_ret_pct_p50\":-0.0334,\"macro_ret_pct_p50\":-0.1681,\"max_drawdown_composite\":-0.4306,\"n_rows\":23647,\"sharpe_total_composite\":3.7206,\"sharpe_total_macro\":3.666,\"symbol\":\"QBTS\"},{\"annualized_ev_composite\":881.366,\"avg_annual_profit_factor_composite\":1.2513,\"calmar_composite\":12.0423,\"composite_hit_rate\":0.5512,\"composite_ret_pct_p50\":0.4418,\"macro_ret_pct_p50\":0.5604,\"max_drawdown_composite\":-0.1872,\"n_rows\":17617,\"sharpe_total_composite\":3.3621,\"sharpe_total_macro\":3.4478,\"symbol\":\"QCOM\"},{\"annualized_ev_composite\":72.152,\"avg_annual_profit_factor_composite\":1.0528,\"calmar_composite\":0.6421,\"composite_hit_rate\":0.4915,\"composite_ret_pct_p50\":-0.0856,\"macro_ret_pct_p50\":-0.0906,\"max_drawdown_composite\":-0.3732,\"n_rows\":23534,\"sharpe_total_composite\":0.2661,\"sharpe_total_macro\":1.1062,\"symbol\":\"QUBT\"},{\"annualized_ev_composite\":947.218,\"avg_annual_profit_factor_composite\":1.2115,\"calmar_composite\":18.4358,\"composite_hit_rate\":0.5042,\"composite_ret_pct_p50\":0.1783,\"macro_ret_pct_p50\":0.065,\"max_drawdown_composite\":-0.5087,\"n_rows\":23398,\"sharpe_total_composite\":2.5978,\"sharpe_total_macro\":2.7925,\"symbol\":\"RGTI\"},{\"annualized_ev_composite\":178.93,\"avg_annual_profit_factor_composite\":1.3022,\"calmar_composite\":12.6997,\"composite_hit_rate\":0.6004,\"composite_ret_pct_p50\":1.9771,\"macro_ret_pct_p50\":1.9771,\"max_drawdown_composite\":-0.019,\"n_rows\":468,\"sharpe_total_composite\":-2.2498,\"sharpe_total_macro\":0.817,\"symbol\":\"SPCX\"},{\"annualized_ev_composite\":992.564,\"avg_annual_profit_factor_composite\":1.1902,\"calmar_composite\":31.6933,\"composite_hit_rate\":0.5286,\"composite_ret_pct_p50\":0.3775,\"macro_ret_pct_p50\":0.2217,\"max_drawdown_composite\":-0.1782,\"n_rows\":23779,\"sharpe_total_composite\":3.4615,\"sharpe_total_macro\":2.0301,\"symbol\":\"TSLA\"},{\"annualized_ev_composite\":151.794,\"avg_annual_profit_factor_composite\":1.0504,\"calmar_composite\":-0.6455,\"composite_hit_rate\":0.5227,\"composite_ret_pct_p50\":0.5715,\"macro_ret_pct_p50\":0.2094,\"max_drawdown_composite\":-0.7293,\"n_rows\":1913,\"sharpe_total_composite\":-1.0589,\"sharpe_total_macro\":0.3889,\"symbol\":\"XNDU\"}]"</script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+</section>
+
+<h2 id="reading-the-result">
+  Reading the result
+  <a class="heading-link" href="#reading-the-result">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<h3 id="separation-from-noise">
+  Separation from noise
+  <a class="heading-link" href="#separation-from-noise">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>A higher Sharpe ratio is consistent with the pipeline separating a repeatable component from short-horizon noise. It is not enough on its own: Sharpe is sensitive to dependence, non-normality, and the return construction used by the backtest.</p>
+<h3 id="drawdown-awareness">
+  Drawdown awareness
+  <a class="heading-link" href="#drawdown-awareness">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The drawdown figures show why signal generation and risk management must remain separate. COIN and several high-volatility names have attractive risk-adjusted statistics alongside material losses from peak to trough. A risk layer should decide whether that exposure is acceptable for a particular mandate.</p>
+<h3 id="uneven-reliability">
+  Uneven reliability
+  <a class="heading-link" href="#uneven-reliability">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Hit rate is close to 50% for many assets. That is not a contradiction. A strategy can be profitable with a modest hit rate when the distribution of wins and losses is favorable, and it can be unhelpful when the payoff distribution, costs, or regime changes work against it. The negative or weak composite rows are part of the result, not an embarrassment to remove.</p>
+<h3 id="why-calmar-needs-context">
+  Why Calmar needs context
+  <a class="heading-link" href="#why-calmar-needs-context">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>Some Calmar values are exceptionally high because the annualized return and drawdown conventions amplify one another. They should be read alongside the raw equity curve, return dispersion, sample length, and the exact definition of the return series. The next version of this study should add confidence intervals, walk-forward splits, and a cost model before making stronger claims.</p>
+<h2 id="what-is-not-included-yet">
+  What is not included yet
+  <a class="heading-link" href="#what-is-not-included-yet">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>This experiment intentionally stops before capital allocation. The risk module is in development and is expected to address:</p>
+<ul>
+<li>volatility-aware exposure limits;</li>
+<li>drawdown-based de-risking and recovery rules;</li>
+<li>cross-asset concentration and correlation;</li>
+<li>transaction costs, slippage, and liquidity constraints;</li>
+<li>out-of-sample and walk-forward evaluation.</li>
+</ul>
+<p>That separation is a design constraint, not a marketing claim. The current output answers <strong>“is there directional information?”</strong> The next layer must answer <strong>“how much of it can be held, when, and at what cost?”</strong></p>
+<h2 id="closing-perspective">
+  Closing perspective
+  <a class="heading-link" href="#closing-perspective">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
+<p>The interesting result is not that every asset produces a spectacular number. It is that a multi-scale signal pipeline produces a measurable, heterogeneous cross-asset profile before position allocation is applied. That gives the research a useful next step: test whether a transparent risk layer can preserve the signal&rsquo;s information while making its path more robust.</p>
+<p>The physics-inspired language is a way to organize that investigation: spectra for scale, phase for timing, geometry for state, and entropy for uncertainty. The standard of proof remains ordinary and demanding: clean data, honest splits, realistic costs, and results that survive outside the sample.</p>
+<h3 id="reproducibility-note">
+  Reproducibility note
+  <a class="heading-link" href="#reproducibility-note">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
+<p>The interactive table contains a distilled version of the supplied export. Proprietary implementation details, exact parameters, source-history boundaries, and position-allocation rules are intentionally omitted. The figures should be independently rechecked against the canonical backtest export before publication as a research result.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        
+        
+        
+        
+        
+        
+        
+      </footer>
+    </article>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
+  </section>
+
+    </div>
+
+    <footer class="footer">
+  <section class="container">
+    ©
+    
+    2026
+     Duality 
+    ·
+    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
+    
+  </section>
+</footer>
+
+  </main>
+
+  
+
+  
+  
+  <script src="/signal-blog/js/coder.js"></script>
+  
+
+  
+  
+  
+  <script src="/signal-blog/js/modules/topic-filter.js"></script>
+  
+  
+  
+  
+  <script src="/signal-blog/js/modules/performance-explorer.js"></script>
+  
+  
+  
+  
+  <script src="/signal-blog/js/modules/candlestick-chart.js"></script>
+  
+  
+  
+  
+  <script src="/signal-blog/js/site.js"></script>
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+<script>
+  (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-KH34MMJ3');
+</script>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH34MMJ3"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
+
+</html>

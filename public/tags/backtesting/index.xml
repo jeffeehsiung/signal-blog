@@ -1,11 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Backtesting on Duality</title><link>https://jeffeehsiung.github.io/signal-blog/tags/backtesting/</link><description>Recent content in Backtesting on Duality</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 21 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jeffeehsiung.github.io/signal-blog/tags/backtesting/index.xml" rel="self" type="application/rss+xml"/><item><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title><link>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="the-question"&gt;
- The question
- &lt;a class="heading-link" href="#the-question"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-&lt;p&gt;Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.&lt;/p&gt;</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Backtesting on Duality</title>
+    <link>http://localhost:1313/signal-blog/tags/backtesting/</link>
+    <description>Recent content in Backtesting on Duality</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 21 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/signal-blog/tags/backtesting/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title>
+      <link>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</link>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;the-question&#34;&gt;&#xA;  The question&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-question&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

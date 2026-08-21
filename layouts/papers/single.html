@@ -1,0 +1,8 @@
+{{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
+{{ define "content" }}
+<section class="hub-page hub-papers">
+  {{ partial "hub/page-hero.html" (dict "kicker" "04 / Research record" "title" .Title "description" .Description) }}
+  <div class="hub-paper-intro"><span class="module-code">LIVE / RESEARCH</span><p>Published findings and live trading observations are presented with their assumptions, limitations, and supporting evidence.</p></div>
+  <div class="hub-paper-content">{{ .Content }}</div>
+</section>
+{{ end }}

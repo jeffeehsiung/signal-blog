@@ -13,7 +13,7 @@ The conceptual foundations are introduced through the [Blog]({{< ref "posts" >}}
 
 The explorer demonstrates how the supplied asset-level research export can become an interactive research surface. Hover a chart mark for detail, or search and sort the table to inspect individual assets. The values are a screenshot transcription for interface demonstration and should be replaced by the canonical export before publication.
 
-{{< performance-explorer >}}
+{{< performance-explorer data="dsp-performance" >}}
 
 ## Interpreting the results
 
