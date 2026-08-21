@@ -1,4 +1,5 @@
 {{ $data := index .Site.Data "performance-explorer" }}
+{{ with .Get "data" }}{{ $data = index $.Site.Data . }}{{ end }}
 {{ $explorerID := printf "performance-explorer-%s" (.Page.RelPermalink | md5) }}
 
 <section class="performance-explorer" id="{{ $explorerID }}" aria-labelledby="{{ $explorerID }}-title">
@@ -6,18 +7,18 @@
     <div>
       <p class="module-code">INTERACTIVE / PERFORMANCE</p>
       <h2 id="{{ $explorerID }}-title">Cross-asset performance explorer</h2>
-      <p>Hover the charts for detail. Sort, filter, and inspect the complete asset-level results below.</p>
+      <p>Hover the charts for detail. Sort, filter, and inspect the supplied asset-level results below.</p>
     </div>
     <span class="explorer-count">{{ len $data.assets }} assets</span>
   </div>
 
   <div class="explorer-charts">
     <div class="explorer-chart-card">
-      <div class="explorer-card-heading"><h3>Macro vs composite Sharpe</h3><span>comparison</span></div>
+      <div class="explorer-card-heading"><h3>Macro vs composite Sharpe</h3><span>risk-adjusted signal</span></div>
       <div class="explorer-chart" role="img" aria-label="Comparison chart of Macro and Composite Sharpe by asset"></div>
     </div>
     <div class="explorer-chart-card">
-      <div class="explorer-card-heading"><h3>Return profile</h3><span>p50 return vs Sharpe</span></div>
+      <div class="explorer-card-heading"><h3>Return profile</h3><span>median return vs Sharpe</span></div>
       <div class="explorer-chart" role="img" aria-label="Scatter chart of return and Sharpe by asset"></div>
     </div>
   </div>

@@ -8,8 +8,8 @@
   --line: #1d3041;
   --accent: #00f5d4;
   --green: #00f5d4;
-  --content-width: 720px;
-  --page-width: 1180px;
+  --content-width: 1360px;
+  --page-width: 1480px;
   --radius: 2px;
 }
 
@@ -33,8 +33,8 @@ header, footer { max-width: var(--page-width); margin-left: auto; margin-right: 
 .navigation .navigation-list .navigation-item a.is-current:after { background: var(--accent); bottom: .55rem; content: ''; height: 2px; left: 0; position: absolute; right: 0; }
 .content { margin-bottom: 5rem; margin-top: 0; }
 .content > .container:not(.research-home) { padding-left: 2rem; padding-right: 2rem; }
-.content > .container.post { max-width: var(--page-width); }
-.content .post > article { max-width: var(--content-width); margin: 0 auto; }
+.content > .container.post { max-width: var(--page-width); width: 100%; }
+.content .post > article { margin: 0 auto; max-width: var(--content-width); width: 100%; }
 .content header { margin-bottom: 3rem; margin-top: 5.5rem; }
 .content article p { hyphens: none; text-align: left; }
 .content article h1, .content article h2, .content article h3, .content article h4, .content article h5, .content article h6 { letter-spacing: -.025em; }
@@ -94,6 +94,13 @@ header, footer { max-width: var(--page-width); margin-left: auto; margin-right: 
 
 footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem; padding: 2rem; }
 
+@media (max-width: 1100px) {
+  .content > .container.post { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .content .post > article { max-width: 100%; }
+  .hub-paper-content { max-width: 100%; }
+  .explorer-chart, .candlestick-chart { height: 300px; }
+}
+
 @media (prefers-color-scheme: dark) {
   .colorscheme-auto { --ink: #e9ede7; --muted: #aeb9b1; --paper: #19201e; --surface: #222b27; --line: #3b4943; --accent: #ef8a63; --green: #8fc4aa; }
 }
@@ -150,11 +157,25 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
   .content article h1 { font-size: 2.35rem; }
   .content article h2 { font-size: 1.7rem; margin-top: 2.75rem; }
   .content article h3 { font-size: 1.3rem; }
+  .post .post-content { font-size: .95rem; line-height: 1.65; }
+  .content article h1 { line-height: 1.12; }
+  .content article pre { max-width: 100%; overflow-x: auto; }
   .post-content table { font-size: .78rem; margin-left: -1.25rem; max-width: calc(100% + 2.5rem); width: calc(100% + 2.5rem); }
   .post-content table th, .post-content table td { min-width: 105px; padding: .7rem .75rem; }
   .performance-table { min-width: 620px; }
   .sharpe-chart { height: 340px; }
   footer { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+@media (max-width: 480px) {
+  .content > .container.post { padding-left: 1rem; padding-right: 1rem; }
+  .content article h1 { font-size: 2rem; }
+  .content article h2 { font-size: 1.5rem; }
+  .content article h3 { font-size: 1.2rem; }
+  .post .post-meta { font-size: .62rem; }
+  .explorer-chart, .candlestick-chart { height: 240px; }
+  .explorer-chart-card, .explorer-table-shell { padding: .75rem; }
+  .explorer-search input { min-width: 0; width: 100%; }
 }
 
 /* Quantitative lab homepage */
@@ -191,7 +212,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .lab-home .research-card h3 a { color: var(--ink); }
 
 /* Shared platform pages */
-.hub-page { margin: 0 auto; max-width: 1180px; padding: 4.5rem 2rem 6rem; }
+.hub-page { margin: 0 auto; max-width: var(--page-width); padding: 4.5rem 2rem 6rem; }
 .hub-page-hero { border-bottom: 1px solid var(--line); margin: 0 0 3rem; padding: 2rem 0 3rem; }
 .hub-page-hero h1 { color: var(--ink); font-size: clamp(2.8rem, 6vw, 5.4rem); letter-spacing: -.06em; line-height: 1; margin: 1rem 0; }
 .hub-page-hero > p:last-child { color: var(--muted); font-size: 1.05rem; margin: 0; max-width: 620px; }
@@ -215,7 +236,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .hub-notice p, .hub-paper-intro p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; }
 .hub-product-principles { align-items: baseline; border-bottom: 1px solid var(--line); display: flex; gap: 2rem; margin: -1rem 0 2.5rem; padding: 0 1.35rem 1.5rem; }
 .hub-product-principles p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; max-width: 700px; }
-.hub-paper-content { max-width: 860px; }
+.hub-paper-content { max-width: var(--content-width); width: 100%; }
 .hub-paper-content .sharpe-chart { background: rgba(12, 24, 36, .7); border: 1px solid var(--line); border-radius: 5px; padding: 1rem; }
 .hub-paper-content h2 { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 1.5rem; letter-spacing: .01em; }
 .performance-explorer { margin: 3rem 0 4rem; }

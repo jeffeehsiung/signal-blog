@@ -1,6 +1,6 @@
 title: "Live Strategy Performance"
 subtitle: "Illustrative monthly signal path"
-data:
+series:
   - ["2024-01", 2320, 2500, 2200, 2480]
   - ["2024-02", 2480, 2650, 2400, 2600]
   - ["2024-03", 2600, 2780, 2550, 2720]

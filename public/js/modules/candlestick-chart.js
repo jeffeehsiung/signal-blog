@@ -7,7 +7,9 @@ function initCandlestickCharts() {
     const dataElement = root.querySelector('script[type="application/json"]');
     if (!chartElement || !dataElement) return;
 
-    const data = JSON.parse(dataElement.textContent);
+    const parsedData = JSON.parse(dataElement.textContent);
+    const data = typeof parsedData === 'string' ? JSON.parse(parsedData) : parsedData;
+    if (!Array.isArray(data)) return;
     const chart = window.echarts.init(chartElement);
     const values = data.map((item) => [item[1], item[4], item[3], item[2]]);
     chart.setOption({

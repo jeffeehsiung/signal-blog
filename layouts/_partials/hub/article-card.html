@@ -1,7 +1,7 @@
 <article class="hub-blog-card article-card article-card-{{ .accent }}">
   <div class="article-card-top"><span class="module-code">{{ .type }}</span><span class="article-date">{{ .date }}</span></div>
   <div class="article-signal" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
-  <h2>{{ .title }}</h2>
+  <h2>{{ with .slug }}<a href="{{ . | relURL }}">{{ $.title }}</a>{{ else }}{{ .title }}{{ end }}</h2>
   <p>{{ .description }}</p>
-  <a class="hub-read-link" href="{{ "contact/" | relURL }}">Request the research note ↗</a>
+  {{ with .slug }}<a class="hub-read-link" href="{{ . | relURL }}">Read the research note ↗</a>{{ else }}<a class="hub-read-link" href="{{ "contact/" | relURL }}">Request the research note ↗</a>{{ end }}
 </article>

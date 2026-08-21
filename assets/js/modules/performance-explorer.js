@@ -13,7 +13,9 @@ function initPerformanceExplorers() {
     if (!window.echarts || !window.Tabulator) return;
 
     try {
-      const assets = JSON.parse(dataElement.textContent);
+      const parsedAssets = JSON.parse(dataElement.textContent);
+      const assets = typeof parsedAssets === 'string' ? JSON.parse(parsedAssets) : parsedAssets;
+      if (!Array.isArray(assets)) throw new Error('Performance data must be an array.');
       const colors = { macro: '#00f5d4', composite: '#7d72ff' };
       const textColor = '#8998a9';
       const lineColor = '#1d3041';
@@ -24,9 +26,8 @@ function initPerformanceExplorers() {
         return `<strong>${asset.symbol}</strong><br>` +
           `Macro Sharpe: ${Number(asset.sharpe_total_macro).toFixed(2)}<br>` +
           `Composite Sharpe: ${Number(asset.sharpe_total_composite).toFixed(2)}<br>` +
-          `Macro EV: ${Number(asset.ev_macro).toFixed(3)}<br>` +
-          `Composite EV: ${Number(asset.ev_composite).toFixed(3)}<br>` +
-          `Macro hit rate: ${(Number(asset.macro_hit_rate) * 100).toFixed(1)}%<br>` +
+          `Composite drawdown: ${(Number(asset.max_drawdown_composite) * 100).toFixed(1)}%<br>` +
+          `Composite Calmar: ${Number(asset.calmar_composite).toFixed(2)}<br>` +
           `Composite hit rate: ${(Number(asset.composite_hit_rate) * 100).toFixed(1)}%`;
       };
 
@@ -68,10 +69,11 @@ function initPerformanceExplorers() {
           { title: 'Rows', field: 'n_rows', sorter: 'number' },
           { title: 'Macro Sharpe', field: 'sharpe_total_macro', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(2) },
           { title: 'Composite Sharpe', field: 'sharpe_total_composite', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(2) },
-          { title: 'Macro EV', field: 'ev_macro', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(3) },
-          { title: 'Composite EV', field: 'ev_composite', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(3) },
-          { title: 'Macro hit rate', field: 'macro_hit_rate', sorter: 'number', formatter: (cell) => `${(Number(cell.getValue()) * 100).toFixed(1)}%` },
-          { title: 'Composite hit rate', field: 'composite_hit_rate', sorter: 'number', formatter: (cell) => `${(Number(cell.getValue()) * 100).toFixed(1)}%` }
+          { title: 'Composite drawdown', field: 'max_drawdown_composite', sorter: 'number', formatter: (cell) => `${(Number(cell.getValue()) * 100).toFixed(1)}%` },
+          { title: 'Composite Calmar', field: 'calmar_composite', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(2) },
+          { title: 'Profit factor', field: 'avg_annual_profit_factor_composite', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(2) },
+          { title: 'Composite hit rate', field: 'composite_hit_rate', sorter: 'number', formatter: (cell) => `${(Number(cell.getValue()) * 100).toFixed(1)}%` },
+          { title: 'Annualized EV', field: 'annualized_ev_composite', sorter: 'number', formatter: (cell) => Number(cell.getValue()).toFixed(1) }
         ]
       });
 

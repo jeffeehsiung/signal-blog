@@ -1,32 +1,19 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Duality</title>
-    <link>http://localhost:1313/signal-blog/</link>
-    <description>Recent content on Duality</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <atom:link href="http://localhost:1313/signal-blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Papers &amp; insights</title>
-      <link>http://localhost:1313/signal-blog/papers/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/papers/</guid>
-      <description>&lt;h2 id=&#34;research-scope&#34;&gt;&#xA;  Research scope&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#research-scope&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Duality studies financial markets as adaptive dynamical systems using signal processing, statistical physics, information geometry, and control-system ideas. The public research record focuses on evidence, interpretation, and limitations; exact equations, calibration constants, thresholds, and execution contracts remain proprietary.&lt;/p&gt;&#xA;&lt;p&gt;The conceptual foundations are introduced through the &lt;a href=&#34;http://localhost:1313/signal-blog/posts/&#34; &gt;Blog&lt;/a&gt; and &lt;a href=&#34;http://localhost:1313/signal-blog/videos/&#34; &gt;Videos&lt;/a&gt;. The &lt;a href=&#34;http://localhost:1313/signal-blog/products/&#34; &gt;Products&lt;/a&gt; section describes derived analytical workflows without exposing the core signal engine.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Products &amp; modules</title>
-      <link>http://localhost:1313/signal-blog/products/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/products/</guid>
-      <description>&lt;p&gt;The core Duality research system is not for sale. These derived modules are designed as independent tools around observable trading behaviour and portfolio data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Videos</title>
-      <link>http://localhost:1313/signal-blog/videos/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/videos/</guid>
-      <description></description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Duality</title><link>https://jeffeehsiung.github.io/signal-blog/</link><description>Recent content on Duality</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 21 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jeffeehsiung.github.io/signal-blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title><link>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="the-question"&gt;
+ The question
+ &lt;a class="heading-link" href="#the-question"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.&lt;/p&gt;</description></item><item><title>Papers &amp; insights</title><link>https://jeffeehsiung.github.io/signal-blog/papers/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/papers/</guid><description>&lt;h2 id="research-scope"&gt;
+ Research scope
+ &lt;a class="heading-link" href="#research-scope"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Duality studies financial markets as adaptive dynamical systems using signal processing, statistical physics, information geometry, and control-system ideas. The public research record focuses on evidence, interpretation, and limitations; exact equations, calibration constants, thresholds, and execution contracts remain proprietary.&lt;/p&gt;
+&lt;p&gt;The conceptual foundations are introduced through the &lt;a href="https://jeffeehsiung.github.io/signal-blog/posts/" &gt;Blog&lt;/a&gt; and &lt;a href="https://jeffeehsiung.github.io/signal-blog/videos/" &gt;Videos&lt;/a&gt;. The &lt;a href="https://jeffeehsiung.github.io/signal-blog/products/" &gt;Products&lt;/a&gt; section describes derived analytical workflows without exposing the core signal engine.&lt;/p&gt;</description></item><item><title>Products &amp; modules</title><link>https://jeffeehsiung.github.io/signal-blog/products/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/products/</guid><description>&lt;p&gt;The core Duality research system is not for sale. These derived modules are designed as independent tools around observable trading behaviour and portfolio data.&lt;/p&gt;</description></item><item><title>Videos</title><link>https://jeffeehsiung.github.io/signal-blog/videos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/videos/</guid><description/></item></channel></rss>
