@@ -236,7 +236,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .hub-notice p, .hub-paper-intro p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; }
 .hub-product-principles { align-items: baseline; border-bottom: 1px solid var(--line); display: flex; gap: 2rem; margin: -1rem 0 2.5rem; padding: 0 1.35rem 1.5rem; }
 .hub-product-principles p { color: var(--muted); font-size: .88rem; line-height: 1.6; margin: 0; max-width: 700px; }
-.hub-paper-content { max-width: var(--content-width); width: 100%; }
+.hub-paper-content { max-width: none; width: 100%; }
 .hub-paper-content .sharpe-chart { background: rgba(12, 24, 36, .7); border: 1px solid var(--line); border-radius: 5px; padding: 1rem; }
 .hub-paper-content h2 { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 1.5rem; letter-spacing: .01em; }
 .performance-explorer { margin: 3rem 0 4rem; }
