@@ -1,7 +1,45 @@
 {{ $data := index .Site.Data "candlestick-demo" }}
 <div class="candlestick-module" data-chart-title="{{ $data.title }}" data-chart-subtitle="{{ $data.subtitle }}">
-  <div class="candlestick-heading"><span class="module-code">LIVE / VISUAL DEMO</span><h2>{{ $data.title }}</h2><p>{{ $data.subtitle }}</p></div>
+  <div class="candlestick-heading">
+    <span class="module-code">LIVE / VISUAL DEMO</span>
+    <h2>{{ $data.title }}</h2>
+    <p>{{ $data.subtitle }}</p>
+  </div>
   <div class="candlestick-chart" role="img" aria-label="Candlestick chart showing illustrative strategy performance"></div>
   <script type="application/json">{{ index $data "series" | jsonify | safeHTML }}</script>
   <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
 </div>
+
+<script>
+  (function() {
+    function tryInit() {
+      if (typeof window.echarts !== 'undefined' &&
+          typeof window.DualityModules !== 'undefined' &&
+          typeof window.DualityModules.initCandlestickCharts === 'function') {
+        window.DualityModules.initCandlestickCharts();
+        return true;
+      }
+      return false;
+    }
+
+    // Try immediately if ECharts and function are already available
+    if (tryInit()) return;
+
+    // Wait for DOM and scripts
+    document.addEventListener('DOMContentLoaded', function() {
+      if (tryInit()) return;
+
+      // Poll for ECharts (it may load after DOMContentLoaded)
+      let attempts = 0;
+      const interval = setInterval(function() {
+        attempts++;
+        if (tryInit()) {
+          clearInterval(interval);
+        } else if (attempts > 50) { // 5 seconds max
+          clearInterval(interval);
+          console.warn('candlestick-chart: ECharts did not load in time');
+        }
+      }, 100);
+    });
+  })();
+</script>
