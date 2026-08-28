@@ -1,8 +1,7 @@
 +++
 draft = false
-date = 2026-08-29
+date = "2026-08-29"
 title = "From Physical Signals to Market States"
-description = "A visual profile of Jeffee Hsiung's path from sensing systems and industrial AI to physics-informed quantitative research."
 slug = "jeffee-hsiung-profile"
 authors = ["Duality"]
 tags = ["profile", "signal processing", "quantitative research"]
