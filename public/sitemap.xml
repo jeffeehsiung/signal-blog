@@ -2,39 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/signal-blog/posts/jeffee-hsiung-profile/</loc>
-    <lastmod>2026-08-29T00:00:00+00:00</lastmod>
+    <loc>http://localhost:1313/signal-blog/tags/backtesting/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/posts/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/categories/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/series/dsp-research-notes/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</loc>
     <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/tags/backtesting/</loc>
+    <loc>http://localhost:1313/signal-blog/tags/quantitative-research/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/posts/</loc>
+    <loc>http://localhost:1313/signal-blog/categories/research/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/categories/</loc>
+    <loc>http://localhost:1313/signal-blog/series/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/series/dsp-research-notes/</loc>
+    <loc>http://localhost:1313/signal-blog/tags/signal-processing/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/</loc>
+    <loc>http://localhost:1313/signal-blog/tags/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/signal-blog/papers/</loc>
   </url><url>
     <loc>http://localhost:1313/signal-blog/products/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/tags/profile/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/tags/quantitative-research/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/categories/research/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/series/saif-mba-2027-application/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/series/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/tags/signal-processing/</loc>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/tags/</loc>
   </url><url>
     <loc>http://localhost:1313/signal-blog/videos/</loc>
   </url>

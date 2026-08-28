@@ -6,13 +6,13 @@
     <description>Recent content in Tags on Duality</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/signal-blog/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Profile</title>
-      <link>http://localhost:1313/signal-blog/tags/profile/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/tags/profile/</guid>
+      <title>Backtesting</title>
+      <link>http://localhost:1313/signal-blog/tags/backtesting/</link>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/signal-blog/tags/backtesting/</guid>
       <description></description>
     </item>
     <item>
@@ -27,13 +27,6 @@
       <link>http://localhost:1313/signal-blog/tags/signal-processing/</link>
       <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/signal-blog/tags/signal-processing/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Backtesting</title>
-      <link>http://localhost:1313/signal-blog/tags/backtesting/</link>
-      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/tags/backtesting/</guid>
       <description></description>
     </item>
   </channel>
