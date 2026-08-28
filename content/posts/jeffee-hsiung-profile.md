@@ -23,6 +23,16 @@ disableComments = true
   <div><strong>17</strong><span>US equity signals in current study</span></div>
 </div>
 
+<div class="profile-foundations" aria-label="Technical foundations">
+  <span class="foundations-label">R&D · Signal Processing · Systems</span>
+  <div class="foundations-logos">
+    {{< org-logo src="images/logos/foxconn.png" alt="Foxconn" >}}
+    {{< org-logo src="images/logos/kuleuven.png" alt="KU Leuven" >}}
+    {{< org-logo src="images/logos/imec.png" alt="IMEC" >}}
+    {{< org-logo src="images/logos/amat.png" alt="Applied Materials" >}}
+  </div>
+</div>
+
 ## The through-line
 
 <div class="profile-timeline" aria-label="Career timeline">

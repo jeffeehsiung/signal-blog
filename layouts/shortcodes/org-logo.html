@@ -1,0 +1,5 @@
+<!-- layouts/shortcodes/org-logo.html -->
+{{ $src := .Get "src" }}
+{{ $alt := .Get "alt" }}
+{{ $class := .Get "class" | default "org-logo" }}
+<img src="{{ $src | relURL }}" alt="{{ $alt }}" class="{{ $class }}" loading="lazy">

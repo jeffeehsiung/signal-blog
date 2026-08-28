@@ -257,6 +257,61 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .performance-explorer .performance-table { min-width: 0; width: 100%; }
 .explorer-status { background: rgba(255, 107, 107, .08); border: 1px solid rgba(255, 107, 107, .35); color: #ff9a9a; font-family: 'DM Mono', monospace; font-size: .72rem; padding: 1rem; }
 .profile-intro { border-bottom: 1px solid var(--line); margin-bottom: 1rem; padding: 1rem 0 2rem; }
+
+/* ── Signal-Processing Foundation (Logos) ── */
+.profile-foundations {
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  margin: 1.8rem 0 3.2rem;
+  padding: 0.85rem 1.8rem;
+  transition: border-color 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+}
+.profile-foundations:hover {
+  border-color: var(--accent);
+}
+
+.foundations-label {
+  color: var(--muted);
+  flex-shrink: 0;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.foundations-logos {
+  align-items: center;
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 2rem;
+}
+
+.org-logo {
+  display: block;
+  flex-shrink: 0;
+  height: 22px;
+  width: auto;          /* 保持比例 */
+  max-width: 90px;      /* 【新增】限制最大宽度，防止 Foxconn 无限拉宽 */
+  object-fit: contain;  /* 【新增】确保比例不变，且不溢出 */
+  filter: grayscale(100%) brightness(1.6) contrast(1.1);
+  opacity: 0.5;
+  transition: filter 0.3s ease, opacity 0.3s ease;
+}
+.org-logo:hover {
+  filter: grayscale(0%) brightness(1);
+  opacity: 1;
+}
+
 .profile-intro h2 { color: var(--ink); font-size: clamp(2rem, 5vw, 3.8rem); letter-spacing: -.045em; line-height: 1.05; margin: .8rem 0 1rem; max-width: 850px; }
 .profile-lede { color: var(--muted); font-size: 1.05rem; line-height: 1.65; margin: 0; max-width: 720px; }
 .profile-live { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 2rem 1.5rem 1.5rem; margin: 2rem 0 3.5rem; }
@@ -328,10 +383,18 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 
 @media (max-width: 760px) {
   .site-nav-meta { display: none; }
+  .profile-foundations {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 1rem 1.25rem;
+  }
   .profile-metrics, .profile-results { grid-template-columns: 1fr; }
   .profile-step { gap: .6rem; grid-template-columns: 1fr; padding-bottom: 1.6rem; }
   .profile-system { align-items: stretch; grid-template-columns: 1fr; }
   .profile-system i { display: block; text-align: center; transform: rotate(90deg); }
+  .foundations-logos { gap: 1.5rem; }
+  .org-logo { height: 18px; }
   .lab-hero { min-height: 540px; }
   .lab-hero-copy { padding: 7rem 1.25rem 5rem; }
   .lab-hero h1 { font-size: 3.35rem; }
