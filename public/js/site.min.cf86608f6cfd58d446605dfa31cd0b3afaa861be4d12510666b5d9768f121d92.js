@@ -1,1 +1,0 @@
-function initSite(){window.DualityModules?.initTopicFilter(),window.DualityModules?.initPerformanceExplorers(),window.DualityModules?.startPerformanceExplorerRetry(),window.DualityModules?.initCandlestickCharts()}document.readyState==="loading"?document.addEventListener("DOMContentLoaded",initSite,{once:!0}):initSite()

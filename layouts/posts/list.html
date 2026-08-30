@@ -2,7 +2,10 @@
 {{ define "content" }}
 <section class="hub-page hub-blog">
   {{ partial "hub/page-hero.html" (dict "kicker" "02 / Research log" "title" "Blog & visualizations" "description" "P-LOGs, V-LOGs, and interactive research notes on quantitative market structure.") }}
-  {{ partial "hub/candlestick-chart.html" . }}
+  
+  <!-- 替换为新的多资产图表 -->
+  {{ partial "hub/asset-chart.html" . }}
+  
   <div class="hub-blog-grid">
     {{ range .Site.Data.articles }}{{ partial "hub/article-card.html" . }}{{ end }}
   </div>

@@ -29,7 +29,7 @@ style = "github-dark"
   since = 2026
   enableTwemoji = true
   customCSS = ["site.css"]
-  customJS = ["js/modules/topic-filter.js", "js/modules/performance-explorer.js", "js/modules/candlestick-chart.js", "js/site.js"]
+  customJS = ["js/modules/topic-filter.js", "js/modules/performance-explorer.js", "js/modules/candlestick-chart.js", "js/modules/asset-chart.js", "js/site.js"]
   unpublishedCardImage = "images/duality_logo_v2.png"
 
   colorScheme = "auto"

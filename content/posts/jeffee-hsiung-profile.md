@@ -98,7 +98,18 @@ SPECTRUM is my independent quantitative research framework. It combines multi-sc
   <p><strong>Important boundary.</strong> These are signal-only backtest results, before position sizing, transaction costs, slippage, and a complete risk-management layer. The point of the experiment is to test information quality, not to present a finished investment product.</p>
 </blockquote>
 
+<!-- ====================================================== -->
+<!-- 1. 保留原有的表格数据查看器（Performance Explorer）  -->
+<!-- ====================================================== -->
 {{< performance-explorer data="dsp-performance" >}}
+
+<!-- ====================================================== -->
+<!-- 2. 【新增/替换】多资产 K 线图查看器                 -->
+<!--    替换掉之前这里可能存在的旧烛台图占位代码          -->
+<!-- ====================================================== -->
+## Backtest Visuals
+{{< asset-chart >}}
+
 
 ## Why an MBA, now?
 

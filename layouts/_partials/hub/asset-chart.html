@@ -1,0 +1,14 @@
+<!-- layouts/_partials/hub/asset-chart.html -->
+{{ $data := .Site.Data.candlestick_data }}
+{{ if $data }}
+<div class="asset-chart-module" data-assets="{{ $data | jsonify | base64Encode }}">
+  <div class="asset-chart-controls">
+    <span class="module-code">BACKTEST / ASSET SELECTOR</span>
+    <select class="asset-selector" aria-label="Select asset to display"></select>
+  </div>
+  <div class="candlestick-chart" role="img" aria-label="Interactive candlestick chart for selected asset"></div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+{{ else }}
+<p class="explorer-status">No candlestick data found. Please run <code>python scripts/csv_to_candlestick.py</code></p>
+{{ end }}

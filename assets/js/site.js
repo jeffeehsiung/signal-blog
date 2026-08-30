@@ -10,3 +10,9 @@ if (document.readyState === 'loading') {
 } else {
   initSite();
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.DualityModules && window.DualityModules.initAssetCharts) {
+    window.DualityModules.initAssetCharts();
+  }
+});
