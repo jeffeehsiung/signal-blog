@@ -6,7 +6,7 @@ slug = "jeffee-hsiung-profile"
 authors = ["Duality"]
 tags = ["profile", "signal processing", "quantitative research"]
 categories = ["research"]
-series = ["SAIF MBA 2027 application"]
+series = [""]
 disableComments = true
 +++
 
@@ -110,12 +110,6 @@ SPECTRUM is my independent quantitative research framework. It combines multi-sc
 ## Backtest Visuals
 {{< asset-chart >}}
 
-
-## Why an MBA, now?
-
-The technical problems are familiar: risk controls, execution infrastructure, and robust evaluation. The less familiar challenge is building the organization around them.
-
-I am moving from **solo quant** to **organizational builder**. I want to learn how to form the right team, communicate with capital partners, and turn a research advantage into a durable business in China’s thriving startup ecosystem. SAIF is the environment I am seeking for that next step: rigorous finance, practical dialogue, and a network that can test the idea beyond my own workstation.
 
 <div class="profile-close">
   <p class="module-code">NEXT / ORGANIZATION</p>
