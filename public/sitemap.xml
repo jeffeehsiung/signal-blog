@@ -23,12 +23,6 @@
     <loc>http://localhost:1313/signal-blog/categories/research/</loc>
     <lastmod>2026-08-29T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>http://localhost:1313/signal-blog/series/saif-mba-2027-application/</loc>
-    <lastmod>2026-08-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/signal-blog/series/</loc>
-    <lastmod>2026-08-29T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>http://localhost:1313/signal-blog/tags/signal-processing/</loc>
     <lastmod>2026-08-29T00:00:00+00:00</lastmod>
   </url><url>
@@ -42,6 +36,9 @@
     <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</loc>
+    <lastmod>2026-08-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/signal-blog/series/</loc>
     <lastmod>2026-08-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/signal-blog/papers/</loc>
