@@ -14,7 +14,10 @@
 
   <div class="lab-intro">
     <div class="lab-intro-label"><span class="signal-number">01</span><span>What we do</span></div>
-    <div><h2>Decode the market<br><span>before trading it.</span></h2><p>Duality treats financial time series as dynamic systems. We use classical signal processing and geometric models to separate persistent structure from noise.</p></div>
+    <div>
+      <h2>Decode the market<br><span>before trading it.</span></h2>
+      <p>Duality treats financial time series as dynamic systems. We use classical signal processing and geometric models to separate persistent structure from noise.</p>
+    </div>
   </div>
 
   <div class="lab-capabilities" aria-label="Research capabilities">
@@ -24,11 +27,35 @@
   </div>
 
   <div class="research-library" id="research-library">
-    <div class="library-heading"><div><p class="eyebrow">02 / Research log</p><h2>Recent work</h2></div><a class="library-link" href="{{ "posts/" | relURL }}">View all research ↗</a></div>
+    <div class="library-heading">
+      <div>
+        <p class="eyebrow">02 / Research log</p>
+        <h2>Recent work</h2>
+      </div>
+      <a class="library-link" href="{{ "posts/" | relURL }}">View all research ↗</a>
+    </div>
+
+    {{/* Topic filter — buttons read by initTopicFilter in topic-filter.js.
+         Cards below carry data-topics so the filter can match them. */}}
+    <div class="topic-filter" role="group" aria-label="Filter research by topic">
+      <button type="button" class="topic-button is-active" data-topic="all">All</button>
+      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+        <button type="button" class="topic-button" data-topic="{{ $name | lower }}">{{ $name }}</button>
+      {{ end }}
+    </div>
+
     <div class="research-grid">
       {{ range $index, $page := first 6 .Site.RegularPages.ByDate.Reverse }}
-      {{ $topics := $page.Params.tags | default (slice) }}
-      <article class="research-card" data-topics="{{ delimit $topics "," | lower }}"><p class="card-index">{{ printf "%02d" (add 1 $index) }}</p><p class="card-date">{{ $page.Date | time.Format ($page.Site.Params.dateFormat | default "January 2, 2006") }}</p><h3><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3><p class="card-summary">{{ with $page.Description }}{{ . }}{{ else }}{{ $page.Summary | plainify | truncate 150 }}{{ end }}</p><a class="card-arrow" href="{{ $page.RelPermalink }}" aria-label="Read {{ $page.Title }}">↗</a></article>
+        {{ $topics := $page.Params.tags | default (slice) }}
+        <article class="research-card" data-topics="{{ delimit $topics "," | lower }}">
+          <p class="card-index">{{ printf "%02d" (add 1 $index) }}</p>
+          <p class="card-date">{{ $page.Date | time.Format ($page.Site.Params.dateFormat | default "January 2, 2006") }}</p>
+          <h3><a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a></h3>
+          <p class="card-summary">
+            {{ with $page.Description }}{{ . }}{{ else }}{{ $page.Summary | plainify | truncate 150 }}{{ end }}
+          </p>
+          <a class="card-arrow" href="{{ $page.RelPermalink }}" aria-label="Read {{ $page.Title }}">↗</a>
+        </article>
       {{ end }}
     </div>
   </div>

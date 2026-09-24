@@ -1,8 +1,7 @@
 function initSite() {
   window.DualityModules?.initTopicFilter();
-  window.DualityModules?.initPerformanceExplorers();
-  window.DualityModules?.startPerformanceExplorerRetry();
-  window.DualityModules?.initCandlestickCharts();
+  // lib-dependent modules (asset-chart, performance-explorer) are
+  // initialized from body/extensions.html, after ECharts/Tabulator load.
 }
 
 if (document.readyState === 'loading') {
@@ -10,9 +9,3 @@ if (document.readyState === 'loading') {
 } else {
   initSite();
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  if (window.DualityModules && window.DualityModules.initAssetCharts) {
-    window.DualityModules.initAssetCharts();
-  }
-});

@@ -1,0 +1,39 @@
+{{/* Overrides theme hugo-coder body/extensions.html.
+     Single place to load 3rd-party libs and trigger module init.
+     Runs last in <body>, after coder.js and customJS. */}}
+
+<!-- ── Libraries (synchronous, so window.echarts/Tabulator exist
+        before any module init runs) ── -->
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+
+<!-- ── Modules that depend on the libs above ── -->
+{{ range slice "js/modules/asset-chart.js" "js/modules/performance-explorer.js" }}
+  {{ with resources.Get . }}
+    {{ if hugo.IsServer }}
+      <script src="{{ .RelPermalink }}"></script>
+    {{ else }}
+      {{ $s := . | resources.Minify | resources.Fingerprint }}
+      <script src="{{ $s.RelPermalink }}" integrity="{{ $s.Data.Integrity }}"></script>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+<!-- ── Init. Idempotent: every module guards on data-initialized ── -->
+<script>
+  (function () {
+    function init() {
+      var m = window.DualityModules || {};
+      m.initAssetCharts?.();
+      m.initPerformanceExplorers?.();
+      m.initPerformanceTables?.();
+      m.initSharpeCharts?.();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init, { once: true });
+    } else {
+      init();
+    }
+  })();
+</script>

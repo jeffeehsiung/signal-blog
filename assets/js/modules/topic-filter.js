@@ -1,10 +1,13 @@
 function initTopicFilter(root = document) {
   const buttons = root.querySelectorAll('[data-topic]');
-  const cards = root.querySelectorAll('.research-card');
+  const cards   = root.querySelectorAll('.research-card');
 
   if (!buttons.length || !cards.length) return;
 
   buttons.forEach((button) => {
+    if (button.dataset.bound === 'true') return;
+    button.dataset.bound = 'true';
+
     button.addEventListener('click', () => {
       const topic = button.dataset.topic;
       buttons.forEach((item) => item.classList.toggle('is-active', item === button));

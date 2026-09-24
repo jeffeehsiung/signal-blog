@@ -103,22 +103,41 @@ function initPerformanceExplorers() {
   });
 }
 
-function startPerformanceExplorerRetry() {
-  const attempt = () => {
-    const explorers = document.querySelectorAll('.performance-explorer:not([data-initialized="true"])');
-    if (!explorers.length) return;
-    window.DualityModules.initPerformanceExplorers();
-  };
+function initPerformanceTables() {
+  document.querySelectorAll('[data-performance-table]').forEach((el) => {
+    if (el.dataset.initialized === 'true') return;
+    const dataEl = document.getElementById(el.id + '-data');
+    if (!dataEl || !window.Tabulator) return;
 
-  attempt();
-  let attempts = 0;
-  const retry = window.setInterval(() => {
-    attempts += 1;
-    attempt();
-    if (attempts >= 30 || !document.querySelector('.performance-explorer:not([data-initialized="true"])')) {
-      window.clearInterval(retry);
+    try {
+      new window.Tabulator(el, {
+        data: JSON.parse(dataEl.textContent),
+        layout: 'fitColumns',
+        responsiveLayout: 'collapse',
+        pagination: true,
+        paginationSize: 10,
+        paginationSizeSelector: [10, 20],
+        placeholder: 'No performance data available',
+        columns: [
+          { title: 'Asset', field: 'symbol', sorter: 'string', width: 100 },
+          { title: 'Excess Sharpe', field: 'excess_sharpe', sorter: 'number',
+            formatter: (cell) => {
+              const v = Number(cell.getValue());
+              const cls = v > 2 ? 'is-exceptional' : v > 1 ? 'is-positive' : v < 0 ? 'is-negative' : 'is-neutral';
+              return `<span class="metric-value ${cls}">${v.toFixed(2)}</span>`;
+            } },
+          { title: 'Max drawdown', field: 'max_drawdown', sorter: 'string' },
+          { title: 'EV / trade', field: 'ev', sorter: 'number',
+            formatter: (cell) => Number(cell.getValue()).toFixed(3) },
+          { title: 'Verdict', field: 'verdict', sorter: 'string',
+            formatter: (cell) => `<span class="performance-verdict performance-verdict-${cell.getValue()}">${cell.getValue()}</span>` },
+        ],
+      });
+      el.dataset.initialized = 'true';
+    } catch (e) {
+      console.error('performance-table init failed:', e);
     }
-  }, 100);
+  });
 }
 
 function showExplorerStatus(root, message) {
@@ -131,4 +150,4 @@ function showExplorerStatus(root, message) {
 
 window.DualityModules = window.DualityModules || {};
 window.DualityModules.initPerformanceExplorers = initPerformanceExplorers;
-window.DualityModules.startPerformanceExplorerRetry = startPerformanceExplorerRetry;
+window.DualityModules.initPerformanceTables = initPerformanceTables;

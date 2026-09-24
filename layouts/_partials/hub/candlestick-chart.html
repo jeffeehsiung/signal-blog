@@ -1,7 +1,27 @@
-{{ $data := index .Site.Data "candlestick-demo" }}
-<div class="candlestick-module" data-chart-title="{{ $data.title }}" data-chart-subtitle="{{ $data.subtitle }}">
-  <div class="candlestick-heading"><span class="module-code">LIVE / VISUAL DEMO</span><h2>{{ $data.title }}</h2><p>{{ $data.subtitle }}</p></div>
-  <div class="candlestick-chart" role="img" aria-label="Candlestick chart showing illustrative strategy performance"></div>
-  <script type="application/json">{{ index $data "series" | jsonify | safeHTML }}</script>
-  <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+{{/* Single source of truth for the candlestick chart DOM.
+
+     Usage:
+       {{ partial "hub/candlestick-chart.html" . }}                                       (page context)
+       {{ partial "hub/candlestick-chart.html" (dict "moduleCode" "LIVE / VISUAL DEMO") }} (custom label)
+
+     Renders a .candlestick-module wrapper. The merged JS in
+     assets/js/modules/asset-chart.js finds it by class and reads data-assets.
+*/}}
+{{ $moduleCode := "BACKTEST / ASSET SELECTOR" }}
+{{ if reflect.IsMap . }}
+  {{ with .moduleCode }}{{ $moduleCode = . }}{{ end }}
+{{ end }}
+
+{{ $data := index site.Data "candlestick_data" }}
+{{ if $data }}
+<div class="candlestick-module"
+     data-assets="{{ $data | jsonify | base64Encode }}">
+  <div class="candlestick-heading">
+    <span class="module-code">{{ $moduleCode }}</span>
+    <select class="asset-selector" aria-label="Select asset"></select>
+  </div>
+  <div class="candlestick-chart" role="img" aria-label="Candlestick chart"></div>
 </div>
+{{ else }}
+<p class="explorer-status">No candlestick data found. Run <code>python scripts/csv_to_candlestick.py</code>.</p>
+{{ end }}

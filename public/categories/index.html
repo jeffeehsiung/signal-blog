@@ -198,21 +198,6 @@
   
   
   
-  <script src="/signal-blog/js/modules/performance-explorer.js"></script>
-  
-  
-  
-  
-  <script src="/signal-blog/js/modules/candlestick-chart.js"></script>
-  
-  
-  
-  
-  <script src="/signal-blog/js/modules/asset-chart.js"></script>
-  
-  
-  
-  
   <script src="/signal-blog/js/site.js"></script>
   
   
@@ -265,6 +250,43 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
 
   
-</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/js/tabulator.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tabulator-tables@5/dist/css/tabulator.min.css">
+
+
+
+  
+    
+      <script src="/signal-blog/js/modules/asset-chart.js"></script>
+    
+  
+
+  
+    
+      <script src="/signal-blog/js/modules/performance-explorer.js"></script>
+    
+  
+
+
+
+<script>
+  (function () {
+    function init() {
+      var m = window.DualityModules || {};
+      m.initAssetCharts?.();
+      m.initPerformanceExplorers?.();
+      m.initPerformanceTables?.();
+      m.initSharpeCharts?.();
+    }
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', init, { once: true });
+    } else {
+      init();
+    }
+  })();
+</script></body>
 
 </html>
