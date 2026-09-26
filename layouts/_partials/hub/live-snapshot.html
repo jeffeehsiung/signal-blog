@@ -1,15 +1,16 @@
-{{/* Renders data/live-snapshot.yaml. Silent when the file is absent
-     or visible: false. Used by the spectrum dashboard. */}}
 {{ $snap := index site.Data "live-snapshot" }}
 {{ if and $snap (default true $snap.visible) }}
 <div class="profile-live" aria-label="Live trading snapshot">
+  {{ $usd := $snap.realized_return_usd | default 0 | int }}
   <div class="live-big-number">
-    {{ printf "%+d" ($snap.realized_return_usd | int) | replaceRE "^\\+" "+$" | replaceRE "^-" "-$" }}
+    {{ if ge $usd 0 }}+{{ else }}-{{ end }}${{ math.Abs $usd }}
   </div>
   <div class="live-big-label">Realized Return</div>
+
   <div class="live-big-sub">
-    {{ printf "%+.1f%%" $snap.realized_return_pct }} ·
-    {{ printf "$%dk → $%dk" (div $snap.starting_capital_usd 1000) (div $snap.ending_capital_usd 1000) }} ·
+    {{ printf "%+.1f%%" ($snap.realized_return_pct | default 0) }} ·
+    ${{ div ($snap.starting_capital_usd | default 0 | int) 1000 }}k →
+    ${{ div ($snap.ending_capital_usd | default 0 | int) 1000 }}k ·
     {{ $snap.period_label }}
   </div>
 

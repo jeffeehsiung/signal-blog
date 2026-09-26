@@ -83,7 +83,7 @@ This experiment intentionally stops before capital allocation. The risk module i
 - transaction costs, slippage, and liquidity constraints;
 - out-of-sample and walk-forward evaluation.
 
-That separation is a design constraint, not a marketing claim. The current output answers **“is there directional information?”** The next layer must answer **“how much of it can be held, when, and at what cost?”**
+That separation is a design constraint, not a marketing claim. The current output answers **"is there directional information?"** The next layer must answer **"how much of it can be held, when, and at what cost?"**
 
 ## Closing perspective
 

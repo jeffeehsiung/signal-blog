@@ -2,6 +2,7 @@
 # Update this whenever you close a position or the period rolls over.
 # The spectrum dashboard renders these fields; no template edits needed.
 
+# data/live-snapshot.yaml
 as_of: "2026-08-29"
 
 realized_return_usd: 15000
@@ -14,5 +15,4 @@ active_months: "Apr, Jun, Aug 18–29"
 status: "Live Execution"
 next_step: "Risk & Allocation"
 
-# Optional: set to false to hide the whole live block during quiet periods.
 visible: true

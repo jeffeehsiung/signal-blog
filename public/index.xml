@@ -1,47 +1,44 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Duality</title>
-    <link>http://localhost:1313/signal-blog/</link>
-    <description>Recent content on Duality</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/signal-blog/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>http://localhost:1313/signal-blog/about/</link>
-      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/about/</guid>
-      <description>&lt;div class=&#34;profile-intro&#34;&gt;&#xA;  &lt;p class=&#34;module-code&#34;&gt;PROFILE / 2026.08&lt;/p&gt;&#xA;  &lt;h2&gt;Building systems that turn noisy signals into decisions.&lt;/h2&gt;&#xA;  &lt;p class=&#34;profile-lede&#34;&gt;I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;{{/* Signal count is read from the generated exporter output, so it stays&#xA;in sync with whatever universe the pipeline actually covers. */}}&#xA;{{ $perf := index site.Data &amp;ldquo;system-performance&amp;rdquo; }}&#xA;{{ $n_signals := 0 }}&#xA;{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title>
-      <link>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</link>
-      <pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/posts/physics-inspired-alpha/</guid>
-      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. These figures are not a live track record or an investment recommendation.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;the-question&#34;&gt;&#xA;  The question&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#the-question&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Products &amp; modules</title>
-      <link>http://localhost:1313/signal-blog/products/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/products/</guid>
-      <description>&lt;p&gt;The core Duality research system is not for sale. These derived modules are designed as independent tools around observable trading behaviour and portfolio data.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>SPECTRUM — Signal dashboard</title>
-      <link>http://localhost:1313/signal-blog/spectrum/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/spectrum/</guid>
-      <description>&lt;div class=&#34;profile-intro&#34;&gt;&#xA;  &lt;p class=&#34;module-code&#34;&gt;LIVE / DASHBOARD&lt;/p&gt;&#xA;  &lt;h2&gt;SPECTRUM signal diagnostics.&lt;/h2&gt;&#xA;  &lt;p class=&#34;profile-lede&#34;&gt;Cross-asset backtest metrics and the live trading snapshot. Regenerated whenever the research pipeline runs.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;{{ partial &amp;ldquo;hub/live-snapshot.html&amp;rdquo; . }}&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;strong&gt;Scope.&lt;/strong&gt; These figures describe signal-level outcomes from a directional signal engine running with the risk layer engaged. They remain gross of full execution costs and slippage. Live figures describe realized results from a small, live account and are not a track record or investment recommendation.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;backtest-performance&#34;&gt;&#xA;  Backtest performance&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#backtest-performance&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;section class=&#34;performance-explorer&#34; id=&#34;performance-explorer-9fb41a73b0470c87666c4566985721c8&#34; aria-labelledby=&#34;performance-explorer-9fb41a73b0470c87666c4566985721c8-title&#34;&gt;&#xA;  &lt;div class=&#34;explorer-heading&#34;&gt;&#xA;    &lt;div&gt;&#xA;      &lt;p class=&#34;module-code&#34;&gt;INTERACTIVE / PERFORMANCE&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Videos</title>
-      <link>http://localhost:1313/signal-blog/videos/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/signal-blog/videos/</guid>
-      <description></description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Duality</title><link>https://jeffeehsiung.github.io/signal-blog/</link><description>Recent content on Duality</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate><atom:link href="https://jeffeehsiung.github.io/signal-blog/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://jeffeehsiung.github.io/signal-blog/about/</link><pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/about/</guid><description>&lt;div class="profile-intro"&gt;
+ &lt;p class="module-code"&gt;PROFILE / 2026.08&lt;/p&gt;
+ &lt;h2&gt;Building systems that turn noisy signals into decisions.&lt;/h2&gt;
+ &lt;p class="profile-lede"&gt;I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;{{/* Signal count is read from the generated exporter output, so it stays
+in sync with whatever universe the pipeline actually covers. */}}
+{{ $perf := index site.Data &amp;ldquo;system-performance&amp;rdquo; }}
+{{ $n_signals := 0 }}
+{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}&lt;/p&gt;</description></item><item><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title><link>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. These figures are not a live track record or an investment recommendation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="the-question"&gt;
+ The question
+ &lt;a class="heading-link" href="#the-question"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;p&gt;Financial time series are noisy, non-stationary, and reflexive. A useful signal therefore has to do more than predict the next bar. It has to distinguish persistent structure from transient movement, track when a regime is changing, and expose uncertainty rather than hiding it behind a single score.&lt;/p&gt;</description></item><item><title>Products &amp; modules</title><link>https://jeffeehsiung.github.io/signal-blog/products/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/products/</guid><description>&lt;p&gt;The core Duality research system is not for sale. These derived modules are designed as independent tools around observable trading behaviour and portfolio data.&lt;/p&gt;</description></item><item><title>SPECTRUM — Signal dashboard</title><link>https://jeffeehsiung.github.io/signal-blog/spectrum/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/spectrum/</guid><description>&lt;div class="profile-intro"&gt;
+ &lt;p class="module-code"&gt;LIVE / DASHBOARD&lt;/p&gt;
+ &lt;h2&gt;SPECTRUM signal diagnostics.&lt;/h2&gt;
+ &lt;p class="profile-lede"&gt;Cross-asset backtest metrics and the live trading snapshot. Regenerated whenever the research pipeline runs.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;{{ partial &amp;ldquo;hub/live-snapshot.html&amp;rdquo; . }}&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Scope.&lt;/strong&gt; These figures describe signal-level outcomes from a directional signal engine running with the risk layer engaged. They remain gross of full execution costs and slippage. Live figures describe realized results from a small, live account and are not a track record or investment recommendation.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id="backtest-performance"&gt;
+ Backtest performance
+ &lt;a class="heading-link" href="#backtest-performance"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+
+
+
+
+
+&lt;section class="performance-explorer" id="performance-explorer-9fb41a73b0470c87666c4566985721c8" aria-labelledby="performance-explorer-9fb41a73b0470c87666c4566985721c8-title"&gt;
+ &lt;div class="explorer-heading"&gt;
+ &lt;div&gt;
+ &lt;p class="module-code"&gt;INTERACTIVE / PERFORMANCE&lt;/p&gt;</description></item><item><title>Videos</title><link>https://jeffeehsiung.github.io/signal-blog/videos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/videos/</guid><description/></item></channel></rss>

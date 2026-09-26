@@ -39,13 +39,38 @@ accent = "cyan"
 ## The through-line
 
 <div class="profile-timeline" aria-label="Career timeline">
-  ... unchanged, keep all five profile-step blocks ...
+  <div class="profile-step">
+    <span class="profile-year">FOXCONN<br>2017-2020</span>
+    <div><h3>Failure analysis at prototype-to-production scale</h3><p>Learned to trace complex failures steming from prototype to production; Driven from their failure symptoms to their systems-level causes.</p><em class="profile-honor">Golden Engineer Award · 2020</em></div>
+  </div>
+  <div class="profile-step">
+    <span class="profile-year">KU LEUVEN<br>2020–2024</span>
+    <div><h3>Electronics & ICT engineering</h3><p>Built the mathematical, physical, and deep-learning foundation behind my work.</p><em class="profile-honor">BSc + MSc · Cum Laude</em></div>
+  </div>
+  <div class="profile-step">
+    <span class="profile-year">IMEC<br>2023–2024</span>
+    <div><h3>Radar signals + point-cloud deep learning</h3><p>Combined interferometric ISAR, tracking, and Point Cloud Transformers for few-shot person identification.</p><em class="profile-honor">First author · EUSIPCO 2026 · Bruges</em></div>
+  </div>
+  <div class="profile-step">
+    <span class="profile-year">AMAT + ROBOEYE.AI<br>2024–2025</span>
+    <div><h3>Computer vision across two team scales</h3><p>Applied Materials: industrial AI in a large organization. Roboeye.ai: fast, hands-on delivery in a small startup. Both made the interaction between signals, vision, and team design tangible.</p><em class="profile-honor">No formal award · durable operating insight</em></div>
+  </div>
+  <div class="profile-step profile-step-current">
+    <span class="profile-year">SPECTRUM<br>2026–NOW</span>
+    <div><h3>Market state estimation</h3><p>A signal-processing framework for testing structure before allocating capital.</p><em class="profile-honor">Independent R&amp;D · live trading</em></div>
+  </div>
 </div>
 
 ## A transferable operating model
 
 <div class="profile-system" aria-label="Operating model from observation to decision">
-  ... unchanged ...
+  <div><span>01</span><strong>Observe</strong><small>measure the system</small></div>
+  <i aria-hidden="true">→</i>
+  <div><span>02</span><strong>Model</strong><small>represent hidden state</small></div>
+  <i aria-hidden="true">→</i>
+  <div><span>03</span><strong>Stress-test</strong><small>find failure modes</small></div>
+  <i aria-hidden="true">→</i>
+  <div><span>04</span><strong>Decide</strong><small>act with constraints</small></div>
 </div>
 
 The setting changes, but the work stays recognizable: extract structure from imperfect observations, make uncertainty visible, and investigate failures at the level where they begin.
