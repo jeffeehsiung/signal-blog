@@ -35,17 +35,24 @@
       <a class="library-link" href="{{ "posts/" | relURL }}">View all research ↗</a>
     </div>
 
-    {{/* Topic filter — buttons read by initTopicFilter in topic-filter.js.
-         Cards below carry data-topics so the filter can match them. */}}
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ $tags := slice }}
+    {{ range $posts }}
+      {{ range .Params.tags | default (slice) }}
+        {{ $tags = $tags | append (lower .) }}
+      {{ end }}
+    {{ end }}
+    {{ $tags = $tags | uniq | sort }}
+
     <div class="topic-filter" role="group" aria-label="Filter research by topic">
       <button type="button" class="topic-button is-active" data-topic="all">All</button>
-      {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-        <button type="button" class="topic-button" data-topic="{{ $name | lower }}">{{ $name }}</button>
+      {{ range $tags }}
+        <button type="button" class="topic-button" data-topic="{{ . }}">{{ . }}</button>
       {{ end }}
     </div>
 
     <div class="research-grid">
-      {{ range $index, $page := first 6 .Site.RegularPages.ByDate.Reverse }}
+      {{ range $index, $page := first 6 $posts.ByDate.Reverse }}
         {{ $topics := $page.Params.tags | default (slice) }}
         <article class="research-card" data-topics="{{ delimit $topics "," | lower }}">
           <p class="card-index">{{ printf "%02d" (add 1 $index) }}</p>

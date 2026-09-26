@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Authors on Duality</title>
+    <link>http://localhost:1313/signal-blog/authors/</link>
+    <description>Recent content in Authors on Duality</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/signal-blog/authors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About</title>
+      <link>http://localhost:1313/signal-blog/about/</link>
+      <pubDate>Sat, 29 Aug 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/signal-blog/about/</guid>
+      <description>&lt;div class=&#34;profile-intro&#34;&gt;&#xA;  &lt;p class=&#34;module-code&#34;&gt;PROFILE / 2026.08&lt;/p&gt;&#xA;  &lt;h2&gt;Building systems that turn noisy signals into decisions.&lt;/h2&gt;&#xA;  &lt;p class=&#34;profile-lede&#34;&gt;I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;{{/* Signal count is read from the generated exporter output, so it stays&#xA;in sync with whatever universe the pipeline actually covers. */}}&#xA;{{ $perf := index site.Data &amp;ldquo;system-performance&amp;rdquo; }}&#xA;{{ $n_signals := 0 }}&#xA;{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -122,11 +122,11 @@
       <ul class="navigation-list">
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/signal-blog/posts/">Blog</a>
+            <a class="navigation-link" href="/signal-blog/spectrum/">Spectrum</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="/signal-blog/videos/">Videos</a>
+            <a class="navigation-link" href="/signal-blog/posts/">Blog</a>
           </li>
         
           <li class="navigation-item">
@@ -135,6 +135,10 @@
         
           <li class="navigation-item">
             <a class="navigation-link" href="/signal-blog/products/">Products</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="/signal-blog/about/">About</a>
           </li>
         
       </ul>
@@ -196,7 +200,7 @@
       <div class="post-content">
         
         <blockquote>
-<p><strong>Research note.</strong> The results in this article are backtest outputs from a directional signal engine. They are shown gross of risk assessment, position sizing, transaction costs, financing, and slippage. A dedicated risk and allocation module is in development; these figures are not a live track record or an investment recommendation.</p>
+<p><strong>Research note.</strong> The results in this article are backtest outputs from a directional signal engine. These figures are not a live track record or an investment recommendation.</p>
 </blockquote>
 <h2 id="the-question">
   The question
@@ -232,68 +236,9 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The following highlights use the supplied total-Sharpe, composite-drawdown, Calmar, hit-rate, profit-factor, and annualized-EV fields. EV is shown in the export&rsquo;s native units; it is not relabeled as a percentage.</p>
-<table>
-  <thead>
-      <tr>
-          <th style="text-align: left">Asset</th>
-          <th style="text-align: right">Composite Sharpe</th>
-          <th style="text-align: right">Max drawdown</th>
-          <th style="text-align: right">Calmar</th>
-          <th style="text-align: right">Hit rate</th>
-          <th style="text-align: right">Profit factor</th>
-          <th style="text-align: right">Annualized EV</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td style="text-align: left">GOOGL</td>
-          <td style="text-align: right">4.10</td>
-          <td style="text-align: right">-18.0%</td>
-          <td style="text-align: right">8.56</td>
-          <td style="text-align: right">55.8%</td>
-          <td style="text-align: right">1.14</td>
-          <td style="text-align: right">1,284.3</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">COIN</td>
-          <td style="text-align: right">4.36</td>
-          <td style="text-align: right">-34.7%</td>
-          <td style="text-align: right">15.60</td>
-          <td style="text-align: right">56.2%</td>
-          <td style="text-align: right">1.30</td>
-          <td style="text-align: right">1,026.1</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">NVDA</td>
-          <td style="text-align: right">3.16</td>
-          <td style="text-align: right">-21.4%</td>
-          <td style="text-align: right">13.88</td>
-          <td style="text-align: right">54.1%</td>
-          <td style="text-align: right">1.12</td>
-          <td style="text-align: right">979.2</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">TSLA</td>
-          <td style="text-align: right">3.46</td>
-          <td style="text-align: right">-17.8%</td>
-          <td style="text-align: right">31.69</td>
-          <td style="text-align: right">52.9%</td>
-          <td style="text-align: right">1.19</td>
-          <td style="text-align: right">992.6</td>
-      </tr>
-      <tr>
-          <td style="text-align: left">AAPL</td>
-          <td style="text-align: right">1.44</td>
-          <td style="text-align: right">-19.3%</td>
-          <td style="text-align: right">3.19</td>
-          <td style="text-align: right">52.3%</td>
-          <td style="text-align: right">1.09</td>
-          <td style="text-align: right">593.4</td>
-      </tr>
-  </tbody>
-</table>
-<p>These are promising diagnostics, not proof of deployability. The sample includes heterogeneous assets and uneven row counts. Some assets also show unstable or negative composite results, which is valuable evidence: the engine is not uniformly reliable across the universe.</p>
+<p>Top five assets by strategy Sharpe, drawn from the current export. Values are
+gross of a complete risk layer; see the scope note above.</p>
+<p>{{ partial &ldquo;hub/results-table.html&rdquo; (dict &ldquo;top&rdquo; 5 &ldquo;cohort&rdquo; &ldquo;acted&rdquo;) }}</p>
 <h2 id="explore-the-full-export">
   Explore the full export
   <a class="heading-link" href="#explore-the-full-export">
@@ -301,7 +246,7 @@
     <span class="sr-only">Link to heading</span>
   </a>
 </h2>
-<p>The explorer below is deliberately outcome-focused. It lets the reader compare macro and composite Sharpe, inspect the return profile, search symbols, and sort the supplied asset-level fields. It does not expose the model&rsquo;s parameters, update schedule, feature construction, or allocation rules.</p>
+<p>The explorer below is deliberately outcome-focused. It lets the reader inspect the model perfomrance (each signal predicted driection hit rate), mothly trend alginement with th emost common model signal direction (mostly long or mostly short or netural), inspect the return profile, search symbols, and sort the supplied asset-level fields. It does not expose the model&rsquo;s parameters, update schedule, feature construction, or allocation rules.</p>
 
 
 
@@ -572,7 +517,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       m.initAssetCharts?.();
       m.initPerformanceExplorers?.();
       m.initPerformanceTables?.();
-      m.initSharpeCharts?.();
     }
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', init, { once: true });

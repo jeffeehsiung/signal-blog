@@ -1,0 +1,63 @@
+{{/* Top-N results table, read from data/system-performance.yaml.
+
+     Usage in markdown:
+       {{ partial "hub/results-table.html" (dict "top" 5 "cohort" "acted") }}
+
+     Sort key is sharpe_macro (descending). Cohorts: "acted" (default) | "candidate".
+     Silent when the data file is absent.
+*/}}
+{{ $topN   := .top    | default 5 }}
+{{ $cohort := .cohort | default "acted" }}
+{{ $perf   := index site.Data "system-performance" }}
+{{ if $perf }}
+
+  {{ $flat := slice }}
+  {{ range $perf.assets }}
+    {{ $m := index . $cohort }}
+    {{ if $m }}
+      {{ $flat = $flat | append (dict
+          "symbol"   .symbol
+          "sharpe"   $m.sharpe_macro
+          "sharpe_p" $m.sharpe_portfolio
+          "dd"       $m.max_drawdown_pct
+          "calmar"   $m.calmar_macro
+          "hit"      $m.hit_rate_macro
+          "pf"       $m.profit_factor_macro
+          "pnl"      $m.pnl_usd_total
+          "dep"      $m.mean_deployed_pct
+      ) }}
+    {{ end }}
+  {{ end }}
+
+  {{ $top := first $topN (sort $flat "sharpe" "desc") }}
+
+  <table>
+    <thead>
+      <tr>
+        <th>Asset</th>
+        <th>Sharpe (strategy)</th>
+        <th>Sharpe (portfolio)</th>
+        <th>Max DD</th>
+        <th>Calmar</th>
+        <th>Hit rate</th>
+        <th>Profit factor</th>
+        <th>Net P&amp;L</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $top }}
+      <tr>
+        <td>{{ .symbol }}</td>
+        <td>{{ printf "%.2f" .sharpe }}</td>
+        <td>{{ printf "%.2f" .sharpe_p }}</td>
+        <td>{{ printf "%.1f%%" (mul .dd 100) }}</td>
+        <td>{{ printf "%.2f" .calmar }}</td>
+        <td>{{ printf "%.1f%%" (mul .hit 100) }}</td>
+        <td>{{ printf "%.2f" .pf }}</td>
+        <td>{{ printf "$%.0f" .pnl }}</td>
+      </tr>
+      {{ end }}
+    </tbody>
+  </table>
+
+{{ end }}

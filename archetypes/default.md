@@ -3,7 +3,8 @@ date = '{{ .Date }}'
 draft = true
 title = '{{ replace .File.ContentBaseName "-" " " | title }}'
 description = ''
-type = 'P-LOG'
+kind = 'note'      # note | paper | profile
+accent = 'cyan'    # cyan | violet | coral
 +++
 
 ## Context

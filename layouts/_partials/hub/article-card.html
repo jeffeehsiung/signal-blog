@@ -1,12 +1,19 @@
-{{/* Renders one entry from data/articles.yaml.
-     Fields: title, date, type, slug?, description, accent?
-       - slug is optional; when missing, the card renders without a link.
-       - accent drives a modifier class: cyan (default), violet, coral.
+{{/* Renders one post as an article card.
+
+     Front matter:
+       kind   — badge label: "note" | "paper" | "profile". Default: "note".
+       accent — "cyan" | "violet" | "coral". Default: "cyan".
+
+     Deliberately avoids the Hugo-reserved `type` field so template
+     lookup is not affected.
 */}}
-<article class="hub-blog-card article-card{{ with .accent }} article-card-{{ . }}{{ end }}">
+{{ $kind   := .Params.kind   | default "note" }}
+{{ $accent := .Params.accent | default "cyan" }}
+
+<article class="hub-blog-card article-card article-card-{{ $accent }}">
   <div class="article-card-top">
-    <p class="module-code">{{ .type | default "NOTE" }}</p>
-    {{ with .date }}<p class="article-date">{{ . }}</p>{{ end }}
+    <p class="module-code">{{ $kind | upper }}</p>
+    <p class="article-date">{{ .Date | time.Format "2006-01-02" }}</p>
   </div>
 
   <div class="article-signal" aria-hidden="true">
@@ -14,19 +21,11 @@
     <span></span><span></span><span></span>
   </div>
 
-  <h2>
-    {{ if .slug }}
-      <a href="{{ .slug | relURL }}">{{ .title }}</a>
-    {{ else }}
-      {{ .title }}
-    {{ end }}
-  </h2>
+  <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 
-  {{ with .description }}<p>{{ . }}</p>{{ end }}
+  {{ with .Description }}<p>{{ . }}</p>{{ end }}
 
-  {{ if .slug }}
-    <a class="hub-read-link"
-       href="{{ .slug | relURL }}"
-       aria-label="Read {{ .title }}">Open field note ↗</a>
-  {{ end }}
+  <a class="hub-read-link"
+     href="{{ .RelPermalink }}"
+     aria-label="Read {{ .Title }}">Open field note ↗</a>
 </article>

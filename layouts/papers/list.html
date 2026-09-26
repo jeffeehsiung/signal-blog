@@ -1,8 +1,37 @@
 {{ define "title" }}{{ .Title }} · {{ .Site.Title }}{{ end }}
 {{ define "content" }}
 <section class="hub-page hub-papers">
-  {{ partial "hub/page-hero.html" (dict "kicker" "04 / Research record" "title" .Title "description" .Description) }}
-  <div class="hub-paper-intro"><span class="module-code">LIVE / RESEARCH</span><p>Published findings and live trading observations are presented with their assumptions, limitations, and supporting evidence.</p></div>
-  <div class="hub-paper-content">{{ .Content }}</div>
+  {{ partial "hub/page-hero.html" (dict
+       "kicker" "04 / Research record"
+       "title" .Title
+       "description" .Description) }}
+
+  {{ with .Content }}
+    <div class="hub-paper-intro">
+      <span class="module-code">LIVE / RESEARCH</span>
+      <div>{{ . }}</div>
+    </div>
+  {{ end }}
+
+  {{/* Formal papers: posts with `kind = "paper"` in front matter.
+       Falls back to legacy `type = "paper"` so nothing silently disappears
+       during the migration. Delete the fallback once all posts are tagged. */}}
+  {{ $papers := where .Site.RegularPages "Params.kind" "paper" }}
+  {{ if not $papers }}
+    {{ $papers = where .Site.RegularPages "Params.type" "paper" }}
+  {{ end }}
+
+  {{ if $papers }}
+    <div class="hub-blog-grid">
+      {{ range $papers.ByDate.Reverse }}
+        {{ partial "hub/article-card.html" . }}
+      {{ end }}
+    </div>
+  {{ else }}
+    <p class="explorer-status">
+      No formal papers published yet.
+      See the <a href="{{ "posts/" | relURL }}">research log</a> for running notes.
+    </p>
+  {{ end }}
 </section>
 {{ end }}

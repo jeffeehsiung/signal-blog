@@ -1,4 +1,4 @@
 +++
 title = "Blog"
-description = "P-LOGs, V-LOGs, and interactive research notes on quantitative market structure."
+description = "Research notes, formal writeups, and interactive visualizations on quantitative market structure."
 +++

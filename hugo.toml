@@ -21,7 +21,7 @@ style = "github-dark"
 
 [params]
   author = "Duality"
-  description = "all about physics-informed quantitative research, signal processing, data science, algorithms, and machine learning."
+  description = "Physics-informed research on financial market structure: spectral analysis, market geometry, and systematic trading systems."
   info = "Physics-informed research on financial market structure."
   avatarURL = "images/duality_logo_v1.png"
   keywords = "physics-informed finance, quantitative research"
@@ -88,14 +88,14 @@ style = "github-dark"
 languageName = ":uk:"
 
 [[languages.en.menu.main]]
-name = "Blog"
+name = "Spectrum"
 weight = 1
-url = "posts/"
+url = "spectrum/"
 
 [[languages.en.menu.main]]
-name = "Videos"
+name = "Blog"
 weight = 2
-url = "videos/"
+url = "posts/"
 
 [[languages.en.menu.main]]
 name = "Papers"
@@ -106,3 +106,8 @@ url = "papers/"
 name = "Products"
 weight = 4
 url = "products/"
+
+[[languages.en.menu.main]]
+name = "About"
+weight = 5
+url = "about/"
