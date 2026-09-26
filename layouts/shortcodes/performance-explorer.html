@@ -1,5 +1,6 @@
-{{ $data := index .Site.Data "performance-explorer" }}
-{{ with .Get "data" }}{{ $data = index $.Site.Data . }}{{ end }}
+{{ $key := "system-performance" }}
+{{ with .Get "data" }}{{ $key = . }}{{ end }}
+{{ $data := index .Site.Data $key }}
 {{ $explorerID := printf "performance-explorer-%s" (.Page.RelPermalink | md5) }}
 
 <section class="performance-explorer" id="{{ $explorerID }}" aria-labelledby="{{ $explorerID }}-title">
