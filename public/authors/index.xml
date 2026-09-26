@@ -3,8 +3,45 @@
  &lt;h2&gt;Building systems that turn noisy signals into decisions.&lt;/h2&gt;
  &lt;p class="profile-lede"&gt;I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;{{/* Signal count is read from the generated exporter output, so it stays
-in sync with whatever universe the pipeline actually covers. */}}
-{{ $perf := index site.Data &amp;ldquo;system-performance&amp;rdquo; }}
-{{ $n_signals := 0 }}
-{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}&lt;/p&gt;</description></item></channel></rss>
+&lt;div class="profile-metrics" aria-label="Profile highlights"&gt;
+ &lt;div&gt;&lt;strong&gt;5+&lt;/strong&gt;&lt;span&gt;years building AI systems&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;span&gt;domains: sensing, manufacturing, markets&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;strong&gt;
+20&lt;/strong&gt;&lt;span&gt;US equity signals in current study&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="profile-foundations" aria-label="Technical foundations"&gt;
+ &lt;span class="foundations-label"&gt;R&amp;amp;D · Signal Processing · Systems&lt;/span&gt;
+ &lt;div class="foundations-logos"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/foxconn.png" alt="Foxconn" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/kuleuven.png" alt="KU Leuven" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/imec.png" alt="IMEC" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/amat.png" alt="Applied Materials" class="org-logo" loading="lazy"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="the-through-line"&gt;
+ The through-line
+ &lt;a class="heading-link" href="#the-through-line"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="profile-timeline" aria-label="Career timeline"&gt;
+ &lt;div class="profile-step"&gt;
+ &lt;span class="profile-year"&gt;FOXCONN&lt;br&gt;2017-2020&lt;/span&gt;
+ &lt;div&gt;&lt;h3&gt;Failure analysis at prototype-to-production scale&lt;/h3&gt;&lt;p&gt;Learned to trace complex failures steming from prototype to production; Driven from their failure symptoms to their systems-level causes.&lt;/p&gt;</description></item></channel></rss>

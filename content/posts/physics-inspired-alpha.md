@@ -46,7 +46,7 @@ The key distinction is between **signal quality** and **portfolio quality**. A p
 Top five assets by strategy Sharpe, drawn from the current export. Values are
 gross of a complete risk layer; see the scope note above.
 
-{{ partial "hub/results-table.html" (dict "top" 5 "cohort" "acted") }}
+{{< results-table top="5" cohort="acted" >}}
 
 
 ## Explore the full export

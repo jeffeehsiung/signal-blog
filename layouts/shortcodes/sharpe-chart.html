@@ -1,6 +1,0 @@
-{{ $data := .Site.Data.performance }}
-<div class="sharpe-chart" data-sharpe-chart role="img"
-     aria-label="Bar chart showing excess Sharpe by asset"></div>
-<script type="application/json" data-sharpe-data>
-  {{ $data.assets | jsonify | safeHTML }}
-</script>

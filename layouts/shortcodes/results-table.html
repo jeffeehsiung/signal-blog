@@ -1,0 +1,3 @@
+{{ $top    := .Get "top"    | default 5 }}
+{{ $cohort := .Get "cohort" | default "acted" }}
+{{ partial "hub/results-table.html" (dict "top" $top "cohort" $cohort) }}

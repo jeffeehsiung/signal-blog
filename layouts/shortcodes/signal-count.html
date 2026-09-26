@@ -1,0 +1,2 @@
+{{ $perf := index site.Data "system-performance" }}
+{{ if $perf }}{{ len $perf.assets }}{{ else }}0{{ end }}

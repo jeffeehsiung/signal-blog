@@ -3,11 +3,48 @@
  &lt;h2&gt;Building systems that turn noisy signals into decisions.&lt;/h2&gt;
  &lt;p class="profile-lede"&gt;I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;{{/* Signal count is read from the generated exporter output, so it stays
-in sync with whatever universe the pipeline actually covers. */}}
-{{ $perf := index site.Data &amp;ldquo;system-performance&amp;rdquo; }}
-{{ $n_signals := 0 }}
-{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}&lt;/p&gt;</description></item><item><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title><link>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</guid><description>&lt;blockquote&gt;
+&lt;div class="profile-metrics" aria-label="Profile highlights"&gt;
+ &lt;div&gt;&lt;strong&gt;5+&lt;/strong&gt;&lt;span&gt;years building AI systems&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;strong&gt;3&lt;/strong&gt;&lt;span&gt;domains: sensing, manufacturing, markets&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;strong&gt;
+20&lt;/strong&gt;&lt;span&gt;US equity signals in current study&lt;/span&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="profile-foundations" aria-label="Technical foundations"&gt;
+ &lt;span class="foundations-label"&gt;R&amp;amp;D · Signal Processing · Systems&lt;/span&gt;
+ &lt;div class="foundations-logos"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/foxconn.png" alt="Foxconn" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/kuleuven.png" alt="KU Leuven" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/imec.png" alt="IMEC" class="org-logo" loading="lazy"&gt;
+ 
+ 
+ 
+ 
+ &lt;img src="https://jeffeehsiung.github.io/signal-blog/images/logos/amat.png" alt="Applied Materials" class="org-logo" loading="lazy"&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+&lt;h2 id="the-through-line"&gt;
+ The through-line
+ &lt;a class="heading-link" href="#the-through-line"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h2&gt;
+&lt;div class="profile-timeline" aria-label="Career timeline"&gt;
+ &lt;div class="profile-step"&gt;
+ &lt;span class="profile-year"&gt;FOXCONN&lt;br&gt;2017-2020&lt;/span&gt;
+ &lt;div&gt;&lt;h3&gt;Failure analysis at prototype-to-production scale&lt;/h3&gt;&lt;p&gt;Learned to trace complex failures steming from prototype to production; Driven from their failure symptoms to their systems-level causes.&lt;/p&gt;</description></item><item><title>Physics-Inspired Alpha: A Signal Engine Before the Risk Layer</title><link>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</link><pubDate>Fri, 21 Aug 2026 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/posts/physics-inspired-alpha/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;Research note.&lt;/strong&gt; The results in this article are backtest outputs from a directional signal engine. These figures are not a live track record or an investment recommendation.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;h2 id="the-question"&gt;
@@ -22,23 +59,28 @@ in sync with whatever universe the pipeline actually covers. */}}
  &lt;h2&gt;SPECTRUM signal diagnostics.&lt;/h2&gt;
  &lt;p class="profile-lede"&gt;Cross-asset backtest metrics and the live trading snapshot. Regenerated whenever the research pipeline runs.&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;{{ partial &amp;ldquo;hub/live-snapshot.html&amp;rdquo; . }}&lt;/p&gt;
+
+
+&lt;div class="profile-live" aria-label="Live trading snapshot"&gt;
+ 
+ &lt;div class="live-big-number"&gt;
+ +$15000
+ &lt;/div&gt;
+ &lt;div class="live-big-label"&gt;Realized Return&lt;/div&gt;
+
+ &lt;div class="live-big-sub"&gt;
+ &amp;#43;27.2% ·
+ $55k →
+ $71k ·
+ End Mar → Aug 29
+ &lt;/div&gt;
+
+ &lt;div class="live-grid"&gt;
+ &lt;div&gt;&lt;span class="label"&gt;Active Months&lt;/span&gt;&lt;span class="value"&gt;Apr, Jun, Aug 18–29&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span class="label"&gt;Status&lt;/span&gt;&lt;span class="value"&gt;Live Execution&lt;/span&gt;&lt;/div&gt;
+ &lt;div&gt;&lt;span class="label"&gt;Next Step&lt;/span&gt;&lt;span class="value"&gt;Risk &amp;amp; Allocation&lt;/span&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/div&gt;
+
 &lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;Scope.&lt;/strong&gt; These figures describe signal-level outcomes from a directional signal engine running with the risk layer engaged. They remain gross of full execution costs and slippage. Live figures describe realized results from a small, live account and are not a track record or investment recommendation.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id="backtest-performance"&gt;
- Backtest performance
- &lt;a class="heading-link" href="#backtest-performance"&gt;
- &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
- &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
- &lt;/a&gt;
-&lt;/h2&gt;
-
-
-
-
-
-&lt;section class="performance-explorer" id="performance-explorer-9fb41a73b0470c87666c4566985721c8" aria-labelledby="performance-explorer-9fb41a73b0470c87666c4566985721c8-title"&gt;
- &lt;div class="explorer-heading"&gt;
- &lt;div&gt;
- &lt;p class="module-code"&gt;INTERACTIVE / PERFORMANCE&lt;/p&gt;</description></item><item><title>Videos</title><link>https://jeffeehsiung.github.io/signal-blog/videos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/videos/</guid><description/></item></channel></rss>
+&lt;p&gt;&lt;strong&gt;Scope.&lt;/strong&gt; These figures describe signal-level outcomes from a directional signal engine running with the risk layer engaged. They remain gross of full execution costs and slippage. Live figures describe realized results from a small, live account and are not a track record or investment recommendation.&lt;/p&gt;</description></item><item><title>Videos</title><link>https://jeffeehsiung.github.io/signal-blog/videos/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://jeffeehsiung.github.io/signal-blog/videos/</guid><description/></item></channel></rss>

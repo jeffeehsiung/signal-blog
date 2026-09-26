@@ -1,7 +1,7 @@
 {{/* Top-N results table, read from data/system-performance.yaml.
 
      Usage in markdown:
-       {{ partial "hub/results-table.html" (dict "top" 5 "cohort" "acted") }}
+       {{< results-table top="5" cohort="acted" >}}
 
      Sort key is sharpe_macro (descending). Cohorts: "acted" (default) | "candidate".
      Silent when the data file is absent.

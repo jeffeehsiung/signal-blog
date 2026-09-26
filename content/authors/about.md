@@ -14,16 +14,11 @@ accent = "cyan"
   <p class="profile-lede">I began with electronics and signal processing, moved through radar imaging and industrial AI, and now apply the same physics-first discipline to market research.</p>
 </div>
 
-{{/* Signal count is read from the generated exporter output, so it stays
-     in sync with whatever universe the pipeline actually covers. */}}
-{{ $perf := index site.Data "system-performance" }}
-{{ $n_signals := 0 }}
-{{ with $perf }}{{ $n_signals = len .assets }}{{ end }}
 
 <div class="profile-metrics" aria-label="Profile highlights">
   <div><strong>5+</strong><span>years building AI systems</span></div>
   <div><strong>3</strong><span>domains: sensing, manufacturing, markets</span></div>
-  <div><strong>{{ $n_signals }}</strong><span>US equity signals in current study</span></div>
+  <div><strong>{{< signal-count >}}</strong><span>US equity signals in current study</span></div>
 </div>
 
 <div class="profile-foundations" aria-label="Technical foundations">

@@ -11,7 +11,7 @@ disableComments = true
   <p class="profile-lede">Cross-asset backtest metrics and the live trading snapshot. Regenerated whenever the research pipeline runs.</p>
 </div>
 
-{{ partial "hub/live-snapshot.html" . }}
+{{< live-snapshot >}}
 
 > **Scope.** These figures describe signal-level outcomes from a directional signal engine running with the risk layer engaged. They remain gross of full execution costs and slippage. Live figures describe realized results from a small, live account and are not a track record or investment recommendation.
 
