@@ -63,6 +63,24 @@ header, footer { max-width: var(--page-width); margin-left: auto; margin-right: 
 .post-content table th { background: rgba(43, 98, 82, .08); color: var(--green); font-family: 'DM Mono', monospace; font-size: .68rem; font-weight: 500; letter-spacing: .03em; text-transform: uppercase; white-space: nowrap; }
 .post-content table tr:last-child td { border-bottom: 0; }
 .post-content table tr:hover td { background: rgba(213, 98, 61, .04); }
+.explorer-cohort {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  gap: .6rem;
+  text-transform: uppercase;
+}
+.explorer-cohort-select {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  color: var(--ink);
+  font: inherit;
+  padding: .35rem .55rem;
+}
+.explorer-cohort-select:focus { border-color: var(--accent); outline: none; }
 .performance-table-wrap { margin: 2.5rem 0; overflow-x: auto; }
 .performance-table { background: transparent; border: 1px solid var(--line); border-radius: var(--radius); font-family: 'Manrope', sans-serif; font-size: .82rem; min-width: 650px; overflow: hidden; }
 .performance-table .tabulator-header { background: rgba(43, 98, 82, .08); border-bottom: 1px solid var(--line); color: var(--green); font-family: 'DM Mono', monospace; font-size: .66rem; font-weight: 500; letter-spacing: .03em; text-transform: uppercase; }
@@ -241,7 +259,7 @@ footer { border-top: 1px solid var(--line); font-size: .75rem; margin-top: 2rem;
 .hub-paper-content .sharpe-chart { background: rgba(12, 24, 36, .7); border: 1px solid var(--line); border-radius: 5px; padding: 1rem; }
 .hub-paper-content h2 { color: var(--accent); font-family: 'DM Mono', monospace; font-size: 1.5rem; letter-spacing: .01em; }
 .performance-explorer { margin: 3rem 0 4rem; }
-.explorer-heading { align-items: end; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding-bottom: 1.5rem; }
+.explorer-heading { align-items: flex-end; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; padding-bottom: 1.5rem; }
 .explorer-heading h2 { color: var(--ink); font-size: clamp(1.8rem, 4vw, 2.8rem); letter-spacing: -.04em; margin: .75rem 0 .5rem; }
 .explorer-heading p:last-child { color: var(--muted); font-size: .9rem; margin: 0; max-width: 600px; }
 .explorer-count, .explorer-card-heading span, .explorer-table-heading span { color: var(--muted); font-family: 'DM Mono', monospace; font-size: .62rem; text-transform: uppercase; }

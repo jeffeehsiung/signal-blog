@@ -57,7 +57,7 @@ These are promising diagnostics, not proof of deployability. The sample includes
 
 The explorer below is deliberately outcome-focused. It lets the reader compare macro and composite Sharpe, inspect the return profile, search symbols, and sort the supplied asset-level fields. It does not expose the model's parameters, update schedule, feature construction, or allocation rules.
 
-{{< performance-explorer data="dsp-performance" >}}
+{{< performance-explorer data="system-performance" >}}
 
 ## Reading the result
 

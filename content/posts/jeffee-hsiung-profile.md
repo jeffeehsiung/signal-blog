@@ -101,7 +101,7 @@ SPECTRUM is my independent quantitative research framework. It combines multi-sc
 <!-- ====================================================== -->
 <!-- 1. 保留原有的表格数据查看器（Performance Explorer）  -->
 <!-- ====================================================== -->
-{{< performance-explorer data="dsp-performance" >}}
+{{< performance-explorer data="system-performance" >}}
 
 <!-- ====================================================== -->
 <!-- 2. 【新增/替换】多资产 K 线图查看器                 -->
